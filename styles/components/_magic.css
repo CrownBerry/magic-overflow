@@ -1,3 +1,10 @@
+.magic {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
 .magic-section {
     display: grid;
     grid-template-columns: 1fr 1fr;
