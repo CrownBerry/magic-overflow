@@ -62,3 +62,13 @@ ul li {
 .expandable:hover {
     text-decoration: underline;
 }
+
+.sheet-body {
+    font-size: 14px;
+}
+
+.skill-specialization {
+    width: 200px;
+    margin-left: 10px;
+    font-size: 12px;
+}

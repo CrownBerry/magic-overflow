@@ -15,7 +15,8 @@ export class MagicOverflowActorSheet extends ActorSheet {
         context.skills = Object.entries(CONFIG.MO.skills).map(([skill, skillData]) => ({
             name: skill,
             label: game.i18n.localize(skillData.label),
-            hasSkill: this.actor.system.skills?.[skill]?.hasSkill || false
+            hasSkill: this.actor.system.skills?.[skill]?.hasSkill || false,
+            specializations: this.actor.system.skills?.[skill]?.specializations || []
         }));
         context.backgrounds = Object.entries(CONFIG.MO.backgrounds).map(([bg, bgData]) => ({
             name: bg,
@@ -37,6 +38,12 @@ export class MagicOverflowActorSheet extends ActorSheet {
             const skillKey = ev.currentTarget.dataset.skill;
             const isChecked = ev.currentTarget.checked;
             this.actor.update({ [`system.skills.${skillKey}.hasSkill`]: isChecked });
+        });
+
+        html.find(".skill-specialization").on("change", ev => {
+            const skillKey = ev.currentTarget.dataset.skill;
+            const specializations = ev.currentTarget.value;
+            this.actor.update({ [`system.skills.${skillKey}.specializations`]: specializations.split(',') });
         });
 
         html.find(".background-checkbox").on("change", ev => {
