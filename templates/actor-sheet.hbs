@@ -1,8 +1,75 @@
 <form class="actor-sheet">
-  <header class="sheet-header">
-    <h1>{{actor.name}}</h1>
-  </header>
-  <section class="sheet-body">
-    <p>Character sheet content goes here...</p>
-  </section>
+    <header class="sheet-header">
+        <img src="{{actor.img}}" alt="Character Image" class="portrait" />
+        <div class="info">
+            <input name="name" type="text" value="{{actor.name}}" placeholder="Character Name" />
+            <input name="system.archetype" type="text" value="{{actor.system.archetype}}" placeholder="Archetype" />
+        </div>
+    </header>
+
+    <section class="sheet-body">
+        <div class="proficiencies">
+            <h2>{{localize "MO.Skills"}}</h2>
+            <ul>
+                {{#each actor.system.skills}}
+                <li data-skill="{{@key}}" class="skill-name">{{this.name}}</li>
+                {{/each}}
+            </ul>
+
+            <h2>{{localize "MO.Backgrounds"}}</h2>
+            <ul>
+                {{#each actor.system.backgrounds}}
+                <li>{{this}}</li>
+                {{/each}}
+            </ul>
+
+            <h2>{{localize "MO.Knowledge"}}</h2>
+            <ul>
+                {{#each actor.system.knowledge}}
+                <li>{{this}}</li>
+                {{/each}}
+            </ul>
+        </div>
+
+        <div class="resilience">
+            <h2>{{localize "MO.Resilience"}}</h2>
+            <div class="bars">
+                {{#each actor.system.resilience}}
+                <div class="bar {{#if this.special}}special{{/if}}">{{this.value}}</div>
+                {{/each}}
+            </div>
+        </div>
+
+        <div class="overflow">
+            <h2>{{localize "MO.Overflow"}}</h2>
+            <div class="scale">
+                {{#each actor.system.overflow}}
+                <div class="segment">{{this}}</div>
+                {{/each}}
+            </div>
+        </div>
+
+        <div class="talents">
+            <h2>{{localize "MO.Talents"}}</h2>
+            <ul>
+                {{#each actor.system.talents}}
+                <li>{{this}}</li>
+                {{/each}}
+            </ul>
+        </div>
+
+        <div class="magic">
+            <h2>{{localize "MO.MagicProficiency"}}</h2>
+            <ul>
+                {{#each actor.system.magic.schools}}
+                <li>{{this}}</li>
+                {{/each}}
+            </ul>
+            <ul>
+                {{#each actor.system.magic.words}}
+                <li>{{this}}</li>
+                {{/each}}
+            </ul>
+        </div>
+    </section>
 </form>
