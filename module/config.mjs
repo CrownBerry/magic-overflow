@@ -71,3 +71,5 @@ MO.knowledge = {
         label: "@LANG.knowledge.secretKnowledge"
     }
 };
+
+export default MO;
