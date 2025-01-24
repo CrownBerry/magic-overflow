@@ -26,8 +26,14 @@
         </div>
     </header>
 
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item" data-tab="proficiencies">{{localize "MO.ui.proficiencies"}}</a>
+        <a class="item" data-tab="magic">{{localize "MO.ui.magic"}}</a>
+        <a class="item" data-tab="bio">{{localize "MO.ui.bio"}}</a>
+    </nav>
+
     <section class="sheet-body">
-        <div class="proficiencies">
+        <div class="tab proficiencies" data-group="primary" data-tab="proficiencies">
             <div class="skills-section">
                 <h2>{{localize "MO.ui.skills"}}</h2>
                 <ul>
@@ -68,6 +74,12 @@
                     {{/each}}
                 </ul>
             </div>
+        </div>
+        <div class="tab magic" data-group="primary" data-tab="magic">
+            <!-- Пока пусто -->
+        </div>
+        <div class="tab bio" data-group="primary" data-tab="bio">
+            <!-- Пока пусто -->
         </div>
     </section>
 </form>

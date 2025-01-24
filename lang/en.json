@@ -45,6 +45,9 @@
         "resilience": "Resilience",
         "magicProficiency": "Magic Proficiency",
         "talents": "Talents",
-        "overflow": "Overflow"
+        "overflow": "Overflow",
+        "proficiencies": "Proficiencies",
+        "magic": "Magic",
+        "bio": "Bio"
     }
 }
