@@ -3,42 +3,51 @@
         <img src="{{actor.img}}" alt="Character Image" class="portrait" />
         <div class="info">
             <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'MO.ui.characterName'}}" />
-            <input name="system.archetype" type="text" value="{{actor.system.archetype}}" placeholder="{{localize 'MO.ui.archetype'}}" />
+            <input name="system.archetype" type="text" value="{{actor.system.archetype}}"
+                placeholder="{{localize 'MO.ui.archetype'}}" />
         </div>
     </header>
 
     <section class="sheet-body">
         <div class="proficiencies">
-            <h2>{{localize 'MO.ui.skills'}}</h2>
-            <ul>
-                {{#each skills}}
-                <li>
-                    <input type="checkbox" class="skill-checkbox" data-skill="{{name}}" {{#if hasSkill}}checked{{/if}} />
-                    {{localize label}}
-                    <input type="text" class="skill-specialization" data-skill="{{name}}" value="{{specializations}}" placeholder="Enter specializations"/>
-                </li>
-                {{/each}}
-            </ul>
-
-            <h2>{{localize 'MO.ui.backgrounds'}}</h2>
-            <ul>
-                {{#each backgrounds}}
-                <li>
-                    <input type="checkbox" class="background-checkbox" data-background="{{name}}" {{#if hasBackground}}checked{{/if}} />
-                    {{localize label}}
-                </li>
-                {{/each}}
-            </ul>
-
-            <h2>{{localize 'MO.ui.knowledge'}}</h2>
-            <ul>
-                {{#each knowledge}}
-                <li>
-                    <input type="checkbox" class="knowledge-checkbox" data-knowledge="{{name}}" {{#if hasKnowledge}}checked{{/if}} />
-                    {{localize label}}
-                </li>
-                {{/each}}
-            </ul>
+            <div class="skills">
+                <h2>{{localize 'MO.ui.skills'}}</h2>
+                <ul>
+                    {{#each skills}}
+                    <li>
+                        <input type="checkbox" class="skill-checkbox" data-skill="{{name}}" {{#if
+                            hasSkill}}checked{{/if}} />
+                        {{localize label}}
+                        <input type="text" class="skill-specialization" data-skill="{{name}}"
+                            value="{{specializations}}" placeholder="Enter specializations" />
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+            <div class="backgrounds">
+                <h2>{{localize 'MO.ui.backgrounds'}}</h2>
+                <ul>
+                    {{#each backgrounds}}
+                    <li>
+                        <input type="checkbox" class="background-checkbox" data-background="{{name}}" {{#if
+                            hasBackground}}checked{{/if}} />
+                        {{localize label}}
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+            <div class="knowledge">
+                <h2>{{localize 'MO.ui.knowledge'}}</h2>
+                <ul>
+                    {{#each knowledge}}
+                    <li>
+                        <input type="checkbox" class="knowledge-checkbox" data-knowledge="{{name}}" {{#if
+                            hasKnowledge}}checked{{/if}} />
+                        {{localize label}}
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
         </div>
     </section>
 </form>
