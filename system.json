@@ -3,7 +3,7 @@
     "name": "magic-overflow",
     "title": "Magic Overflow",
     "description": "A custom system for FoundryVTT based on the Magic Overflow tabletop RPG.",
-    "version": "0.1.2",
+    "version": "0.1.4",
     "compatibility": {
         "minimum": "0.12.0",
         "verified": "0.12.331"
