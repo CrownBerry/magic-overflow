@@ -7,31 +7,38 @@
             "skills": {
                 "brawl": {
                     "name": "@LANG.skills.brawl",
-                    "specializations": []
+                    "specializations": [],
+                    "hasSkill": false
                 },
                 "stealth": {
                     "name": "@LANG.skills.stealth",
-                    "specializations": []
+                    "specializations": [],
+                    "hasSkill": false
                 },
                 "communication": {
                     "name": "@LANG.skills.communication",
-                    "specializations": []
+                    "specializations": [],
+                    "hasSkill": false
                 },
                 "coordination": {
                     "name": "@LANG.skills.coordination",
-                    "specializations": []
+                    "specializations": [],
+                    "hasSkill": false
                 },
                 "craft": {
                     "name": "@LANG.skills.craft",
-                    "specializations": []
+                    "specializations": [],
+                    "hasSkill": false
                 },
                 "observation": {
                     "name": "@LANG.skills.observation",
-                    "specializations": []
+                    "specializations": [],
+                    "hasSkill": false
                 },
                 "survival": {
                     "name": "@LANG.skills.survival",
-                    "specializations": []
+                    "specializations": [],
+                    "hasSkill": false
                 }
             },
             "resilience": {
@@ -48,8 +55,66 @@
                     "value": 3
                 }
             },
-            "backgrounds": [],
-            "knowledge": [],
+            "backgrounds": {
+                "highSociety": {
+                    "name": "@LANG.backgrounds.highSociety",
+                    "hasBackground": false
+                },
+                "militaryOrganization": {
+                    "name": "@LANG.backgrounds.militaryOrganization",
+                    "hasBackground": false
+                },
+                "religiousCommunity": {
+                    "name": "@LANG.backgrounds.religiousCommunity",
+                    "hasBackground": false
+                },
+                "tradeGroup": {
+                    "name": "@LANG.backgrounds.tradeGroup",
+                    "hasBackground": false
+                },
+                "craftGuild": {
+                    "name": "@LANG.backgrounds.craftGuild",
+                    "hasBackground": false
+                },
+                "criminalCommunity": {
+                    "name": "@LANG.backgrounds.criminalCommunity",
+                    "hasBackground": false
+                },
+                "freeWorker": {
+                    "name": "@LANG.backgrounds.freeWorker",
+                    "hasBackground": false
+                }
+            },
+            "knowledge": {
+                "exactSciences": {
+                    "name": "@LANG.knowledge.exactSciences",
+                    "hasKnowledge": false
+                },
+                "art": {
+                    "name": "@LANG.knowledge.art",
+                    "hasKnowledge": false
+                },
+                "psychology": {
+                    "name": "@LANG.knowledge.psychology",
+                    "hasKnowledge": false
+                },
+                "medicine": {
+                    "name": "@LANG.knowledge.medicine",
+                    "hasKnowledge": false
+                },
+                "economy": {
+                    "name": "@LANG.knowledge.economy",
+                    "hasKnowledge": false
+                },
+                "religion": {
+                    "name": "@LANG.knowledge.religion",
+                    "hasKnowledge": false
+                },
+                "secretKnowledge": {
+                    "name": "@LANG.knowledge.secretKnowledge",
+                    "hasKnowledge": false
+                }
+            },
             "magic": {
                 "school": "",
                 "powerWord": "",

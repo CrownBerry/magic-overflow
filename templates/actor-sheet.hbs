@@ -9,65 +9,36 @@
 
     <section class="sheet-body">
         <div class="proficiencies">
-            <h2>{{localize "MO.Skills"}}</h2>
+            <h2>{{localize "ui.Skills"}}</h2>
             <ul>
-                {{#each actor.system.skills}}
-                <li data-skill="{{@key}}" class="skill-name">{{this.name}}</li>
+                {{#each skills}}
+                <li>
+                    <input type="checkbox" class="skill-checkbox" data-skill="{{name}}" {{#if
+                        hasSkill}}checked{{/if}} />
+                    {{localize name}}
+                </li>
                 {{/each}}
             </ul>
 
-            <h2>{{localize "MO.Backgrounds"}}</h2>
+            <h2>{{localize "ui.Backgrounds"}}</h2>
             <ul>
-                {{#each actor.system.backgrounds}}
-                <li>{{this}}</li>
+                {{#each backgrounds}}
+                <li>
+                    <input type="checkbox" class="background-checkbox" data-background="{{name}}" {{#if
+                        hasBackground}}checked{{/if}} />
+                    {{localize name}}
+                </li>
                 {{/each}}
             </ul>
 
-            <h2>{{localize "MO.Knowledge"}}</h2>
+            <h2>{{localize "ui.Knowledge"}}</h2>
             <ul>
-                {{#each actor.system.knowledge}}
-                <li>{{this}}</li>
-                {{/each}}
-            </ul>
-        </div>
-
-        <div class="resilience">
-            <h2>{{localize "MO.Resilience"}}</h2>
-            <div class="bars">
-                {{#each actor.system.resilience}}
-                <div class="bar {{#if this.special}}special{{/if}}">{{this.value}}</div>
-                {{/each}}
-            </div>
-        </div>
-
-        <div class="overflow">
-            <h2>{{localize "MO.Overflow"}}</h2>
-            <div class="scale">
-                {{#each actor.system.overflow}}
-                <div class="segment">{{this}}</div>
-                {{/each}}
-            </div>
-        </div>
-
-        <div class="talents">
-            <h2>{{localize "MO.Talents"}}</h2>
-            <ul>
-                {{#each actor.system.talents}}
-                <li>{{this}}</li>
-                {{/each}}
-            </ul>
-        </div>
-
-        <div class="magic">
-            <h2>{{localize "MO.MagicProficiency"}}</h2>
-            <ul>
-                {{#each actor.system.magic.schools}}
-                <li>{{this}}</li>
-                {{/each}}
-            </ul>
-            <ul>
-                {{#each actor.system.magic.words}}
-                <li>{{this}}</li>
+                {{#each knowledge}}
+                <li>
+                    <input type="checkbox" class="knowledge-checkbox" data-knowledge="{{name}}" {{#if
+                        hasKnowledge}}checked{{/if}} />
+                    {{localize name}}
+                </li>
                 {{/each}}
             </ul>
         </div>
