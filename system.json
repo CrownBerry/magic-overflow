@@ -4,39 +4,61 @@
     "title": "Magic Overflow",
     "description": "A custom system for FoundryVTT based on the Magic Overflow tabletop RPG.",
     "version": "0.1.2",
-    "minimumCoreVersion": "0.12.0",
-    "compatibleCoreVersion": "0.12.331",
-    "author": "CrownBerry",
+    "compatibility": {
+        "minimum": "0.12.0",
+        "verified": "0.12.331"
+    },
+    "authors": [
+        {
+            "name": "CrownBerry",
+            "url": "https://github.com/CrownBerry",
+            "email": "koelnfrei@gmail.com"
+        }
+    ],
     "url": "https://github.com/CrownBerry/magic-overflow",
     "license": "MIT",
     "esmodules": [
-      "magic-overflow.mjs"
+        "magic-overflow.mjs"
     ],
     "styles": [
-      "styles/styles.css"
+        "styles/styles.css"
     ],
     "packs": [
-      {
-        "name": "compendium",
-        "label": "Magic Overflow Compendium",
-        "path": "pack/compendium.db",
-        "type": "Item"
-      }
+        {
+            "name": "compendium",
+            "label": "Magic Overflow Compendium",
+            "path": "pack/compendium.db",
+            "type": "Item"
+        }
     ],
     "scripts": [
-      "scripts/dice-roller.mjs"
+        "scripts/dice-roller.mjs"
     ],
     "languages": [
-      {
-        "lang": "en",
-        "name": "English",
-        "path": "lang/en.json"
-      }
+        {
+            "lang": "en",
+            "name": "English",
+            "path": "lang/en.json"
+        }
     ],
-    "gridDistance": 1,
-    "gridUnits": "m",
+    "grid": {
+        "distance": 1,
+        "units": "m"
+    },
     "primaryTokenAttribute": "attributes.hp.value",
+    "documentTypes": {
+        "Actor": {
+            "character": {},
+            "npc": {}
+        },
+        "Item": {
+            "weapon": {},
+            "armor": {},
+            "spell": {}
+        }
+    },
+    "socket": false,
+    "initiative": "1d8",
     "manifest": "https://github.com/CrownBerry/magic-overflow/releases/latest/download/system.json",
     "download": "https://github.com/CrownBerry/magic-overflow/archive/refs/tags/v0.1.2.zip"
-  }
-  
+}
