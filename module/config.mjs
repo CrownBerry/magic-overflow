@@ -25,8 +25,8 @@ MO.skills = {
 };
 
 MO.backgrounds = {
-    highSociety: { 
-        label: "MO.backgrounds.highSociety" 
+    highSociety: {
+        label: "MO.backgrounds.highSociety"
     },
     militaryOrganization: {
         label: "MO.backgrounds.militaryOrganization"
@@ -84,6 +84,55 @@ MO.resilience = {
     spirit: {
         label: "MO.resilience.spirit",
         value: 3
+    }
+};
+
+MO.magic = {
+    schools: {
+        matter: {
+            label: "MO.magic.schools.matter"
+        },
+        energy: {
+            label: "MO.magic.schools.energy"
+        },
+        space: {
+            label: "MO.magic.schools.space"
+        },
+        time: {
+            label: "MO.magic.schools.time"
+        },
+        mind: {
+            label: "MO.magic.schools.mind"
+        },
+        magic: {
+            label: "MO.magic.schools.magic"
+        },
+        afterlife: {
+            label: "MO.magic.schools.afterlife"
+        }
+    },
+    words: {
+        perception: {
+            label: "MO.magic.words.perception"
+        },
+        weakening: {
+            label: "MO.magic.words.weakening"
+        },
+        strengthening: {
+            label: "MO.magic.words.strengthening"
+        },
+        destruction: {
+            label: "MO.magic.words.destruction"
+        },
+        restoration: {
+            label: "MO.magic.words.restoration"
+        },
+        creation: {
+            label: "MO.magic.words.creation"
+        },
+        transformation: {
+            label: "MO.magic.words.transformation"
+        }
     }
 };
 

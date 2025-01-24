@@ -32,8 +32,24 @@
         "spirit": "Spirit"
     },
     "MO.magic": {
-        "school": "School",
-        "powerWord": "Power Word",
+        "schools": {
+            "matter": "Matter",
+            "energy": "Energy",
+            "space": "Space",
+            "time": "Time",
+            "mind": "Mind",
+            "magic": "Magic",
+            "afterlife": "Afterlife"
+        },
+        "words": {
+            "perception": "Perception",
+            "weakening": "Weakening",
+            "strengthening": "Strengthening",
+            "destruction": "Destruction",
+            "restoration": "Restoration",
+            "creation": "Creation",
+            "transformation": "Transformation"
+        },
         "spells": "Spells"
     },
     "MO.ui": {
@@ -48,6 +64,8 @@
         "overflow": "Overflow",
         "proficiencies": "Proficiencies",
         "magic": "Magic",
-        "bio": "Bio"
+        "bio": "Bio",
+        "schools": "Schools",
+        "words": "Words"
     }
 }

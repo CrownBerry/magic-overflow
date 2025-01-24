@@ -34,6 +34,18 @@ export class MagicOverflowActorSheet extends ActorSheet {
             label: game.i18n.localize(resData.label),
             value: this.actor.system.resilience?.[key]?.value || resData.value
         }));
+        // Добавляем данные магии
+        context.schools = Object.entries(CONFIG.MO.magic.schools).map(([school, schoolData]) => ({
+            name: school,
+            label: game.i18n.localize(schoolData.label),
+            hasSchool: this.actor.system.magic.schools?.[school]?.hasSchool || false
+        }));
+
+        context.words = Object.entries(CONFIG.MO.magic.words).map(([word, wordData]) => ({
+            name: word,
+            label: game.i18n.localize(wordData.label),
+            hasWord: this.actor.system.magic.words?.[word]?.hasWord || false
+        }));
         return context;
     }
 
@@ -69,6 +81,18 @@ export class MagicOverflowActorSheet extends ActorSheet {
             const resKey = ev.currentTarget.dataset.resilience;
             const value = Math.max(0, Math.min(parseInt(ev.currentTarget.value) || 0, 3));
             this.actor.update({ [`system.resilience.${resKey}.value`]: value });
+        });
+
+        html.find(".school-checkbox").on("change", ev => {
+            const schoolKey = ev.currentTarget.dataset.school;
+            const isChecked = ev.currentTarget.checked;
+            this.actor.update({ [`system.magic.schools.${schoolKey}.hasSchool`]: isChecked });
+        });
+
+        html.find(".word-checkbox").on("change", ev => {
+            const wordKey = ev.currentTarget.dataset.word;
+            const isChecked = ev.currentTarget.checked;
+            this.actor.update({ [`system.magic.words.${wordKey}.hasWord`]: isChecked });
         });
     }
 

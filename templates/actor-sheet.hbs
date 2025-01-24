@@ -78,7 +78,33 @@
             </div>
         </div>
         <div class="tab magic" data-group="primary" data-tab="magic">
-            <!-- Пока пусто -->
+            <div class="magic-section">
+                <div class="schools-section">
+                    <h2>{{localize "MO.ui.schools"}}</h2>
+                    <ul>
+                        {{#each schools}}
+                        <li>
+                            <input type="checkbox" class="school-checkbox" data-school="{{name}}" {{#if
+                                hasSchool}}checked{{/if}} />
+                            <span>{{localize label}}</span>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+
+                <div class="words-section">
+                    <h2>{{localize "MO.ui.words"}}</h2>
+                    <ul>
+                        {{#each words}}
+                        <li>
+                            <input type="checkbox" class="word-checkbox" data-word="{{name}}" {{#if
+                                hasWord}}checked{{/if}} />
+                            <span>{{localize label}}</span>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
         </div>
         <div class="tab bio" data-group="primary" data-tab="bio">
             <!-- Пока пусто -->
