@@ -1,0 +1,32 @@
+.resilience-tracks {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.track {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.track label,
+.overflow-track label {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.track input,
+.overflow-track input {
+    width: 60px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.overflow-track {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-start;
+}

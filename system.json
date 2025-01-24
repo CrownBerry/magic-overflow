@@ -21,7 +21,7 @@
         "module/magic-overflow.mjs"
     ],
     "styles": [
-        "styles/styles.css"
+        "styles/main.css"
     ],
     "packs": [
         {

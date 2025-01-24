@@ -1,0 +1,14 @@
+@import url('./components/_header.css');
+@import url('./components/_proficiencies.css');
+@import url('./components/_tracks.css');
+
+/* Общие стили */
+.actor-sheet {
+    font-family: Arial, sans-serif;
+    padding: 15px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-width: 600px;
+}
