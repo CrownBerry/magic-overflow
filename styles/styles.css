@@ -57,10 +57,10 @@
 }
 
 .proficiencies li {
-    display: flex;
-    align-items: center;
+    display: grid;
+    grid-template-columns: auto minmax(100px, 1fr) auto;
     gap: 8px;
-    padding: 5px 0;
+    align-items: center;
 }
 
 .proficiencies li input[type="checkbox"] {
@@ -77,12 +77,11 @@
 
 .skill-specialization {
     width: 200px;
-    margin-left: auto;
     font-size: 12px;
-    max-width: 250px;
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
     text-align: right;
     margin-bottom: 5px;
+    grid-column: 3;
 }
