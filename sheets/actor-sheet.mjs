@@ -1,7 +1,7 @@
 export class MagicOverflowActorSheet extends ActorSheet {
     static get defaultOptions() {
         return foundry.utils.mergeObject(super.defaultOptions, {
-            template: "systems/magic-overflow/templates/actor-sheet.html",
+            template: "systems/magic-overflow/templates/actor-sheet.hbs",
             classes: ["magic-overflow", "sheet", "actor"],
             width: 600,
             height: 700,
