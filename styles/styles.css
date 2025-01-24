@@ -63,12 +63,52 @@ ul li {
     text-decoration: underline;
 }
 
-.sheet-body {
-    font-size: 14px;
-}
-
 .skill-specialization {
     width: 200px;
     margin-left: 10px;
     font-size: 12px;
+}
+
+.sheet-body {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 14px;
+}
+
+.proficiencies {
+    flex: 1;
+    min-width: 30%;
+    box-sizing: border-box;
+}
+
+.proficiencies h2 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.proficiencies ul {
+    list-style: none;
+    padding: 0;
+}
+
+.proficiencies li {
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.proficiencies input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.skill-specialization {
+    flex-grow: 1;
+    margin-left: 10px;
+    font-size: 12px;
+    width: 100%;
+    max-width: 250px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
