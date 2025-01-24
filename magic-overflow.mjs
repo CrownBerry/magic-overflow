@@ -4,7 +4,7 @@ Hooks.once("init", async function () {
     console.log("Magic Overflow | Initializing custom system");
 
     CONFIG.magicOverflow = {
-        skillList: {
+        skills: {
             brawl: "@LANG.skills.brawl",
             stealth: "@LANG.skills.stealth",
             communication: "@LANG.skills.communication",
