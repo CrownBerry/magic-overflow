@@ -8,9 +8,43 @@
         "observation": "Observation",
         "survival": "Survival"
     },
+    "backgrounds": {
+        "highSociety": "High Society",
+        "militaryOrganization": "Military Organization",
+        "religiousCommunity": "Religious Community",
+        "tradeGroup": "Trade Group",
+        "craftGuild": "Craft Guild",
+        "criminalCommunity": "Criminal Community",
+        "freeWorker": "Free Worker"
+    },
+    "knowledge": {
+        "exactSciences": "Exact Sciences",
+        "art": "Art",
+        "psychology": "Psychology",
+        "medicine": "Medicine",
+        "economy": "Economy",
+        "religion": "Religion",
+        "secretKnowledge": "Secret Knowledge"
+    },
     "resilience": {
         "flesh": "Flesh",
         "mind": "Mind",
         "spirit": "Spirit"
+    },
+    "magic": {
+        "school": "School",
+        "powerWord": "Power Word",
+        "spells": "Spells"
+    },
+    "ui": {
+        "characterName": "Character Name",
+        "archetype": "Archetype",
+        "skills": "Skills",
+        "backgrounds": "Backgrounds",
+        "knowledge": "Knowledge",
+        "resilience": "Resilience",
+        "magicProficiency": "Magic Proficiency",
+        "talents": "Talents",
+        "overflow": "Overflow"
     }
 }
