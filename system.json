@@ -3,7 +3,7 @@
     "name": "magic-overflow",
     "title": "Magic Overflow",
     "description": "A custom system for FoundryVTT based on the Magic Overflow tabletop RPG.",
-    "version": "0.1.6",
+    "version": "0.1.7",
     "compatibility": {
         "minimum": "0.12.0",
         "verified": "0.12.331"
@@ -60,5 +60,5 @@
     "socket": false,
     "initiative": "1d8",
     "manifest": "https://github.com/CrownBerry/magic-overflow/releases/latest/download/system.json",
-    "download": "https://github.com/CrownBerry/magic-overflow/archive/refs/tags/v0.1.6.zip"
+    "download": "https://github.com/CrownBerry/magic-overflow/archive/refs/tags/v0.1.7.zip"
 }
