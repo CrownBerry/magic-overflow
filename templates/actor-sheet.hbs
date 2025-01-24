@@ -18,6 +18,8 @@
                         <input type="checkbox" class="skill-checkbox" data-skill="{{name}}" {{#if
                             hasSkill}}checked{{/if}} />
                         <span>{{localize label}}</span>
+                        <input type="text" class="skill-specialization" data-skill="{{name}}"
+                            value="{{specializations}}" placeholder="Enter specializations" />
                     </li>
                     {{/each}}
                 </ul>

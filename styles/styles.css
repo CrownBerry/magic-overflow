@@ -74,3 +74,15 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.skill-specialization {
+    width: 200px;
+    margin-left: auto;
+    font-size: 12px;
+    max-width: 250px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: right;
+    margin-bottom: 5px;
+}
