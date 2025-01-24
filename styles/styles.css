@@ -64,35 +64,37 @@ ul li {
 }
 
 .skill-specialization {
-    flex-grow: 1;
-    margin-left: 10px;
-    font-size: 12px;
     width: 200px;
+    margin-left: auto;
+    font-size: 12px;
     max-width: 250px;
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    text-align: right;
 }
 
 .sheet-body {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    font-size: 12px;
+    gap: 20px;
+    font-size: 14px;
     align-items: flex-start;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .proficiencies {
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
-    gap: 15px;
+    gap: 20px;
     width: 100%;
 }
 
 .skills {
-    flex: 1.5;
-    min-width: 45%;
+    flex: 2;
+    min-width: 300px;
     max-width: 50%;
     box-sizing: border-box;
 }
@@ -100,14 +102,14 @@ ul li {
 .backgrounds,
 .knowledge {
     flex: 1;
-    min-width: 25%;
-    max-width: 30%;
+    min-width: 200px;
+    max-width: 25%;
     box-sizing: border-box;
 }
 
 .proficiencies>div h2 {
-    font-size: 14px;
-    margin-bottom: 8px;
+    font-size: 16px;
+    margin-bottom: 10px;
     text-align: left;
     padding-left: 5px;
 }
@@ -118,12 +120,12 @@ ul li {
 }
 
 .proficiencies>div li {
-    margin-bottom: 3px;
+    margin-bottom: 5px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .proficiencies>div input[type="checkbox"] {
-    margin-right: 8px;
-    transform: scale(0.9);
+    margin-right: 10px;
 }
