@@ -1,6 +1,6 @@
 export class MagicOverflowActorSheet extends ActorSheet {
     static get defaultOptions() {
-        return mergeObject(super.defaultOptions, {
+        return foundry.utils.mergeObject(super.defaultOptions, {
             template: "systems/magic-overflow/templates/actor-sheet.html",
             classes: ["magic-overflow", "sheet", "actor"],
             width: 600,
@@ -10,7 +10,7 @@ export class MagicOverflowActorSheet extends ActorSheet {
     }
 
     async getData() {
-        const data = super.getData();
+        const data = await super.getData();
         data.config = CONFIG.magicOverflow;
         return data;
     }
@@ -18,8 +18,7 @@ export class MagicOverflowActorSheet extends ActorSheet {
     activateListeners(html) {
         super.activateListeners(html);
 
-        // Обработчик клика по навыку для открытия окна броска
-        html.find(".skill-name").click(ev => {
+        html.find(".skill-name").on("click", ev => {
             const skill = ev.currentTarget.dataset.skill;
             this.rollSkillCheck(skill);
         });
@@ -27,8 +26,8 @@ export class MagicOverflowActorSheet extends ActorSheet {
 
     rollSkillCheck(skill) {
         const actor = this.actor;
-        const skillData = actor.data.data.skills[skill];
-        const dicePool = 1 + (skillData ? skillData.value : 0);
+        const skillData = actor.system.skills[skill];
+        const dicePool = 1 + (skillData?.value || 0);
 
         const roll = new Roll(`${dicePool}d8`).roll();
         roll.toMessage({
