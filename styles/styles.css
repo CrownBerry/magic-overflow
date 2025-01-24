@@ -75,6 +75,20 @@
     text-overflow: ellipsis;
 }
 
+.skills-section {
+    flex: 2;
+    min-width: 300px;
+    max-width: 50%;
+    box-sizing: border-box;
+}
+.backgrounds-section,
+.knowledge-section {
+    flex: 1;
+    min-width: 200px;
+    max-width: 25%;
+    box-sizing: border-box;
+}
+
 .skill-specialization {
     width: 200px;
     font-size: 12px;
