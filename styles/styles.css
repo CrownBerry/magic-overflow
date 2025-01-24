@@ -1,0 +1,64 @@
+.actor-sheet {
+    font-family: Arial, sans-serif;
+    padding: 15px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.portrait {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+    margin-right: 15px;
+}
+
+.info input {
+    font-size: 1.2em;
+    padding: 5px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+h2 {
+    border-bottom: 2px solid #444;
+    padding-bottom: 5px;
+    color: #333;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    padding: 5px 0;
+}
+
+.resilience .track,
+.overflow {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.dots {
+    font-size: 1.5em;
+    letter-spacing: 2px;
+    color: #666;
+}
+
+.expandable {
+    cursor: pointer;
+    color: #007bff;
+}
+
+.expandable:hover {
+    text-decoration: underline;
+}

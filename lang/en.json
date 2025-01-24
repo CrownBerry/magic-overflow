@@ -1,0 +1,16 @@
+{
+    "skills": {
+        "brawl": "Brawl",
+        "stealth": "Stealth",
+        "communication": "Communication",
+        "coordination": "Coordination",
+        "craft": "Craft",
+        "observation": "Observation",
+        "survival": "Survival"
+    },
+    "resilience": {
+        "flesh": "Flesh",
+        "mind": "Mind",
+        "spirit": "Spirit"
+    }
+}

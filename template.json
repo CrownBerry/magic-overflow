@@ -1,0 +1,63 @@
+{
+    "actor": {
+        "type": "character",
+        "name": "New Character",
+        "img": "icons/svg/mystery-man.svg",
+        "data": {
+            "skills": {
+                "brawl": {
+                    "name": "@LANG.skills.brawl",
+                    "specializations": []
+                },
+                "stealth": {
+                    "name": "@LANG.skills.stealth",
+                    "specializations": []
+                },
+                "communication": {
+                    "name": "@LANG.skills.communication",
+                    "specializations": []
+                },
+                "coordination": {
+                    "name": "@LANG.skills.coordination",
+                    "specializations": []
+                },
+                "craft": {
+                    "name": "@LANG.skills.craft",
+                    "specializations": []
+                },
+                "observation": {
+                    "name": "@LANG.skills.observation",
+                    "specializations": []
+                },
+                "survival": {
+                    "name": "@LANG.skills.survival",
+                    "specializations": []
+                }
+            },
+            "resilience": {
+                "flesh": {
+                    "name": "@LANG.resilience.flesh",
+                    "value": 3
+                },
+                "mind": {
+                    "name": "@LANG.resilience.mind",
+                    "value": 3
+                },
+                "spirit": {
+                    "name": "@LANG.resilience.spirit",
+                    "value": 3
+                }
+            },
+            "backgrounds": [],
+            "knowledge": [],
+            "magic": {
+                "school": "",
+                "powerWord": "",
+                "spells": []
+            },
+            "overflowTrack": 0,
+            "money": 3,
+            "talent": ""
+        }
+    }
+}
