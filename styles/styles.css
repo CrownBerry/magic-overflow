@@ -3,7 +3,6 @@
     padding: 15px;
     background-color: #f8f8f8;
     border-radius: 8px;
-    max-width: 900px;
 }
 
 .sheet-header {
@@ -35,16 +34,11 @@
 
 .sheet-body {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    font-size: 14px;
-    align-items: flex-start;
-    margin: 0 auto;
 }
 
 .proficiencies {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1.5fr 1fr 1fr;
     gap: 20px;
     width: 100%;
 }
@@ -66,33 +60,8 @@
     display: grid;
     grid-template-columns: auto minmax(100px, 1fr) auto;
     gap: 8px;
+    padding: 5px 0;
     align-items: center;
-}
-
-.proficiencies li input[type="checkbox"] {
-    flex: 0 0 auto;
-    margin: 0;
-}
-
-.proficiencies li span {
-    flex: 1;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.skills-section {
-    flex: 2;
-    min-width: 300px;
-    max-width: 50%;
-    box-sizing: border-box;
-}
-.backgrounds-section,
-.knowledge-section {
-    flex: 1;
-    min-width: 200px;
-    max-width: 25%;
-    box-sizing: border-box;
 }
 
 .skill-specialization {
@@ -102,6 +71,10 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     text-align: right;
-    margin-bottom: 5px;
-    grid-column: 3;
+}
+
+/* Убираем поле специализаций для backgrounds и knowledge */
+.backgrounds-section li,
+.knowledge-section li {
+    grid-template-columns: auto 1fr;
 }
