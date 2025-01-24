@@ -38,13 +38,13 @@ export class MagicOverflowActorSheet extends ActorSheet {
         context.schools = Object.entries(CONFIG.MO.magic.schools).map(([school, schoolData]) => ({
             name: school,
             label: game.i18n.localize(schoolData.label),
-            hasSchool: this.actor.system.magic.schools?.[school]?.hasSchool || false
+            hasSchool: this.actor.system.magic?.schools?.[school]?.hasSchool || false
         }));
 
         context.words = Object.entries(CONFIG.MO.magic.words).map(([word, wordData]) => ({
             name: word,
             label: game.i18n.localize(wordData.label),
-            hasWord: this.actor.system.magic.words?.[word]?.hasWord || false
+            hasWord: this.actor.system.magic?.words?.[word]?.hasWord || false
         }));
         return context;
     }
