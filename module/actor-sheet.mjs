@@ -12,16 +12,19 @@ export class MagicOverflowActorSheet extends ActorSheet {
     async getData() {
         const context = await super.getData();
         context.system = this.actor.system;
-        context.skills = Object.keys(CONFIG.magicOverflow.skillList).map(skill => ({
+        context.skills = Object.keys(CONFIG.MO.skills).map(skill => ({
             name: skill,
+            label: game.i18n.localize(CONFIG.MO.skills[skill]),
             hasSkill: this.actor.system.skills?.[skill]?.hasSkill || false
         }));
-        context.backgrounds = Object.keys(CONFIG.magicOverflow.backgrounds).map(bg => ({
+        context.backgrounds = Object.keys(CONFIG.MO.backgrounds).map(bg => ({
             name: bg,
+            label: game.i18n.localize(CONFIG.MO.backgrounds[bg]),
             hasBackground: this.actor.system.backgrounds?.[bg]?.hasBackground || false
         }));
-        context.knowledge = Object.keys(CONFIG.magicOverflow.knowledge).map(know => ({
+        context.knowledge = Object.keys(CONFIG.MO.knowledge).map(know => ({
             name: know,
+            label: game.i18n.localize(CONFIG.MO.knowledge[know]),
             hasKnowledge: this.actor.system.knowledge?.[know]?.hasKnowledge || false
         }));
         return context;
