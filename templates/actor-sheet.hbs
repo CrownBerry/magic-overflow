@@ -12,21 +12,12 @@
 
         <div class="right-column">
             <div class="resilience-tracks">
+                {{#each resilience}}
                 <div class="track">
-                    <label>{{localize "MO.resilience.flesh"}}</label>
-                    <input type="number" name="system.resilience.flesh.value"
-                        value="{{actor.system.resilience.flesh.value}}" />
+                    <label>{{label}}</label>
+                    <input type="number" data-resilience="{{name}}" value="{{value}}" max="3" />
                 </div>
-                <div class="track">
-                    <label>{{localize "MO.resilience.mind"}}</label>
-                    <input type="number" name="system.resilience.mind.value"
-                        value="{{actor.system.resilience.mind.value}}" />
-                </div>
-                <div class="track">
-                    <label>{{localize "MO.resilience.spirit"}}</label>
-                    <input type="number" name="system.resilience.spirit.value"
-                        value="{{actor.system.resilience.spirit.value}}" />
-                </div>
+                {{/each}}
             </div>
             <div class="overflow-track">
                 <label>{{localize "MO.ui.overflow"}}</label>

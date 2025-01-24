@@ -72,4 +72,19 @@ MO.knowledge = {
     }
 };
 
+MO.resilience = {
+    flesh: {
+        label: "MO.resilience.flesh",
+        value: 3
+    },
+    mind: {
+        label: "MO.resilience.mind",
+        value: 3
+    },
+    spirit: {
+        label: "MO.resilience.spirit",
+        value: 3
+    }
+};
+
 export default MO;

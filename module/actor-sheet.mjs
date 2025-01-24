@@ -29,10 +29,10 @@ export class MagicOverflowActorSheet extends ActorSheet {
             hasKnowledge: this.actor.system.knowledge?.[know]?.hasKnowledge || false
         }));
         // Add resilience data
-        context.resilience = Object.entries(this.actor.system.resilience).map(([key, data]) => ({
+        context.resilience = Object.entries(CONFIG.MO.resilience).map(([key, resData]) => ({
             name: key,
-            label: game.i18n.localize(`MO.resilience.${key}`),
-            value: data.value
+            label: game.i18n.localize(resData.label),
+            value: this.actor.system.resilience?.[key]?.value || resData.value
         }));
         return context;
     }
@@ -65,7 +65,11 @@ export class MagicOverflowActorSheet extends ActorSheet {
         });
 
         // Add listeners for resilience and overflow inputs
-        html.find('.resilience-tracks input, .overflow-track input').on('change', this._onTrackChange.bind(this));
+        html.find('.resilience-tracks input').on('change', ev => {
+            const resKey = ev.currentTarget.dataset.resilience;
+            const value = Math.max(0, Math.min(parseInt(ev.currentTarget.value) || 0, 3));
+            this.actor.update({ [`system.resilience.${resKey}.value`]: value });
+        });
     }
 
     _onTrackChange(event) {
