@@ -3,6 +3,9 @@
     padding: 15px;
     background-color: #f8f8f8;
     border-radius: 8px;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-width: 600px;
 }
 
 .sheet-header {
@@ -38,7 +41,7 @@
 
 .proficiencies {
     display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr;
+    grid-template-columns: minmax(300px, 1.5fr) minmax(200px, 1fr) minmax(200px, 1fr);
     gap: 20px;
     width: 100%;
 }
@@ -65,7 +68,9 @@
 }
 
 .skill-specialization {
-    width: 200px;
+    width: 120px;
+    min-width: 80px;
+    max-width: 200px;
     font-size: 12px;
     padding: 5px;
     border: 1px solid #ccc;
