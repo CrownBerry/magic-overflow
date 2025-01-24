@@ -3,8 +3,15 @@
 }
 
 .proficiencies {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.proficiencies-section {
     display: grid;
-    grid-template-columns: minmax(300px, 1.5fr) minmax(200px, 1fr) minmax(200px, 1fr);
+    grid-template-columns: 1.5fr 1fr 1fr;
     gap: 20px;
     width: 100%;
 }
