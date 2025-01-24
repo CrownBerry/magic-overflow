@@ -1,10 +1,37 @@
 <form class="actor-sheet">
     <header class="sheet-header">
-        <img src="{{actor.img}}" alt="Character Image" class="portrait" />
-        <div class="info">
-            <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'MO.ui.characterName'}}" />
-            <input name="system.archetype" type="text" value="{{actor.system.archetype}}"
-                placeholder="{{localize 'MO.ui.archetype'}}" />
+        <div class="left-column">
+            <img src="{{actor.img}}" alt="Character Image" class="portrait" />
+            <div class="info">
+                <input name="name" type="text" value="{{actor.name}}"
+                    placeholder="{{localize 'MO.ui.characterName'}}" />
+                <input name="system.archetype" type="text" value="{{actor.system.archetype}}"
+                    placeholder="{{localize 'MO.ui.archetype'}}" />
+            </div>
+        </div>
+
+        <div class="right-column">
+            <div class="resilience-tracks">
+                <div class="track">
+                    <label>{{localize "MO.resilience.flesh"}}</label>
+                    <input type="number" name="system.resilience.flesh.value"
+                        value="{{actor.system.resilience.flesh.value}}" />
+                </div>
+                <div class="track">
+                    <label>{{localize "MO.resilience.mind"}}</label>
+                    <input type="number" name="system.resilience.mind.value"
+                        value="{{actor.system.resilience.mind.value}}" />
+                </div>
+                <div class="track">
+                    <label>{{localize "MO.resilience.spirit"}}</label>
+                    <input type="number" name="system.resilience.spirit.value"
+                        value="{{actor.system.resilience.spirit.value}}" />
+                </div>
+            </div>
+            <div class="overflow-track">
+                <label>{{localize "MO.ui.overflow"}}</label>
+                <input type="number" name="system.overflowTrack" value="{{actor.system.overflowTrack}}" max="7" />
+            </div>
         </div>
     </header>
 

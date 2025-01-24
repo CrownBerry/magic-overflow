@@ -28,6 +28,12 @@ export class MagicOverflowActorSheet extends ActorSheet {
             label: game.i18n.localize(knowData.label),
             hasKnowledge: this.actor.system.knowledge?.[know]?.hasKnowledge || false
         }));
+        // Add resilience data
+        context.resilience = Object.entries(this.actor.system.resilience).map(([key, data]) => ({
+            name: key,
+            label: game.i18n.localize(`MO.resilience.${key}`),
+            value: data.value
+        }));
         return context;
     }
 
@@ -57,6 +63,17 @@ export class MagicOverflowActorSheet extends ActorSheet {
             const isChecked = ev.currentTarget.checked;
             this.actor.update({ [`system.knowledge.${knowKey}.hasKnowledge`]: isChecked });
         });
+
+        // Add listeners for resilience and overflow inputs
+        html.find('.resilience-tracks input, .overflow-track input').on('change', this._onTrackChange.bind(this));
+    }
+
+    _onTrackChange(event) {
+        const input = event.currentTarget;
+        const value = Math.max(0, Math.min(parseInt(input.value) || 0, input.max || 3));
+        const fieldName = input.name;
+
+        this.actor.update({ [fieldName]: value });
     }
 
     rollSkillCheck(skillKey) {
