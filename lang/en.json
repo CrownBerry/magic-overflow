@@ -1,5 +1,5 @@
 {
-    "skills": {
+    "MO.skills": {
         "brawl": "Brawl",
         "stealth": "Stealth",
         "communication": "Communication",
@@ -8,7 +8,7 @@
         "observation": "Observation",
         "survival": "Survival"
     },
-    "backgrounds": {
+    "MO.backgrounds": {
         "highSociety": "High Society",
         "militaryOrganization": "Military Organization",
         "religiousCommunity": "Religious Community",
@@ -17,7 +17,7 @@
         "criminalCommunity": "Criminal Community",
         "freeWorker": "Free Worker"
     },
-    "knowledge": {
+    "MO.knowledge": {
         "exactSciences": "Exact Sciences",
         "art": "Art",
         "psychology": "Psychology",
@@ -26,17 +26,17 @@
         "religion": "Religion",
         "secretKnowledge": "Secret Knowledge"
     },
-    "resilience": {
+    "MO.resilience": {
         "flesh": "Flesh",
         "mind": "Mind",
         "spirit": "Spirit"
     },
-    "magic": {
+    "MO.magic": {
         "school": "School",
         "powerWord": "Power Word",
         "spells": "Spells"
     },
-    "ui": {
+    "MO.ui": {
         "characterName": "Character Name",
         "archetype": "Archetype",
         "skills": "Skills",

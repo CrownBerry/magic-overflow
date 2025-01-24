@@ -2,14 +2,14 @@
     <header class="sheet-header">
         <img src="{{actor.img}}" alt="Character Image" class="portrait" />
         <div class="info">
-            <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'ui.characterName'}}" />
-            <input name="system.archetype" type="text" value="{{actor.system.archetype}}" placeholder="{{localize 'ui.archetype'}}" />
+            <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'MO.ui.characterName'}}" />
+            <input name="system.archetype" type="text" value="{{actor.system.archetype}}" placeholder="{{localize 'MO.ui.archetype'}}" />
         </div>
     </header>
 
     <section class="sheet-body">
         <div class="proficiencies">
-            <h2>{{localize 'ui.skills'}}</h2>
+            <h2>{{localize 'MO.ui.skills'}}</h2>
             <ul>
                 {{#each skills}}
                 <li>
@@ -20,7 +20,7 @@
                 {{/each}}
             </ul>
 
-            <h2>{{localize 'ui.backgrounds'}}</h2>
+            <h2>{{localize 'MO.ui.backgrounds'}}</h2>
             <ul>
                 {{#each backgrounds}}
                 <li>
@@ -30,7 +30,7 @@
                 {{/each}}
             </ul>
 
-            <h2>{{localize 'ui.knowledge'}}</h2>
+            <h2>{{localize 'MO.ui.knowledge'}}</h2>
             <ul>
                 {{#each knowledge}}
                 <li>

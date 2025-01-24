@@ -2,73 +2,73 @@ const MO = {};
 
 MO.skills = {
     brawl: {
-        label: "@LANG.skills.brawl"
+        label: "MO.skills.brawl"
     },
     stealth: {
-        label: "@LANG.skills.stealth"
+        label: "MO.skills.stealth"
     },
     communication: {
-        label: "@LANG.skills.communication"
+        label: "MO.skills.communication"
     },
     coordination: {
-        label: "@LANG.skills.coordination"
+        label: "MO.skills.coordination"
     },
     craft: {
-        label: "@LANG.skills.craft"
+        label: "MO.skills.craft"
     },
     observation: {
-        label: "@LANG.skills.observation"
+        label: "MO.skills.observation"
     },
     survival: {
-        label: "@LANG.skills.survival"
+        label: "MO.skills.survival"
     }
 };
 
 MO.backgrounds = {
     highSociety: { 
-        label: "@LANG.backgrounds.highSociety" 
+        label: "MO.backgrounds.highSociety" 
     },
     militaryOrganization: {
-        label: "@LANG.backgrounds.militaryOrganization"
+        label: "MO.backgrounds.militaryOrganization"
     },
     religiousCommunity: {
-        label: "@LANG.backgrounds.religiousCommunity"
+        label: "MO.backgrounds.religiousCommunity"
     },
     tradeGroup: {
-        label: "@LANG.backgrounds.tradeGroup"
+        label: "MO.backgrounds.tradeGroup"
     },
     craftGuild: {
-        label: "@LANG.backgrounds.craftGuild"
+        label: "MO.backgrounds.craftGuild"
     },
     criminalCommunity: {
-        label: "@LANG.backgrounds.criminalCommunity"
+        label: "MO.backgrounds.criminalCommunity"
     },
     freeWorker: {
-        label: "@LANG.backgrounds.freeWorker"
+        label: "MO.backgrounds.freeWorker"
     }
 };
 
 MO.knowledge = {
     exactSciences: {
-        label: "@LANG.knowledge.exactSciences"
+        label: "MO.knowledge.exactSciences"
     },
     art: {
-        label: "@LANG.knowledge.art"
+        label: "MO.knowledge.art"
     },
     psychology: {
-        label: "@LANG.knowledge.psychology"
+        label: "MO.knowledge.psychology"
     },
     medicine: {
-        label: "@LANG.knowledge.medicine"
+        label: "MO.knowledge.medicine"
     },
     economy: {
-        label: "@LANG.knowledge.economy"
+        label: "MO.knowledge.economy"
     },
     religion: {
-        label: "@LANG.knowledge.religion"
+        label: "MO.knowledge.religion"
     },
     secretKnowledge: {
-        label: "@LANG.knowledge.secretKnowledge"
+        label: "MO.knowledge.secretKnowledge"
     }
 };
 
