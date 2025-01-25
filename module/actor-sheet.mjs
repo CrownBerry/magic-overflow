@@ -33,7 +33,7 @@ export class MagicOverflowActorSheet extends ActorSheet {
     _prepareList(configPath, systemData, options = {}) {
         const { valueKey = 'value', flagKey = null } = options;
         const config = foundry.utils.getProperty(CONFIG.MO, configPath);
-        
+
         return Object.entries(config).map(([key, data]) => {
             const base = {
                 name: key,
@@ -43,7 +43,7 @@ export class MagicOverflowActorSheet extends ActorSheet {
             if (flagKey) {
                 base[flagKey] = foundry.utils.getProperty(systemData, `${key}.${flagKey}`) || false;
             }
-            
+
             if (valueKey === 'specializations') {
                 base[valueKey] = foundry.utils.getProperty(systemData, `${key}.${valueKey}`) || [];
             } else if (valueKey) {
@@ -99,36 +99,31 @@ export class MagicOverflowActorSheet extends ActorSheet {
         html.find('.item-name').click(this._onItemToggleDescription.bind(this));
     }
 
-    _onResilienceBoxChange(event) {
+    async _onResilienceBoxChange(event) {
+        event.preventDefault();
         const box = event.currentTarget;
         const boxIndex = parseInt(box.dataset.box);
         const track = box.dataset.track;
 
         if (track === 'overflow') {
-            // Получаем все чекбоксы этого трека
             const boxes = this.element.find(`input[data-track="${track}"]`);
             let newValue = 0;
-
-            // Подсчитываем количество отмеченных
             boxes.each(function () {
                 if (this.checked) newValue++;
             });
 
-            this.actor.update({
+            await this.actor.update({
                 'system.overflowTrack': newValue
             });
         } else {
             const resilienceType = box.dataset.resilience;
-            // Получаем все чекбоксы этой стойкости
             const boxes = this.element.find(`input[data-resilience="${resilienceType}"]`);
             let newValue = 0;
-
-            // Подсчитываем количество отмеченных
             boxes.each(function () {
                 if (this.checked) newValue++;
             });
 
-            this.actor.update({
+            await this.actor.update({
                 [`system.resilience.${resilienceType}.value`]: newValue
             });
         }
