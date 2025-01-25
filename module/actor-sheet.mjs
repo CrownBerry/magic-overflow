@@ -103,25 +103,16 @@ export class MagicOverflowActorSheet extends ActorSheet {
         event.preventDefault();
         const box = event.currentTarget;
         const boxIndex = Number(box.dataset.box || 0);
-        console.log('Box Index (raw):', box.dataset.box);
-        console.log('Box Index (parsed):', boxIndex);
-        const newValue = boxIndex + 1;
+        const newValue = box.checked ? boxIndex + 1 : boxIndex;
         await this.actor.update({ 'system.overflowTrack': newValue });
-        console.log('After update:', this.actor.system.overflowTrack);
     }
 
     async _onResilienceBoxChange(event) {
         event.preventDefault();
         const box = event.currentTarget;
         const trackType = box.dataset.resilience;
-
-        // Находим все checkbox для данной дорожки
-        const boxes = this.element.find(`input[data-resilience="${trackType}"]`);
-
-        let newValue = 0;
-        boxes.each(function () {
-            if (this.checked) newValue++;
-        });
+        const boxIndex = Number(box.dataset.box || 0);
+        const newValue = box.checked ? boxIndex + 1 : boxIndex;
 
         await this.actor.update({ [`system.resilience.${trackType}.value`]: newValue });
     }
