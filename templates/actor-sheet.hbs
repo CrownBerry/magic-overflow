@@ -114,7 +114,7 @@
                         <div class="track-boxes resilience-track-boxes">
                             {{#times 4}}
                             <input type="checkbox" class="resilience-box" data-resilience="{{../name}}"
-                                data-box="{{index}}" {{#if (lt index value)}}checked{{/if}} />
+                                data-box="{{index}}" {{#if (lt index ../value)}}checked{{/if}} />
                             {{/times}}
                         </div>
                     </div>
