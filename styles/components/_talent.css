@@ -50,29 +50,10 @@
     overflow-y: auto;
 }
 
-/* Стили для редактора */
-.talent.sheet .editor {
-    height: 100%;
-    min-height: 300px;
-}
-
-.talent.sheet .editor .tox-tinymce {
-    min-height: 300px;
-}
-
-.talent.sheet .editor-content {
-    height: 100%;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background: white;
-}
-
-/* Стили для ProseMirror */
+.talent.sheet .editor,
+.talent.sheet .editor-content,
 .talent.sheet .editor .ProseMirror {
+    min-width: 400px;
+    width: 100%;
     min-height: 300px;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background: white;
 }
