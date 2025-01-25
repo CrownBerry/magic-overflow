@@ -39,9 +39,40 @@
     margin-bottom: 1rem;
 }
 
+/* Стили для вкладок */
+.talent.sheet .sheet-body {
+    height: calc(100% - 140px);
+    overflow: hidden;
+}
+
+.talent.sheet .tab {
+    height: 100%;
+    overflow-y: auto;
+}
+
+/* Стили для редактора */
 .talent.sheet .editor {
-    height: 300px;
+    height: 100%;
+    min-height: 300px;
+}
+
+.talent.sheet .editor .tox-tinymce {
+    min-height: 300px;
+}
+
+.talent.sheet .editor-content {
+    height: 100%;
+    padding: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 4px;
+    background: white;
+}
+
+/* Стили для ProseMirror */
+.talent.sheet .editor .ProseMirror {
+    min-height: 300px;
     padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: white;
 }
