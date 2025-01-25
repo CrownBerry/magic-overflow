@@ -101,9 +101,11 @@ export class MagicOverflowActorSheet extends ActorSheet {
 
     async _onOverflowChange(event) {
         event.preventDefault();
-        const boxIndex = parseInt(event.currentTarget.dataset.box);
+        const box = event.currentTarget;
+        const boxIndex = Number(box.dataset.box || 0);
+        console.log('Box Index (raw):', box.dataset.box);
+        console.log('Box Index (parsed):', boxIndex);
         const newValue = boxIndex + 1;
-        console.log('Box Index:', boxIndex, 'New Value:', newValue);
         await this.actor.update({ 'system.overflowTrack': newValue });
         console.log('After update:', this.actor.system.overflowTrack);
     }
