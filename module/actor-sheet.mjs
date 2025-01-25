@@ -33,7 +33,7 @@ export class MagicOverflowActorSheet extends ActorSheet {
     _prepareList(configPath, systemData, options = {}) {
         const { valueKey = 'value', flagKey = null } = options;
         const config = foundry.utils.getProperty(CONFIG.MO, configPath);
-
+        
         return Object.entries(config).map(([key, data]) => {
             const base = {
                 name: key,
@@ -43,11 +43,13 @@ export class MagicOverflowActorSheet extends ActorSheet {
             if (flagKey) {
                 base[flagKey] = foundry.utils.getProperty(systemData, `${key}.${flagKey}`) || false;
             }
-
+            
             if (valueKey === 'specializations') {
                 base[valueKey] = foundry.utils.getProperty(systemData, `${key}.${valueKey}`) || [];
             } else if (valueKey) {
-                base[valueKey] = foundry.utils.getProperty(systemData, `${key}.${valueKey}`) || data[valueKey] || 0;
+                // Используем getProperty для получения значения из systemData
+                const path = configPath === 'resilience' ? `resilience.${key}.${valueKey}` : key;
+                base[valueKey] = foundry.utils.getProperty(systemData, path) ?? (data[valueKey] || 0);
             }
 
             return base;

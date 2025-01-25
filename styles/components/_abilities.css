@@ -111,3 +111,12 @@
 .track-boxes input[type="checkbox"]:nth-child(4):checked {
     background-color: #4a90e2;
 }
+
+/* Отменяем синий цвет для переполнения */
+.overflow-track .track-boxes input[type="checkbox"] {
+    border-color: #782e22 !important;
+}
+
+.overflow-track .track-boxes input[type="checkbox"]:checked {
+    background-color: #782e22 !important;
+}
