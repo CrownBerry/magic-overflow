@@ -87,7 +87,6 @@ export class MagicOverflowActorSheet extends ActorSheet {
         html.on('change', '.skill-specialization', this._onSpecializationChange.bind(this));
         html.on('change', '.background-checkbox', this._onBackgroundChange.bind(this));
         html.on('change', '.knowledge-checkbox', this._onKnowledgeChange.bind(this));
-        html.on('change', '.resilience-tracks input', this._onResilienceChange.bind(this));
         html.on('change', '.school-checkbox', this._onSchoolChange.bind(this));
         html.on('change', '.word-checkbox', this._onWordChange.bind(this));
         html.on('change', '.track-boxes input', this._onResilienceBoxChange.bind(this));
