@@ -90,7 +90,7 @@ export class MagicOverflowActorSheet extends ActorSheet {
         html.on('change', '.school-checkbox', this._onSchoolChange.bind(this));
         html.on('change', '.word-checkbox', this._onWordChange.bind(this));
         html.on('change', '.overflow-box', this._onOverflowChange.bind(this));
-        html.on('change', '.resilience-track input', this._onResilienceBoxChange.bind(this));
+        html.on('change', '.resilience-box', this._onResilienceBoxChange.bind(this));
 
         // Таланты
         html.find('.item-create').click(this._onItemCreate.bind(this));
