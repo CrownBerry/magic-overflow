@@ -103,23 +103,32 @@ export class MagicOverflowActorSheet extends ActorSheet {
         const track = box.dataset.track;
 
         if (track === 'overflow') {
-            const currentValue = this.actor.system.overflowTrack;
+            // Получаем все чекбоксы этого трека
+            const boxes = this.element.find(`input[data-track="${track}"]`);
+            let newValue = 0;
+
+            // Подсчитываем количество отмеченных
+            boxes.each(function () {
+                if (this.checked) newValue++;
+            });
+
             this.actor.update({
-                'system.overflowTrack': box.checked ? boxIndex + 1 : boxIndex
+                'system.overflowTrack': newValue
             });
         } else {
             const resilienceType = box.dataset.resilience;
-            const currentValue = this.actor.system.resilience[resilienceType].value;
+            // Получаем все чекбоксы этой стойкости
+            const boxes = this.element.find(`input[data-resilience="${resilienceType}"]`);
+            let newValue = 0;
 
-            if (box.checked && boxIndex < currentValue) {
-                this.actor.update({
-                    [`system.resilience.${resilienceType}.value`]: boxIndex + 1
-                });
-            } else if (!box.checked && boxIndex + 1 > currentValue) {
-                this.actor.update({
-                    [`system.resilience.${resilienceType}.value`]: boxIndex + 1
-                });
-            }
+            // Подсчитываем количество отмеченных
+            boxes.each(function () {
+                if (this.checked) newValue++;
+            });
+
+            this.actor.update({
+                [`system.resilience.${resilienceType}.value`]: newValue
+            });
         }
     }
 

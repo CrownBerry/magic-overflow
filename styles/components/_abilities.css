@@ -104,10 +104,10 @@
     background-color: #782e22;
 }
 
-.track-boxes input[type="checkbox"].special-box {
+.track-boxes input[type="checkbox"]:nth-child(4) {
     border-color: #4a90e2;
 }
 
-.track-boxes input[type="checkbox"].special-box:checked {
+.track-boxes input[type="checkbox"]:nth-child(4):checked {
     background-color: #4a90e2;
 }
