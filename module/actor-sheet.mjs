@@ -103,7 +103,9 @@ export class MagicOverflowActorSheet extends ActorSheet {
         event.preventDefault();
         const boxIndex = parseInt(event.currentTarget.dataset.box);
         const newValue = boxIndex + 1;
+        console.log('Box Index:', boxIndex, 'New Value:', newValue);
         await this.actor.update({ 'system.overflowTrack': newValue });
+        console.log('After update:', this.actor.system.overflowTrack);
     }
 
     async _onResilienceBoxChange(event) {
