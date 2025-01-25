@@ -66,6 +66,19 @@
         "magic": "Magic",
         "bio": "Bio",
         "schools": "Schools",
-        "words": "Words"
+        "words": "Words",
+        "description": "Description",
+        "details": "Details",
+        "source": "Source",
+        "name": "Name",
+        "talentName": "Enter talent name",
+        "newTalent": "New Talent",
+        "addTalent": "Add Talent",
+        "edit": "Edit",
+        "delete": "Delete",
+        "cancel": "Cancel",
+        "specializations": "Enter specializations",
+        "deleteTalentTitle": "Delete Talent",
+        "deleteTalentContent": "Are you sure you want to delete {name}?"
     }
 }

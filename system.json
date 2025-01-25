@@ -52,9 +52,7 @@
             "npc": {}
         },
         "Item": {
-            "weapon": {},
-            "armor": {},
-            "spell": {}
+            "talent": {}
         }
     },
     "socket": false,

@@ -1,4 +1,5 @@
 import { MagicOverflowActorSheet } from "./actor-sheet.mjs";
+import { TalentSheet } from "./talent-sheet.mjs";
 import MO from "./config.mjs";
 
 Hooks.once("init", async function () {
@@ -14,6 +15,12 @@ Hooks.once("init", async function () {
     Actors.unregisterSheet("core", ActorSheet);
     Actors.registerSheet("magic-overflow", MagicOverflowActorSheet, {
         types: ["character"],
+        makeDefault: true
+    });
+
+    Items.unregisterSheet("core", ItemSheet);
+    Items.registerSheet("magic-overflow", TalentSheet, {
+        types: ["talent"],
         makeDefault: true
     });
 });

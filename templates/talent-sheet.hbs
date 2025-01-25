@@ -1,0 +1,28 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+        <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64" />
+        <div class="header-fields">
+            <div class="form-group">
+                <label>{{localize "MO.ui.name"}}</label>
+                <input type="text" name="name" value="{{item.name}}" placeholder="{{localize 'MO.ui.talentName'}}" />
+            </div>
+        </div>
+    </header>
+
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item active" data-tab="description">{{localize "MO.ui.description"}}</a>
+        <a class="item" data-tab="details">{{localize "MO.ui.details"}}</a>
+    </nav>
+
+    <section class="sheet-body">
+        <div class="tab active" data-group="primary" data-tab="description">
+            {{editor enriched.system.description target="system.description" button=true owner=owner editable=editable}}
+        </div>
+        <div class="tab" data-group="primary" data-tab="details">
+            <div class="form-group">
+                <label>{{localize "MO.ui.source"}}</label>
+                <input type="text" name="system.source" value="{{system.source}}" disabled />
+            </div>
+        </div>
+    </section>
+</form>

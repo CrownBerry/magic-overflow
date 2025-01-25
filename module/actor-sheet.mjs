@@ -5,10 +5,10 @@ export class MagicOverflowActorSheet extends ActorSheet {
             classes: ["magic-overflow", "sheet", "actor"],
             width: 1200,
             height: 700,
-            tabs: [{ 
-                navSelector: ".sheet-tabs", 
-                contentSelector: ".sheet-body", 
-                initial: "proficiencies" 
+            tabs: [{
+                navSelector: ".sheet-tabs",
+                contentSelector: ".sheet-body",
+                initial: "proficiencies"
             }]
         });
     }
@@ -25,14 +25,15 @@ export class MagicOverflowActorSheet extends ActorSheet {
             backgrounds: this._prepareBackgrounds(systemData.backgrounds),
             knowledge: this._prepareKnowledge(systemData.knowledge),
             resilience: this._prepareResilience(systemData.resilience),
-            magic: this._prepareMagic(systemData.magic)
+            magic: this._prepareMagic(systemData.magic),
+            talents: this.actor.items.filter(item => item.type === 'talent')
         };
     }
 
     _prepareList(configPath, systemData, options = {}) {
         const { valueKey = 'value', flagKey = null } = options;
         const config = foundry.utils.getProperty(CONFIG.MO, configPath);
-        
+
         return Object.entries(config).map(([key, data]) => {
             const base = {
                 name: key,
@@ -42,7 +43,7 @@ export class MagicOverflowActorSheet extends ActorSheet {
             if (flagKey) {
                 base[flagKey] = foundry.utils.getProperty(systemData, `${key}.${flagKey}`) || false;
             }
-            
+
             if (valueKey === 'specializations') {
                 base[valueKey] = foundry.utils.getProperty(systemData, `${key}.${valueKey}`) || [];
             } else if (valueKey) {
@@ -87,6 +88,12 @@ export class MagicOverflowActorSheet extends ActorSheet {
         html.on('change', '.resilience-tracks input', this._onResilienceChange.bind(this));
         html.on('change', '.school-checkbox', this._onSchoolChange.bind(this));
         html.on('change', '.word-checkbox', this._onWordChange.bind(this));
+
+        // Таланты
+        html.find('.item-create').click(this._onItemCreate.bind(this));
+        html.find('.item-edit').click(this._onItemEdit.bind(this));
+        html.find('.item-delete').click(this._onItemDelete.bind(this));
+        html.find('.item-name').click(this._onItemToggleDescription.bind(this));
     }
 
     _onSkillChange(event) {
@@ -133,5 +140,66 @@ export class MagicOverflowActorSheet extends ActorSheet {
 
     async _updateObject(event, formData) {
         return super._updateObject(event, formData);
+    }
+
+    _onItemCreate(event) {
+        event.preventDefault();
+        const header = event.currentTarget;
+        const type = header.dataset.type;
+        const itemData = {
+            name: game.i18n.format("MO.ui.newTalent"),
+            type: type,
+            img: 'icons/svg/item-bag.svg'  // Дефолтная иконка
+        };
+        return this.actor.createEmbeddedDocuments("Item", [itemData]);
+    }
+
+    _onItemEdit(event) {
+        event.preventDefault();
+        const li = event.currentTarget.closest(".item");
+        const item = this.actor.items.get(li.dataset.itemId);
+        item.sheet.render(true);
+    }
+
+    async _onItemDelete(event) {
+        event.preventDefault();
+        const li = event.currentTarget.closest(".item");
+        const item = this.actor.items.get(li.dataset.itemId);
+        if (item) {
+            const dialog = new Dialog({
+                title: game.i18n.localize("MO.ui.deleteTalentTitle"),
+                content: game.i18n.format("MO.ui.deleteTalentContent", { name: item.name }),
+                buttons: {
+                    delete: {
+                        icon: '<i class="fas fa-trash"></i>',
+                        label: game.i18n.localize("MO.ui.delete"),
+                        callback: () => item.delete()
+                    },
+                    cancel: {
+                        icon: '<i class="fas fa-times"></i>',
+                        label: game.i18n.localize("MO.ui.cancel")
+                    }
+                },
+                default: "cancel"
+            });
+            dialog.render(true);
+        }
+    }
+
+    _onItemToggleDescription(event) {
+        event.preventDefault();
+        const li = event.currentTarget.closest(".item");
+        const description = li.querySelector(".item-description");
+        const currentDisplay = description.style.display;
+
+        // Сначала закрываем все описания
+        this.element.find(".item-description").each((i, el) => {
+            el.style.display = "none";
+        });
+
+        // Затем открываем текущее, если оно было закрыто
+        if (currentDisplay === "none" || !currentDisplay) {
+            description.style.display = "block";
+        }
     }
 }

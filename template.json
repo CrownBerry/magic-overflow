@@ -157,5 +157,21 @@
                 "base"
             ]
         }
+    },
+    "Item": {
+        "types": [
+            "talent"
+        ],
+        "templates": {
+            "base": {
+                "description": ""
+            }
+        },
+        "talent": {
+            "templates": [
+                "base"
+            ],
+            "source": ""
+        }
     }
 }
