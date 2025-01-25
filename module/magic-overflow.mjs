@@ -6,6 +6,11 @@ Hooks.once("init", async function () {
 
     CONFIG.MO = MO;
 
+    // Регистрация хелпера join
+    Handlebars.registerHelper('join', function (array, delimiter) {
+        return Array.isArray(array) ? array.join(delimiter) : '';
+    });
+
     Actors.unregisterSheet("core", ActorSheet);
     Actors.registerSheet("magic-overflow", MagicOverflowActorSheet, {
         types: ["character"],

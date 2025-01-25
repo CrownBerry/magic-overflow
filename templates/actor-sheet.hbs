@@ -1,11 +1,12 @@
 <form class="actor-sheet">
+    {{!-- Заголовок --}}
     <header class="sheet-header">
         <div class="left-column">
-            <img src="{{actor.img}}" alt="Character Image" class="portrait" />
+            <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" class="portrait" />
             <div class="info">
                 <input name="name" type="text" value="{{actor.name}}"
                     placeholder="{{localize 'MO.ui.characterName'}}" />
-                <input name="system.archetype" type="text" value="{{actor.system.archetype}}"
+                <input name="system.archetype" type="text" value="{{system.archetype}}"
                     placeholder="{{localize 'MO.ui.archetype'}}" />
             </div>
         </div>
@@ -15,36 +16,38 @@
                 {{#each resilience}}
                 <div class="track">
                     <label>{{label}}</label>
-                    <input type="number" data-resilience="{{name}}" value="{{value}}" max="3" />
+                    <input type="number" data-resilience="{{name}}" value="{{value}}" min="0" max="3" />
                 </div>
                 {{/each}}
             </div>
             <div class="overflow-track">
                 <label>{{localize "MO.ui.overflow"}}</label>
-                <input type="number" name="system.overflowTrack" value="{{actor.system.overflowTrack}}" max="7" />
+                <input type="number" name="system.overflowTrack" value="{{system.overflowTrack}}" min="0" max="7" />
             </div>
         </div>
     </header>
 
+    {{!-- Вкладки --}}
     <nav class="sheet-tabs tabs" data-group="primary">
-        <a class="item" data-tab="proficiencies">{{localize "MO.ui.proficiencies"}}</a>
+        <a class="item active" data-tab="proficiencies">{{localize "MO.ui.proficiencies"}}</a>
         <a class="item" data-tab="magic">{{localize "MO.ui.magic"}}</a>
         <a class="item" data-tab="bio">{{localize "MO.ui.bio"}}</a>
     </nav>
 
     <section class="sheet-body">
-        <div class="tab proficiencies" data-group="primary" data-tab="proficiencies">
+        {{!-- Вкладка навыков --}}
+        <div class="tab proficiencies active" data-group="primary" data-tab="proficiencies">
             <div class="proficiencies-section">
                 <div class="skills-section">
                     <h2>{{localize "MO.ui.skills"}}</h2>
                     <ul>
                         {{#each skills}}
                         <li>
-                            <input type="checkbox" class="skill-checkbox" data-skill="{{name}}" {{#if
-                                hasSkill}}checked{{/if}} />
-                            <span>{{localize label}}</span>
+                            <input type="checkbox" class="skill-checkbox" data-skill="{{name}}" {{checked hasSkill}} />
+                            <span>{{label}}</span>
                             <input type="text" class="skill-specialization" data-skill="{{name}}"
-                                value="{{specializations}}" placeholder="Enter specializations" />
+                                value="{{join specializations ','}}"
+                                placeholder="{{localize 'MO.ui.specializations'}}" />
                         </li>
                         {{/each}}
                     </ul>
@@ -55,9 +58,9 @@
                     <ul>
                         {{#each backgrounds}}
                         <li>
-                            <input type="checkbox" class="background-checkbox" data-background="{{name}}" {{#if
-                                hasBackground}}checked{{/if}} />
-                            <span>{{localize label}}</span>
+                            <input type="checkbox" class="background-checkbox" data-background="{{name}}" {{checked
+                                hasBackground}} />
+                            <span>{{label}}</span>
                         </li>
                         {{/each}}
                     </ul>
@@ -68,25 +71,27 @@
                     <ul>
                         {{#each knowledge}}
                         <li>
-                            <input type="checkbox" class="knowledge-checkbox" data-knowledge="{{name}}" {{#if
-                                hasKnowledge}}checked{{/if}} />
-                            <span>{{localize label}}</span>
+                            <input type="checkbox" class="knowledge-checkbox" data-knowledge="{{name}}" {{checked
+                                hasKnowledge}} />
+                            <span>{{label}}</span>
                         </li>
                         {{/each}}
                     </ul>
                 </div>
             </div>
         </div>
+
+        {{!-- Вкладка магии --}}
         <div class="tab magic" data-group="primary" data-tab="magic">
             <div class="magic-section">
                 <div class="schools-section">
                     <h2>{{localize "MO.ui.schools"}}</h2>
                     <ul>
-                        {{#each schools}}
+                        {{#each magic.schools}}
                         <li>
-                            <input type="checkbox" class="school-checkbox" data-school="{{name}}" {{#if
-                                hasSchool}}checked{{/if}} />
-                            <span>{{localize label}}</span>
+                            <input type="checkbox" class="school-checkbox" data-school="{{name}}" {{checked
+                                hasSchool}} />
+                            <span>{{label}}</span>
                         </li>
                         {{/each}}
                     </ul>
@@ -95,19 +100,20 @@
                 <div class="words-section">
                     <h2>{{localize "MO.ui.words"}}</h2>
                     <ul>
-                        {{#each words}}
+                        {{#each magic.words}}
                         <li>
-                            <input type="checkbox" class="word-checkbox" data-word="{{name}}" {{#if
-                                hasWord}}checked{{/if}} />
-                            <span>{{localize label}}</span>
+                            <input type="checkbox" class="word-checkbox" data-word="{{name}}" {{checked hasWord}} />
+                            <span>{{label}}</span>
                         </li>
                         {{/each}}
                     </ul>
                 </div>
             </div>
         </div>
+
+        {{!-- Вкладка био --}}
         <div class="tab bio" data-group="primary" data-tab="bio">
-            <!-- Пока пусто -->
+            {{!-- Пока оставим пустым --}}
         </div>
     </section>
 </form>

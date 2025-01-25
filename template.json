@@ -1,187 +1,161 @@
 {
-    "actor": {
-        "type": "character",
-        "name": "New Character",
-        "img": "icons/svg/mystery-man.svg",
-        "data": {
+    "Actor": {
+        "types": [
+            "character",
+            "npc"
+        ],
+        "templates": {
+            "base": {
+                "money": 3,
+                "overflowTrack": 0,
+                "talent": ""
+            }
+        },
+        "character": {
+            "templates": [
+                "base"
+            ],
             "skills": {
                 "brawl": {
-                    "name": "@LANG.skills.brawl",
-                    "specializations": [],
-                    "hasSkill": false
+                    "hasSkill": false,
+                    "specializations": []
                 },
                 "stealth": {
-                    "name": "@LANG.skills.stealth",
-                    "specializations": [],
-                    "hasSkill": false
+                    "hasSkill": false,
+                    "specializations": []
                 },
                 "communication": {
-                    "name": "@LANG.skills.communication",
-                    "specializations": [],
-                    "hasSkill": false
+                    "hasSkill": false,
+                    "specializations": []
                 },
                 "coordination": {
-                    "name": "@LANG.skills.coordination",
-                    "specializations": [],
-                    "hasSkill": false
+                    "hasSkill": false,
+                    "specializations": []
                 },
                 "craft": {
-                    "name": "@LANG.skills.craft",
-                    "specializations": [],
-                    "hasSkill": false
+                    "hasSkill": false,
+                    "specializations": []
                 },
                 "observation": {
-                    "name": "@LANG.skills.observation",
-                    "specializations": [],
-                    "hasSkill": false
+                    "hasSkill": false,
+                    "specializations": []
                 },
                 "survival": {
-                    "name": "@LANG.skills.survival",
-                    "specializations": [],
-                    "hasSkill": false
+                    "hasSkill": false,
+                    "specializations": []
                 }
             },
             "resilience": {
                 "flesh": {
-                    "name": "@LANG.resilience.flesh",
                     "value": 3
                 },
                 "mind": {
-                    "name": "@LANG.resilience.mind",
                     "value": 3
                 },
                 "spirit": {
-                    "name": "@LANG.resilience.spirit",
                     "value": 3
                 }
             },
             "backgrounds": {
                 "highSociety": {
-                    "name": "@LANG.backgrounds.highSociety",
                     "hasBackground": false
                 },
                 "militaryOrganization": {
-                    "name": "@LANG.backgrounds.militaryOrganization",
                     "hasBackground": false
                 },
                 "religiousCommunity": {
-                    "name": "@LANG.backgrounds.religiousCommunity",
                     "hasBackground": false
                 },
                 "tradeGroup": {
-                    "name": "@LANG.backgrounds.tradeGroup",
                     "hasBackground": false
                 },
                 "craftGuild": {
-                    "name": "@LANG.backgrounds.craftGuild",
                     "hasBackground": false
                 },
                 "criminalCommunity": {
-                    "name": "@LANG.backgrounds.criminalCommunity",
                     "hasBackground": false
                 },
                 "freeWorker": {
-                    "name": "@LANG.backgrounds.freeWorker",
                     "hasBackground": false
                 }
             },
             "knowledge": {
                 "exactSciences": {
-                    "name": "@LANG.knowledge.exactSciences",
                     "hasKnowledge": false
                 },
                 "art": {
-                    "name": "@LANG.knowledge.art",
                     "hasKnowledge": false
                 },
                 "psychology": {
-                    "name": "@LANG.knowledge.psychology",
                     "hasKnowledge": false
                 },
                 "medicine": {
-                    "name": "@LANG.knowledge.medicine",
                     "hasKnowledge": false
                 },
                 "economy": {
-                    "name": "@LANG.knowledge.economy",
                     "hasKnowledge": false
                 },
                 "religion": {
-                    "name": "@LANG.knowledge.religion",
                     "hasKnowledge": false
                 },
                 "secretKnowledge": {
-                    "name": "@LANG.knowledge.secretKnowledge",
                     "hasKnowledge": false
                 }
             },
             "magic": {
                 "schools": {
                     "matter": {
-                        "name": "@LANG.magic.schools.matter",
                         "hasSchool": false
                     },
                     "energy": {
-                        "name": "@LANG.magic.schools.energy",
                         "hasSchool": false
                     },
                     "space": {
-                        "name": "@LANG.magic.schools.space",
                         "hasSchool": false
                     },
                     "time": {
-                        "name": "@LANG.magic.schools.time",
                         "hasSchool": false
                     },
                     "mind": {
-                        "name": "@LANG.magic.schools.mind",
                         "hasSchool": false
                     },
                     "magic": {
-                        "name": "@LANG.magic.schools.magic",
                         "hasSchool": false
                     },
                     "afterlife": {
-                        "name": "@LANG.magic.schools.afterlife",
                         "hasSchool": false
                     }
                 },
                 "words": {
                     "perception": {
-                        "name": "@LANG.magic.words.perception",
                         "hasWord": false
                     },
                     "weakening": {
-                        "name": "@LANG.magic.words.weakening",
                         "hasWord": false
                     },
                     "strengthening": {
-                        "name": "@LANG.magic.words.strengthening",
                         "hasWord": false
                     },
                     "destruction": {
-                        "name": "@LANG.magic.words.destruction",
                         "hasWord": false
                     },
                     "restoration": {
-                        "name": "@LANG.magic.words.restoration",
                         "hasWord": false
                     },
                     "creation": {
-                        "name": "@LANG.magic.words.creation",
                         "hasWord": false
                     },
                     "transformation": {
-                        "name": "@LANG.magic.words.transformation",
                         "hasWord": false
                     }
                 },
                 "spells": []
-            },
-            "spells": []
+            }
         },
-        "overflowTrack": 0,
-        "money": 3,
-        "talent": ""
+        "npc": {
+            "templates": [
+                "base"
+            ]
+        }
     }
 }
