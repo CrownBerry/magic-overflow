@@ -4,25 +4,21 @@
         <div class="left-column">
             <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" class="portrait" />
             <div class="info">
-                <input name="name" type="text" value="{{actor.name}}"
-                    placeholder="{{localize 'MO.ui.characterName'}}" />
-                <input name="system.archetype" type="text" value="{{system.archetype}}"
-                    placeholder="{{localize 'MO.ui.archetype'}}" />
-            </div>
-        </div>
-
-        <div class="right-column">
-            <div class="resilience-tracks">
-                {{#each resilience}}
-                <div class="track">
-                    <label>{{label}}</label>
-                    <input type="number" data-resilience="{{name}}" value="{{value}}" min="0" max="3" />
+                <div class="info-row">
+                    <input name="name" type="text" value="{{actor.name}}"
+                        placeholder="{{localize 'MO.ui.characterName'}}" />
+                    <input name="system.archetype" type="text" value="{{system.archetype}}"
+                        placeholder="{{localize 'MO.ui.archetype'}}" />
                 </div>
-                {{/each}}
-            </div>
-            <div class="overflow-track">
-                <label>{{localize "MO.ui.overflow"}}</label>
-                <input type="number" name="system.overflowTrack" value="{{system.overflowTrack}}" min="0" max="7" />
+                <div class="overflow-track">
+                    <label>{{localize "MO.ui.overflow"}}</label>
+                    <div class="track-boxes">
+                        {{#times 7}}
+                        <input type="checkbox" data-box="{{@index}}" data-track="overflow" {{#if (lt @index
+                            ../system.overflowTrack)}}checked{{/if}} />
+                        {{/times}}
+                    </div>
+                </div>
             </div>
         </div>
     </header>
@@ -80,36 +76,51 @@
                 </div>
             </div>
 
-            <div class="talents-section">
-                <div class="section-header">
-                    <h2>{{localize "MO.ui.talents"}}</h2>
-                    <a class="item-control item-create" title="{{localize 'MO.ui.addTalent'}}" data-type="talent">
-                        <i class="fas fa-plus"></i>
-                    </a>
-                </div>
-                <ol class="items-list">
-                    {{#each talents as |talent id|}}
-                    <li class="item" data-item-id="{{talent._id}}">
-                        <div class="item-header">
-                            <img src="{{talent.img}}" width="24" height="24" />
-                            <h4 class="item-name">{{talent.name}}</h4>
-                            <div class="item-controls">
-                                <a class="item-control item-edit" title="{{localize 'MO.ui.edit'}}">
-                                    <i class="fas fa-edit"></i>
-                                </a>
-                                <a class="item-control item-delete" title="{{localize 'MO.ui.delete'}}">
-                                    <i class="fas fa-trash"></i>
-                                </a>
+            <div class="abilities-section">
+                <div class="talents-column">
+                    <div class="section-header">
+                        <h2>{{localize "MO.ui.talents"}}</h2>
+                        <a class="item-control item-create" title="{{localize 'MO.ui.addTalent'}}" data-type="talent">
+                            <i class="fas fa-plus"></i>
+                        </a>
+                    </div>
+                    <ol class="items-list">
+                        {{#each talents as |talent id|}}
+                        <li class="item" data-item-id="{{talent._id}}">
+                            <div class="item-header">
+                                <img src="{{talent.img}}" width="24" height="24" />
+                                <h4 class="item-name">{{talent.name}}</h4>
+                                <div class="item-controls">
+                                    <a class="item-control item-edit" title="{{localize 'MO.ui.edit'}}">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a class="item-control item-delete" title="{{localize 'MO.ui.delete'}}">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </div>
                             </div>
+                            <div class="item-description">
+                                {{{talent.system.description}}}
+                            </div>
+                        </li>
+                        {{/each}}
+                    </ol>
+                </div>
+
+                <div class="resilience-column">
+                    {{#each resilience}}
+                    <div class="track">
+                        <label>{{label}}</label>
+                        <div class="track-boxes">
+                            {{#times 4}}
+                            <input type="checkbox" data-box="{{@index}}" data-resilience="{{../name}}" {{#if (lt @index
+                                ../value)}}checked{{/if}} {{#if (eq @index 3)}}class="special-box" {{/if}} />
+                            {{/times}}
                         </div>
-                        <div class="item-description">
-                            {{{talent.system.description}}}
-                        </div>
-                    </li>
+                    </div>
                     {{/each}}
-                </ol>
+                </div>
             </div>
-        </div>
         </div>
 
         {{!-- Вкладка магии --}}

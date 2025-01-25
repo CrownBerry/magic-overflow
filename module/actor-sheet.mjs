@@ -88,12 +88,39 @@ export class MagicOverflowActorSheet extends ActorSheet {
         html.on('change', '.resilience-tracks input', this._onResilienceChange.bind(this));
         html.on('change', '.school-checkbox', this._onSchoolChange.bind(this));
         html.on('change', '.word-checkbox', this._onWordChange.bind(this));
+        html.on('change', '.track-boxes input', this._onResilienceBoxChange.bind(this));
 
         // Таланты
         html.find('.item-create').click(this._onItemCreate.bind(this));
         html.find('.item-edit').click(this._onItemEdit.bind(this));
         html.find('.item-delete').click(this._onItemDelete.bind(this));
         html.find('.item-name').click(this._onItemToggleDescription.bind(this));
+    }
+
+    _onResilienceBoxChange(event) {
+        const box = event.currentTarget;
+        const boxIndex = parseInt(box.dataset.box);
+        const track = box.dataset.track;
+
+        if (track === 'overflow') {
+            const currentValue = this.actor.system.overflowTrack;
+            this.actor.update({
+                'system.overflowTrack': box.checked ? boxIndex + 1 : boxIndex
+            });
+        } else {
+            const resilienceType = box.dataset.resilience;
+            const currentValue = this.actor.system.resilience[resilienceType].value;
+
+            if (box.checked && boxIndex < currentValue) {
+                this.actor.update({
+                    [`system.resilience.${resilienceType}.value`]: boxIndex + 1
+                });
+            } else if (!box.checked && boxIndex + 1 > currentValue) {
+                this.actor.update({
+                    [`system.resilience.${resilienceType}.value`]: boxIndex + 1
+                });
+            }
+        }
     }
 
     _onSkillChange(event) {

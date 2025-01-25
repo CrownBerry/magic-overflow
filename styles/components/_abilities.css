@@ -57,3 +57,57 @@
     width: 100%;
     min-height: 300px;
 }
+
+.abilities-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.talents-column {
+    flex: 2;
+}
+
+.resilience-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.track {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.track label {
+    font-weight: bold;
+    color: #444;
+}
+
+.track-boxes {
+    display: flex;
+    gap: 5px;
+}
+
+.track-boxes input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #782e22;
+    border-radius: 4px;
+}
+
+.track-boxes input[type="checkbox"]:checked {
+    background-color: #782e22;
+}
+
+.track-boxes input[type="checkbox"].special-box {
+    border-color: #4a90e2;
+}
+
+.track-boxes input[type="checkbox"].special-box:checked {
+    background-color: #4a90e2;
+}

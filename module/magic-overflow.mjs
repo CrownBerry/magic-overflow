@@ -12,6 +12,14 @@ Hooks.once("init", async function () {
         return Array.isArray(array) ? array.join(delimiter) : '';
     });
 
+    Handlebars.registerHelper('times', function (n, options) {
+        let result = '';
+        for (let i = 0; i < n; i++) {
+            result += options.fn({ index: i });
+        }
+        return result;
+    });
+
     Actors.unregisterSheet("core", ActorSheet);
     Actors.registerSheet("magic-overflow", MagicOverflowActorSheet, {
         types: ["character"],

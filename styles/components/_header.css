@@ -1,27 +1,13 @@
 .sheet-header {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 20px;
+    display: flex;
+    padding: 10px;
     margin-bottom: 20px;
 }
 
 .left-column {
     display: flex;
     gap: 15px;
-    align-items: center;
-}
-
-.right-column {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.sheet-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    gap: 15px;
+    flex: 1;
 }
 
 .portrait {
@@ -29,19 +15,47 @@
     height: 100px;
     border-radius: 50%;
     border: 2px solid #ddd;
-    flex-shrink: 0;
 }
 
 .info {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    flex-grow: 1;
+    justify-content: space-between;
+    flex: 1;
 }
 
-.info input {
-    width: 100%;
+.info-row {
+    display: flex;
+    gap: 10px;
+}
+
+.info-row input {
+    flex: 1;
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
+}
+
+.overflow-track .track-boxes {
+    display: flex;
+    gap: 5px;
+}
+
+.overflow-track label {
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.overflow-track input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #782e22;
+    border-radius: 4px;
+}
+
+.overflow-track input[type="checkbox"]:checked {
+    background-color: #782e22;
 }
