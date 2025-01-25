@@ -103,29 +103,22 @@ export class MagicOverflowActorSheet extends ActorSheet {
         event.preventDefault();
         const box = event.currentTarget;
         const track = box.dataset.track;
+        const trackType = track || box.dataset.resilience;
 
-        if (track === 'overflow') {
-            const boxes = this.element.find(`input[data-track="${track}"]`);
-            let newValue = 0;
-            boxes.each(function () {
-                if (this.checked) newValue++;
-            });
+        // Находим все checkbox для данной дорожки
+        const boxes = this.element.find(`input[data-track="${track}"], input[data-resilience="${trackType}"]`);
 
-            await this.actor.update({
-                'system.overflowTrack': newValue
-            });
-        } else {
-            const resilienceType = box.dataset.resilience;
-            const boxes = this.element.find(`input[data-resilience="${resilienceType}"]`);
-            let newValue = 0;
-            boxes.each(function () {
-                if (this.checked) newValue++;
-            });
+        let newValue = 0;
+        boxes.each(function () {
+            if (this.checked) newValue++;
+        });
 
-            await this.actor.update({
-                [`system.resilience.${resilienceType}.value`]: newValue
-            });
-        }
+        // Определяем путь для обновления в зависимости от типа дорожки
+        const updatePath = track === 'overflow'
+            ? 'system.overflowTrack'
+            : `system.resilience.${trackType}.value`;
+
+        await this.actor.update({ [updatePath]: newValue });
     }
 
     _onSkillChange(event) {

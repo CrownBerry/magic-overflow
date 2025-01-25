@@ -14,8 +14,8 @@
                     <label>{{localize "MO.ui.overflow"}}</label>
                     <div class="track-boxes" data-track="overflow">
                         {{#times 7}}
-                        <input type="checkbox" data-box="{{@index}}" data-track="overflow" {{#if (lt @index
-                            ../system.overflowTrack)}}checked disabled{{/if}} />
+                        <input type="checkbox" data-track="overflow" data-box="{{@index}}" {{#if (lt @index
+                            ../system.overflowTrack)}}checked{{/if}} />
                         {{/times}}
                     </div>
                 </div>
@@ -113,8 +113,8 @@
                         <label>{{label}}</label>
                         <div class="track-boxes" data-resilience="{{name}}">
                             {{#times 4}}
-                            <input type="checkbox" data-box="{{@index}}" data-resilience="{{../name}}" {{#if (lt @index
-                                ../value)}}checked disabled{{/if}} />
+                            <input type="checkbox" data-resilience="{{../name}}" data-box="{{@index}}" {{#if (lt @index
+                                ../value)}}checked{{/if}} />
                             {{/times}}
                         </div>
                     </div>
