@@ -112,16 +112,13 @@ export class MagicOverflowActorSheet extends ActorSheet {
         const box = event.currentTarget;
         const trackType = box.dataset.resilience;
         const boxIndex = Number(box.dataset.box || 0);
+        const newValue = box.checked ? boxIndex + 1 : boxIndex;
 
-        // Сначала обновляем все чекбоксы визуально
-        const boxes = this.element.find(`input[data-resilience="${trackType}"]`);
-        boxes.each(function (index) {
-            this.checked = index <= boxIndex;
-        });
+        const updatePath = `system.resilience.${trackType}.value`;
+        console.log('Update path:', updatePath);
+        console.log('New value:', newValue);
 
-        // Затем обновляем данные
-        const newValue = boxIndex + 1;
-        await this.actor.update({ [`system.resilience.${trackType}.value`]: newValue });
+        await this.actor.update({ [updatePath]: newValue });
     }
 
     _onSkillChange(event) {
