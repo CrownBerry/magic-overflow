@@ -89,7 +89,8 @@ export class MagicOverflowActorSheet extends ActorSheet {
         html.on('change', '.knowledge-checkbox', this._onKnowledgeChange.bind(this));
         html.on('change', '.school-checkbox', this._onSchoolChange.bind(this));
         html.on('change', '.word-checkbox', this._onWordChange.bind(this));
-        html.on('change', '.track-boxes input', this._onResilienceBoxChange.bind(this));
+        html.on('change', '.overflow-box', this._onOverflowChange.bind(this));
+        html.on('change', '.resilience-track input', this._onResilienceBoxChange.bind(this));
 
         // Таланты
         html.find('.item-create').click(this._onItemCreate.bind(this));
@@ -98,26 +99,36 @@ export class MagicOverflowActorSheet extends ActorSheet {
         html.find('.item-name').click(this._onItemToggleDescription.bind(this));
     }
 
+    async _onOverflowChange(event) {
+        event.preventDefault();
+        const box = event.currentTarget;
+        const boxIndex = parseInt(box.dataset.box);
+        const newValue = box.checked ? boxIndex + 1 : boxIndex;
+
+        // Обновляем значение в данных актора
+        await this.actor.update({ 'system.overflowTrack': newValue });
+
+        // Обновляем состояние чекбоксов
+        const boxes = this.element.find('.overflow-box');
+        boxes.each(function (index) {
+            this.checked = index < newValue;
+        });
+    }
+
     async _onResilienceBoxChange(event) {
         event.preventDefault();
         const box = event.currentTarget;
-        const track = box.dataset.track;
-        const trackType = track || box.dataset.resilience;
+        const trackType = box.dataset.resilience;
 
         // Находим все checkbox для данной дорожки
-        const boxes = this.element.find(`input[data-track="${track}"], input[data-resilience="${trackType}"]`);
+        const boxes = this.element.find(`input[data-resilience="${trackType}"]`);
 
         let newValue = 0;
         boxes.each(function () {
             if (this.checked) newValue++;
         });
 
-        // Определяем путь для обновления в зависимости от типа дорожки
-        const updatePath = track === 'overflow'
-            ? 'system.overflowTrack'
-            : `system.resilience.${trackType}.value`;
-
-        await this.actor.update({ [updatePath]: newValue });
+        await this.actor.update({ [`system.resilience.${trackType}.value`]: newValue });
     }
 
     _onSkillChange(event) {

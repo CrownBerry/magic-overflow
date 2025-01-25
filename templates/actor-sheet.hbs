@@ -12,9 +12,9 @@
                 </div>
                 <div class="overflow-track">
                     <label>{{localize "MO.ui.overflow"}}</label>
-                    <div class="track-boxes" data-track="overflow">
+                    <div class="track-boxes overflow-track-boxes">
                         {{#times 7}}
-                        <input type="checkbox" data-track="overflow" data-box="{{@index}}" {{#if (lt @index
+                        <input type="checkbox" class="overflow-box" data-box="{{@index}}" {{#if (lt @index
                             ../system.overflowTrack)}}checked{{/if}} />
                         {{/times}}
                     </div>
