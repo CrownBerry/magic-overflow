@@ -145,12 +145,6 @@ export class MagicOverflowActorSheet extends ActorSheet {
         this.actor.update({ [`system.knowledge.${knowKey}.hasKnowledge`]: isChecked });
     }
 
-    _onResilienceChange(event) {
-        const resKey = event.currentTarget.dataset.resilience;
-        const value = Math.max(0, Math.min(parseInt(event.currentTarget.value) || 0, 3));
-        this.actor.update({ [`system.resilience.${resKey}.value`]: value });
-    }
-
     _onSchoolChange(event) {
         const schoolKey = event.currentTarget.dataset.school;
         const isChecked = event.currentTarget.checked;
