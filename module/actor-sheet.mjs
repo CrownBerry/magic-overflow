@@ -102,7 +102,6 @@ export class MagicOverflowActorSheet extends ActorSheet {
     async _onResilienceBoxChange(event) {
         event.preventDefault();
         const box = event.currentTarget;
-        const boxIndex = parseInt(box.dataset.box);
         const track = box.dataset.track;
 
         if (track === 'overflow') {
@@ -110,6 +109,11 @@ export class MagicOverflowActorSheet extends ActorSheet {
             let newValue = 0;
             boxes.each(function () {
                 if (this.checked) newValue++;
+            });
+
+            console.log('Overflow update:', {
+                currentValue: this.actor.system.overflowTrack,
+                newValue: newValue
             });
 
             await this.actor.update({
@@ -121,6 +125,13 @@ export class MagicOverflowActorSheet extends ActorSheet {
             let newValue = 0;
             boxes.each(function () {
                 if (this.checked) newValue++;
+            });
+
+            console.log('Resilience update:', {
+                type: resilienceType,
+                currentValue: this.actor.system.resilience[resilienceType].value,
+                newValue: newValue,
+                fullPath: `system.resilience.${resilienceType}.value`
             });
 
             await this.actor.update({
