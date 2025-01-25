@@ -47,13 +47,13 @@
             },
             "resilience": {
                 "flesh": {
-                    "value": 3
+                    "value": 0
                 },
                 "mind": {
-                    "value": 3
+                    "value": 0
                 },
                 "spirit": {
-                    "value": 3
+                    "value": 0
                 }
             },
             "backgrounds": {

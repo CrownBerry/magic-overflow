@@ -101,18 +101,9 @@ export class MagicOverflowActorSheet extends ActorSheet {
 
     async _onOverflowChange(event) {
         event.preventDefault();
-        const box = event.currentTarget;
-        const boxIndex = parseInt(box.dataset.box);
-        const newValue = box.checked ? boxIndex + 1 : boxIndex;
-
-        // Обновляем значение в данных актора
+        const boxIndex = parseInt(event.currentTarget.dataset.box);
+        const newValue = boxIndex + 1;
         await this.actor.update({ 'system.overflowTrack': newValue });
-
-        // Обновляем состояние чекбоксов
-        const boxes = this.element.find('.overflow-box');
-        boxes.each(function (index) {
-            this.checked = index < newValue;
-        });
     }
 
     async _onResilienceBoxChange(event) {
