@@ -118,6 +118,7 @@ export class MagicOverflowActorSheet extends ActorSheet {
 
         console.log('Current resilience:', this.actor.system.resilience);
         console.log(`Track type: ${trackType} New value: ${newValue} Track value ${this.actor.system.resilience[trackType].value}`);
+        console.log('Full context', context)
     }
 
     _onSkillChange(event) {
