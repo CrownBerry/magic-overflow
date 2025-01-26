@@ -23,15 +23,15 @@ export class MagicOverflowActorSheet extends ActorSheet {
 
         console.log('Full context is:', context);
 
+        this._prepareSkills(context);
+        this._prepareBackgrounds(context);
+        this._prepareKnowledge(context);
+        this._prepareMagic(context);
+
+        context.talents = this.actor.items.filter(item => item.type === 'talent');
+
         // Преобразуем данные для шаблона
-        return {
-            ...context,
-            skills: this._prepareSkills(context.system.skills),
-            backgrounds: this._prepareBackgrounds(context.system.backgrounds),
-            knowledge: this._prepareKnowledge(context.system.knowledge),
-            magic: this._prepareMagic(context.system.magic),
-            talents: this.actor.items.filter(item => item.type === 'talent')
-        };
+        return context;
     }
 
     _prepareList(configPath, systemData, options = {}) {
@@ -60,22 +60,22 @@ export class MagicOverflowActorSheet extends ActorSheet {
         });
     }
 
-    _prepareSkills(skills) {
-        return this._prepareList('skills', skills, { flagKey: 'hasSkill', valueKey: 'specializations' });
+    _prepareSkills(context) {
+        return this._prepareList('skills', context.system.skills, { flagKey: 'hasSkill', valueKey: 'specializations' });
     }
 
-    _prepareBackgrounds(backgrounds) {
-        return this._prepareList('backgrounds', backgrounds, { flagKey: 'hasBackground' });
+    _prepareBackgrounds(context) {
+        return this._prepareList('backgrounds', context.system.backgrounds, { flagKey: 'hasBackground' });
     }
 
-    _prepareKnowledge(knowledge) {
-        return this._prepareList('knowledge', knowledge, { flagKey: 'hasKnowledge' });
+    _prepareKnowledge(context) {
+        return this._prepareList('knowledge', context.system.knowledge, { flagKey: 'hasKnowledge' });
     }
 
-    _prepareMagic(magic) {
+    _prepareMagic(context) {
         return {
-            schools: this._prepareList('magic.schools', magic.schools, { flagKey: 'hasSchool' }),
-            words: this._prepareList('magic.words', magic.words, { flagKey: 'hasWord' })
+            schools: this._prepareList('magic.schools', context.system.magic.schools, { flagKey: 'hasSchool' }),
+            words: this._prepareList('magic.words', context.system.magic.words, { flagKey: 'hasWord' })
         };
     }
 
@@ -110,8 +110,11 @@ export class MagicOverflowActorSheet extends ActorSheet {
     async _onResilienceBoxChange(event) {
         event.preventDefault();
         const trackType = event.currentTarget.dataset.resilience;
+        console.log('Track type:', trackType);
         const boxIndex = Number(event.currentTarget.dataset.box || 0);
+        console.log('Box index:', boxIndex);
         const newValue = event.currentTarget.checked ? boxIndex + 1 : boxIndex;
+        console.log('New value:', newValue);
 
         // Явно приводим к числу
         const updateData = {};
