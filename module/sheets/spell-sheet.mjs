@@ -14,9 +14,14 @@ export class SpellSheet extends ItemSheet {
     }
 
     getData() {
-        const context = super.getData();
-        context.system = this.item.system;
-        return context;
+        const data = super.getData();
+        const itemData = this.item;
+        const system = itemData.system;
+
+        data.system = system;
+        data.item = itemData;
+
+        return data;
     }
 
     activateListeners(html) {
@@ -24,7 +29,6 @@ export class SpellSheet extends ItemSheet {
 
         if (!this.isEditable) return;
 
-        // Редактирование изображения
         html.find('img[data-edit="img"]').click(ev => this._onEditImage(ev));
     }
 
