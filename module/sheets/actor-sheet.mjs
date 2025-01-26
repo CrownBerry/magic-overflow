@@ -68,8 +68,6 @@ export class MagicOverflowActorSheet extends ActorSheet {
         html.on('change', '.prof-checkbox', this._onProfChange.bind(this));
         html.on('change', '.skill-specialization', this._onSpecializationChange.bind(this));
         html.on('change', '.magic-checkbox', this._onMagicChange.bind(this));
-        // html.on('change', '.school-checkbox', this._onSchoolChange.bind(this));
-        // html.on('change', '.word-checkbox', this._onWordChange.bind(this));
         html.on('change', '.overflow-box', this._onOverflowChange.bind(this));
         html.on('change', '.resilience-box', this._onResilienceBoxChange.bind(this));
 
@@ -94,7 +92,7 @@ export class MagicOverflowActorSheet extends ActorSheet {
         const box = event.currentTarget;
         const boxIndex = Number(box.dataset.box || 0);
         const newValue = box.checked ? boxIndex + 1 : boxIndex;
-        await this.actor.update({ 'system.overflowTrack': newValue });
+        await this.actor.update({ 'system.overflow.value': newValue });
     }
 
     async _onResilienceBoxChange(event) {
@@ -120,18 +118,6 @@ export class MagicOverflowActorSheet extends ActorSheet {
         console.log('Proficiency change:', magicType, magicKey, isChecked);
         this.actor.update({ [`system.magic.${magicType}.${magicKey}.prof`]: isChecked });
     }
-
-    // _onSchoolChange(event) {
-    //     const schoolKey = event.currentTarget.dataset.school;
-    //     const isChecked = event.currentTarget.checked;
-    //     this.actor.update({ [`system.magic.schools.${schoolKey}.prof`]: isChecked });
-    // }
-
-    // _onWordChange(event) {
-    //     const wordKey = event.currentTarget.dataset.word;
-    //     const isChecked = event.currentTarget.checked;
-    //     this.actor.update({ [`system.magic.words.${wordKey}.prof`]: isChecked });
-    // }
 
     async _updateObject(event, formData) {
         return super._updateObject(event, formData);
