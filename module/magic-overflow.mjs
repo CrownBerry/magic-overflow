@@ -20,6 +20,21 @@ Hooks.once("init", async function () {
         return result;
     });
 
+    Handlebars.registerHelper('times_from', function(start, n, block) {
+        let accum = '';
+        for (let i = start; i <= n; ++i) {
+            accum += block.fn(i);
+        }
+        return accum;
+    });
+
+    Handlebars.registerHelper('multiboxes', function (value) {
+        if (!Array.isArray(value)) {
+            value = [value];
+        }
+        return value.map(v => v !== false);
+    });
+
     Actors.unregisterSheet("core", ActorSheet);
     Actors.registerSheet("magic-overflow", MagicOverflowActorSheet, {
         types: ["character"],

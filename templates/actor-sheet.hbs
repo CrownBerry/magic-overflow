@@ -112,10 +112,13 @@
                     <div class="track">
                         <label>{{track.label}}</label>
                         <div class="track-boxes resilience-track-boxes">
-                            {{#times 4}}
-                            <input type="checkbox" class="resilience-box" data-resilience="{{track.name}}"
-                                data-box="{{index}}" {{#if (lt index track.value)}}checked{{/if}} />
-                            {{/times}}
+                            {{#multiboxes track.value}}
+                            {{#times_from 1 4}}
+                            <input type="checkbox" class="resilience-box" data-resilience="{{../track.name}}"
+                                data-box="{{this}}" name="system.resilience.{{../track.name}}.value" value="{{this}}"
+                                {{#if (lt . ../../track.value)}}checked{{/if}} />
+                            {{/times_from}}
+                            {{/multiboxes}}
                         </div>
                     </div>
                     {{/each}}
