@@ -10,7 +10,7 @@ Hooks.once("init", async function () {
 
     registerHandlebarsHelpers();
 
-    CONFIG.Actor.entityClass = MagicOverflowActor;
+    CONFIG.Actor.documentClass = MagicOverflowActor;
 
     Actors.unregisterSheet("core", ActorSheet);
     Actors.registerSheet("magic-overflow", MagicOverflowActorSheet, {
