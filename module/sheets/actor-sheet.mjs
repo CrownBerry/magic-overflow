@@ -21,6 +21,8 @@ export class MagicOverflowActorSheet extends ActorSheet {
         context.system = actorData.system;
         context.config = CONFIG.MO;
 
+        console.log('Full context is:', context);
+
         // Преобразуем данные для шаблона
         return {
             ...context,
