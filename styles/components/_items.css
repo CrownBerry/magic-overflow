@@ -20,19 +20,16 @@
     padding: 12px;
     background: rgba(120, 46, 34, 0.05);
     cursor: pointer;
+    width: 100%;    
     box-sizing: border-box;
-    width: 100%;
 }
 
-.items-list .item-info {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.item-info {
+    grid-column: 2;
 }
 
-.items-list .item-controls {
-    display: flex;
-    gap: 8px;
+.item-controls {
+    grid-column: 3;
 }
 
 .items-list .item-name {
