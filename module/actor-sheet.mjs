@@ -106,7 +106,7 @@ export class MagicOverflowActorSheet extends ActorSheet {
         event.preventDefault();
         const trackType = event.currentTarget.dataset.resilience;
         const boxIndex = Number(event.currentTarget.dataset.box || 0);
-        const newValue = event.currentTarget.checked ? boxIndex : boxIndex - 1;
+        const newValue = event.currentTarget.checked ? boxIndex + 1 : boxIndex;
 
         // Явно приводим к числу
         const updateData = {};
