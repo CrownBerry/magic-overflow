@@ -23,9 +23,7 @@ export class MagicOverflowActorSheet extends ActorSheet {
 
         console.log('Full context is:', context);
 
-        this._prepareSkills(context);
-        this._prepareBackgrounds(context);
-        this._prepareKnowledge(context);
+        this._prepareProficiencies(context);
         this._prepareResilience(context);
         this._prepareMagic(context);
 
@@ -35,48 +33,17 @@ export class MagicOverflowActorSheet extends ActorSheet {
         return context;
     }
 
-    _prepareList(configPath, systemData, options = {}) {
-        const { valueKey = 'value', flagKey = null } = options;
-        const config = foundry.utils.getProperty(CONFIG.MO, configPath);
-
-        return Object.entries(config).map(([key, data]) => {
-            const base = {
-                name: key,
-                label: game.i18n.localize(data.label)
-            };
-
-            if (flagKey) {
-                base[flagKey] = foundry.utils.getProperty(systemData, `${key}.${flagKey}`) || false;
-            }
-
-            if (valueKey === 'specializations') {
-                base[valueKey] = foundry.utils.getProperty(systemData, `${key}.${valueKey}`) || [];
-            } else if (valueKey) {
-                // Используем getProperty для получения значения из systemData
-                const path = configPath === 'resilience' ? `resilience.${key}.${valueKey}` : key;
-                base[valueKey] = foundry.utils.getProperty(systemData, path) ?? (data[valueKey] || 0);
-            }
-
-            return base;
-        });
-    }
-
-    _prepareSkills(context) {
+    _prepareProficiencies(context) {
         for (let [key, data] of Object.entries(context.system.skills)) {
             context.system.skills[key].label = game.i18n.localize(context.config.skills[key]);
         }
-    }
-
-    _prepareBackgrounds(context) {
         for (let [key, data] of Object.entries(context.system.backgrounds)) {
             context.system.backgrounds[key].label = game.i18n.localize(context.config.backgrounds[key]);
         }
-    }
-
-    _prepareKnowledge(context) {
         for (let [key, data] of Object.entries(context.system.knowledge)) {
             context.system.knowledge[key].label = game.i18n.localize(context.config.knowledge[key]);
         }
+
     }
 
     _prepareResilience(context) {
@@ -86,10 +53,12 @@ export class MagicOverflowActorSheet extends ActorSheet {
     }
 
     _prepareMagic(context) {
-        return {
-            schools: this._prepareList('magic.schools', context.system.magic.schools, { flagKey: 'hasSchool' }),
-            words: this._prepareList('magic.words', context.system.magic.words, { flagKey: 'hasWord' })
-        };
+        for (let [key, data] of Object.entries(context.system.magic.schools)) {
+            context.system.magic.schools[key].label = game.i18n.localize(context.config.magic.schools[key]);
+        }
+        for (let [key, data] of Object.entries(context.system.magic.words)) {
+            context.system.magic.words[key].label = game.i18n.localize(context.config.magic.words[key]);
+        }
     }
 
     activateListeners(html) {
