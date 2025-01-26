@@ -129,11 +129,11 @@
                 <div class="schools-section">
                     <h2>{{localize "MO.ui.schools"}}</h2>
                     <ul>
-                        {{#each magic.schools}}
+                        {{#each system.magic.schools as |school key|}}
                         <li>
-                            <input type="checkbox" class="school-checkbox" data-school="{{name}}" {{checked
-                                hasSchool}} />
-                            <span>{{label}}</span>
+                            <input type="checkbox" class="school-checkbox" data-school="{{key}}" {{checked
+                                school.prof}} />
+                            <span>{{school.label}}</span>
                         </li>
                         {{/each}}
                     </ul>
@@ -142,10 +142,10 @@
                 <div class="words-section">
                     <h2>{{localize "MO.ui.words"}}</h2>
                     <ul>
-                        {{#each magic.words}}
+                        {{#each system.magic.words as |word key|}}
                         <li>
-                            <input type="checkbox" class="word-checkbox" data-word="{{name}}" {{checked hasWord}} />
-                            <span>{{label}}</span>
+                            <input type="checkbox" class="word-checkbox" data-word="{{key}}" {{checked hasWord}} />
+                            <span>{{word.label}}</span>
                         </li>
                         {{/each}}
                     </ul>
