@@ -37,11 +37,11 @@
                 <div class="skills-section">
                     <h2>{{localize "MO.ui.skills"}}</h2>
                     <ul>
-                        {{#each system.skills}}
+                        {{#each system.skills as |skill key|}}
                         <li>
-                            <input type="checkbox" class="skill-checkbox" data-skill="{{name}}" {{checked hasSkill}} />
-                            <span>{{label}}</span>
-                            <input type="text" class="skill-specialization" data-skill="{{name}}"
+                            <input type="checkbox" class="skill-checkbox" data-skill="{{key}}" {{checked skill.hasSkill}} />
+                            <span>{{skill.label}}</span>
+                            <input type="text" class="skill-specialization" data-skill="{{key}}"
                                 value="{{join specializations ','}}"
                                 placeholder="{{localize 'MO.ui.specializations'}}" />
                         </li>
