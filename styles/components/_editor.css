@@ -1,3 +1,7 @@
+.editor .tox-edit-area {
+    min-height: 200px;
+}
+
 .editor-content {
     min-height: 200px;
     border: 1px solid #ccc;
@@ -6,6 +10,21 @@
     background: rgba(255, 255, 255, 0.8);
 }
 
-.editor .tox-edit-area {
-    min-height: 200px;
+.editor.prosemirror {
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.editor.prosemirror .editor-content {
+    flex: 1;
+    min-height: 250px;
+}
+
+/* Стили для панели инструментов редактора */
+.editor.prosemirror .pk-toolbar {
+    background: rgba(248, 248, 248, 0.9);
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 8px;
 }
