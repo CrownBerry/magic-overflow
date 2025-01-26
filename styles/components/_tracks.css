@@ -1,32 +1,37 @@
-.resilience-tracks {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-}
-
 .track {
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
-.track label,
-.overflow-track label {
+.track label {
     font-weight: bold;
-    font-size: 14px;
+    color: #444;
 }
 
-.track input,
-.overflow-track input {
-    width: 60px;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.overflow-track {
+.track-boxes {
     display: flex;
-    flex-direction: column;
     gap: 5px;
-    align-items: flex-start;
+}
+
+.track-boxes input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #782e22;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.track-boxes input[type="checkbox"]:checked {
+    background-color: #782e22;
+}
+
+/* Особый стиль для четвертого чекбокса resilience */
+.resilience-track-boxes input[type="checkbox"]:nth-child(4) {
+    border-color: #4a90e2;
+}
+
+.resilience-track-boxes input[type="checkbox"]:nth-child(4):checked {
+    background-color: #4a90e2;
 }
