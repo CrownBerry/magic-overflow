@@ -41,7 +41,7 @@ function registerHandlebarsHelpers() {
 
     Handlebars.registerHelper('times_from', function (start, n, block) {
         let accum = '';
-        for (let i = start; i <= n; ++i) {
+        for (let i = start; i < n; ++i) {
             accum += block.fn(i);
         }
         return accum;
