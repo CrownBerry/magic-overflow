@@ -120,3 +120,37 @@
 .overflow-track .track-boxes input[type="checkbox"]:checked {
     background-color: #782e22 !important;
 }
+
+/* Стили для талантов */
+.items-list .item {
+    margin-bottom: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.items-list .item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    background: rgba(120, 46, 34, 0.05);
+    cursor: pointer;
+    width: 100%;
+}
+
+.items-list .item-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.items-list .item-name {
+    margin: 0;
+}
+
+.items-list .item-description {
+    padding: 10px;
+    display: none;
+    border-top: 1px solid #ddd;
+}
