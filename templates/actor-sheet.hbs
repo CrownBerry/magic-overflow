@@ -131,7 +131,7 @@
                     <ul>
                         {{#each system.magic.schools as |school key|}}
                         <li>
-                            <input type="checkbox" class="school-checkbox magic-checkbox" data-magic="schoo" data-magickey="{{key}}" {{checked
+                            <input type="checkbox" class="school-checkbox magic-checkbox" data-magic="schools" data-magickey="{{key}}" {{checked
                                 school.prof}} />
                             <span>{{school.label}}</span>
                         </li>
@@ -144,7 +144,7 @@
                     <ul>
                         {{#each system.magic.words as |word key|}}
                         <li>
-                            <input type="checkbox" class="word-checkbox magic-checkbox" data-magic="word" data-magickey="{{key}}" {{checked word.prof}} />
+                            <input type="checkbox" class="word-checkbox magic-checkbox" data-magic="words" data-magickey="{{key}}" {{checked word.prof}} />
                             <span>{{word.label}}</span>
                         </li>
                         {{/each}}
