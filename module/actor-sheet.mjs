@@ -24,7 +24,6 @@ export class MagicOverflowActorSheet extends ActorSheet {
             skills: this._prepareSkills(systemData.skills),
             backgrounds: this._prepareBackgrounds(systemData.backgrounds),
             knowledge: this._prepareKnowledge(systemData.knowledge),
-            resilience: this._prepareResilience(systemData.resilience),
             magic: this._prepareMagic(systemData.magic),
             talents: this.actor.items.filter(item => item.type === 'talent')
         };
@@ -66,16 +65,6 @@ export class MagicOverflowActorSheet extends ActorSheet {
 
     _prepareKnowledge(knowledge) {
         return this._prepareList('knowledge', knowledge, { flagKey: 'hasKnowledge' });
-    }
-
-    _prepareResilience(resilience) {
-        // Теперь данные берутся напрямую из system
-        return Object.entries(resilience).map(([key, data]) => ({
-            name: key,
-            label: game.i18n.localize(data.label),
-            value: data.value,
-            max: data.max
-        }));
     }
 
     _prepareMagic(magic) {

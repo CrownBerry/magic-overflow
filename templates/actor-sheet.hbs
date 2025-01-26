@@ -108,18 +108,38 @@
                 </div>
 
                 <div class="resilience-column">
-                    {{#each resilience as |track|}}
                     <div class="track">
-                        <label>{{track.label}}</label>
+                        <label>{{localize "MO.resilience.flesh"}}</label>
                         <div class="track-boxes resilience-track-boxes">
-                            {{#times_from 1 track.max}}
-                            <input type="checkbox" class="resilience-box" data-resilience="{{track.name}}"
-                                data-box="{{this}}" name="system.resilience.{{track.name}}.value" value="{{track.value}}" {{#if
-                                (lt this track.value)}}checked{{/if}} />
+                            {{#times_from 1 system.resilience.flesh.max}}
+                            <input type="checkbox" class="resilience-box" data-resilience="flesh" data-box="{{this}}"
+                                name="system.resilience.flesh.value" value="{{system.resilience.flesh.value}}" {{#if (lt this
+                                system.resilience.flesh.value)}}checked{{/if}} />
                             {{/times_from}}
                         </div>
                     </div>
-                    {{/each}}
+
+                    <div class="track">
+                        <label>{{localize "MO.resilience.mind"}}</label>
+                        <div class="track-boxes resilience-track-boxes">
+                            {{#times_from 1 system.resilience.mind.max}}
+                            <input type="checkbox" class="resilience-box" data-resilience="mind" data-box="{{this}}"
+                                name="system.resilience.mind.value" value="{{system.resilience.mind.value}}" {{#if (lt this
+                                system.resilience.mind.value)}}checked{{/if}} />
+                            {{/times_from}}
+                        </div>
+                    </div>
+
+                    <div class="track">
+                        <label>{{localize "MO.resilience.spirit"}}</label>
+                        <div class="track-boxes resilience-track-boxes">
+                            {{#times_from 1 system.resilience.spirit.max}}
+                            <input type="checkbox" class="resilience-box" data-resilience="spirit" data-box="{{this}}"
+                                name="system.resilience.spirit.value" value="{{system.resilience.spirit.value}}" {{#if (lt this
+                                system.resilience.spirit.value)}}checked{{/if}} />
+                            {{/times_from}}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
