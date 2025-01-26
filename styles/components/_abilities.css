@@ -141,13 +141,14 @@
     width: 100%;
 }
 
-.items-list .item-header {
-    display: flex;
-    justify-content: space-between;
+.item-header {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
-    padding: 8px 12px;
-    background: rgba(120, 46, 34, 0.05);
-    cursor: pointer;
+    gap: 12px;
+    padding: 12px;
+    box-sizing: border-box;
+    width: 100%;
 }
 
 .items-list .item-info {
