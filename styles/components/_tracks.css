@@ -11,27 +11,78 @@
 
 .track-boxes {
     display: flex;
-    gap: 5px;
+    gap: 2px;
 }
 
 .track-boxes input[type="checkbox"] {
     appearance: none;
     width: 20px;
     height: 20px;
-    border: 2px solid #782e22;
+    border: 2px solid;
     border-radius: 4px;
     cursor: pointer;
+    margin: 0;
 }
 
-.track-boxes input[type="checkbox"]:checked {
-    background-color: #782e22;
+/* Flesh */
+.resilience-track-boxes input[type="checkbox"][data-resilience="flesh"] {
+    border-color: #8B4513;
 }
 
-/* Особый стиль для четвертого чекбокса resilience */
-.resilience-track-boxes input[type="checkbox"]:nth-child(4) {
-    border-color: #4a90e2;
+.resilience-track-boxes input[type="checkbox"][data-resilience="flesh"]:checked {
+    background-color: #8B4513;
 }
 
-.resilience-track-boxes input[type="checkbox"]:nth-child(4):checked {
-    background-color: #4a90e2;
+.resilience-track-boxes input[type="checkbox"][data-resilience="flesh"]:nth-child(4) {
+    border-color: #BA8973;
+    background-color: #F5E6E0;
+}
+
+.resilience-track-boxes input[type="checkbox"][data-resilience="flesh"]:nth-child(4):checked {
+    background-color: #BA8973;
+}
+
+/* Mind */
+.resilience-track-boxes input[type="checkbox"][data-resilience="mind"] {
+    border-color: #4A5D7F;
+}
+
+.resilience-track-boxes input[type="checkbox"][data-resilience="mind"]:checked {
+    background-color: #4A5D7F;
+}
+
+.resilience-track-boxes input[type="checkbox"][data-resilience="mind"]:nth-child(4) {
+    border-color: #8696B5;
+    background-color: #E6EAF2;
+}
+
+.resilience-track-boxes input[type="checkbox"][data-resilience="mind"]:nth-child(4):checked {
+    background-color: #8696B5;
+}
+
+/* Spirit */
+.resilience-track-boxes input[type="checkbox"][data-resilience="spirit"] {
+    border-color: #614051;
+}
+
+.resilience-track-boxes input[type="checkbox"][data-resilience="spirit"]:checked {
+    background-color: #614051;
+}
+
+.resilience-track-boxes input[type="checkbox"][data-resilience="spirit"]:nth-child(4) {
+    border-color: #967687;
+    background-color: #F2E6EC;
+}
+
+.resilience-track-boxes input[type="checkbox"][data-resilience="spirit"]:nth-child(4):checked {
+    background-color: #967687;
+}
+
+/* Overflow */
+.overflow-track input[type="checkbox"] {
+    border-color: #B35C37;
+}
+
+.overflow-track input[type="checkbox"]:checked {
+    background-color: #B35C37;
 }
