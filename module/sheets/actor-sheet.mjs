@@ -3,8 +3,8 @@ export class MagicOverflowActorSheet extends ActorSheet {
         return foundry.utils.mergeObject(super.defaultOptions, {
             template: "systems/magic-overflow/templates/actor-sheet.hbs",
             classes: ["magic-overflow", "sheet", "actor"],
-            width: 1200,
-            height: 700,
+            width: 800,
+            height: 750,
             tabs: [{
                 navSelector: ".sheet-tabs",
                 contentSelector: ".sheet-body",
