@@ -148,14 +148,18 @@
     padding: 8px 12px;
     background: rgba(120, 46, 34, 0.05);
     cursor: pointer;
-    width: 100%;
 }
 
 .items-list .item-info {
     display: flex;
     align-items: center;
     gap: 10px;
-    flex: 1;
+    flex-grow: 1;
+}
+
+.items-list .item-controls {
+    display: flex;
+    gap: 8px;
 }
 
 .items-list .item-name {
