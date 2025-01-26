@@ -108,14 +108,14 @@
                 </div>
 
                 <div class="resilience-column">
-                    {{#each system.resilience as |resilience key|}}
+                    {{#each system.resilience as |track key|}}
                     <div class="track">
-                        <label>{{localize resilience.label}}</label>
+                        <label>{{localize track.label}}</label>
                         <div class="track-boxes resilience-track-boxes">
-                            {{#times_from 0 resilience.max}}
+                            {{#times_from 0 track.max}}
                             <input type="checkbox" class="resilience-box" data-resilience="{{key}}" data-box="{{this}}"
-                                name="system.resilience.{{key}}.value"
-                                 {{#if (lt this resilience.value)}}checked{{/if}} />
+                                name="system.resilience.{{key}}.value" value="{{this}}"
+                                 {{#if (lt this track.value)}}checked{{/if}} />
                             {{/times_from}}
                         </div>
                     </div>
