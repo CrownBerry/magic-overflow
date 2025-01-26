@@ -24,10 +24,10 @@ export class MagicOverflowActorSheet extends ActorSheet {
         // Преобразуем данные для шаблона
         return {
             ...context,
-            skills: this._prepareSkills(systemData.skills),
-            backgrounds: this._prepareBackgrounds(systemData.backgrounds),
-            knowledge: this._prepareKnowledge(systemData.knowledge),
-            magic: this._prepareMagic(systemData.magic),
+            skills: this._prepareSkills(context.system.skills),
+            backgrounds: this._prepareBackgrounds(context.system.backgrounds),
+            knowledge: this._prepareKnowledge(context.system.knowledge),
+            magic: this._prepareMagic(context.system.magic),
             talents: this.actor.items.filter(item => item.type === 'talent')
         };
     }
