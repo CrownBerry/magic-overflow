@@ -62,7 +62,7 @@ export class MagicOverflowActorSheet extends ActorSheet {
 
     _prepareSkills(context) {
         for (let [key, data] of Object.entries(context.system.skills)) {
-            context.system.skills[key].label = game.i18n.localize(data.label);
+            context.system.skills[key].label = game.i18n.localize(context.config.skills[key]);
         }
     }
 
