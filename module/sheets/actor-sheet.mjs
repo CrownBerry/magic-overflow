@@ -28,6 +28,7 @@ export class MagicOverflowActorSheet extends ActorSheet {
         this._prepareMagic(context);
 
         context.talents = this.actor.items.filter(item => item.type === 'talent');
+        context.spells = this.actor.items.filter(item => item.type === 'spell');
 
         // Преобразуем данные для шаблона
         return context;

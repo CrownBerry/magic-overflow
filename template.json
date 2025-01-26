@@ -168,7 +168,8 @@
     },
     "Item": {
         "types": [
-            "talent"
+            "talent",
+            "spell"
         ],
         "templates": {
             "base": {
@@ -180,6 +181,11 @@
                 "base"
             ],
             "source": ""
+        },
+        "spell": {
+            "templates": [
+                "base"
+            ]
         }
     }
 }

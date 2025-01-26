@@ -79,6 +79,12 @@
         "cancel": "Cancel",
         "specializations": "Enter specializations",
         "deleteTalentTitle": "Delete Talent",
-        "deleteTalentContent": "Are you sure you want to delete {name}?"
+        "deleteTalentContent": "Are you sure you want to delete {name}?",
+        "spellName": "Enter spell name",
+        "newSpell": "New Spell",
+        "spells": "Spells",
+        "addSpell": "Add Spell",
+        "deleteSpellTitle": "Delete Spell",
+        "deleteSpellContent": "Are you sure you want to delete {name}?"
     }
 }
