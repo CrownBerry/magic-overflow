@@ -1,0 +1,11 @@
+.editor-content {
+    min-height: 200px;
+    border: 1px solid #ccc;
+    padding: 8px;
+    margin-bottom: 8px;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.editor .tox-edit-area {
+    min-height: 200px;
+}
