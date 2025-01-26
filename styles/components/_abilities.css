@@ -122,8 +122,20 @@
 }
 
 /* Стили для талантов */
+.talents-column {
+    flex: 2;
+    width: 100%;
+}
+
+.items-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
 .items-list .item {
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     border: 1px solid #ddd;
     border-radius: 4px;
     width: 100%;
@@ -133,7 +145,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px;
+    padding: 8px 12px;
     background: rgba(120, 46, 34, 0.05);
     cursor: pointer;
     width: 100%;
@@ -143,14 +155,17 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    flex: 1;
 }
 
 .items-list .item-name {
     margin: 0;
+    font-weight: bold;
 }
 
 .items-list .item-description {
-    padding: 10px;
+    padding: 12px;
     display: none;
     border-top: 1px solid #ddd;
+    background: #fff;
 }
