@@ -65,7 +65,7 @@
                 <div class="knowledge-section">
                     <h2>{{localize "MO.ui.knowledge"}}</h2>
                     <ul>
-                        {{#each knowledge as |knowledge key|}}
+                        {{#each system.knowledge as |knowledge key|}}
                         <li>
                             <input type="checkbox" class="knowledge-checkbox" data-knowledge="{{key}}" {{checked
                                 knowledge.prof}} />
