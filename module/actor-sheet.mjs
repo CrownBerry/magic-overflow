@@ -69,7 +69,13 @@ export class MagicOverflowActorSheet extends ActorSheet {
     }
 
     _prepareResilience(resilience) {
-        return this._prepareList('resilience', resilience, { valueKey: 'value' });
+        // Теперь данные берутся напрямую из system
+        return Object.entries(resilience).map(([key, data]) => ({
+            name: key,
+            label: game.i18n.localize(data.label),
+            value: data.value,
+            max: data.max
+        }));
     }
 
     _prepareMagic(magic) {

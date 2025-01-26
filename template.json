@@ -47,13 +47,19 @@
             },
             "resilience": {
                 "flesh": {
-                    "value": 0
+                    "value": 0,
+                    "max": 4,
+                    "label": "MO.resilience.flesh"
                 },
                 "mind": {
-                    "value": 0
+                    "value": 0,
+                    "max": 4,
+                    "label": "MO.resilience.mind"
                 },
                 "spirit": {
-                    "value": 0
+                    "value": 0,
+                    "max": 4,
+                    "label": "MO.resilience.spirit"
                 }
             },
             "backgrounds": {
