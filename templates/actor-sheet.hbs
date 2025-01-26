@@ -108,13 +108,13 @@
                 </div>
 
                 <div class="resilience-column">
-                    {{#each resilience}}
+                    {{#each resilience as |track|}}
                     <div class="track">
-                        <label>{{label}}</label>
+                        <label>{{track.label}}</label>
                         <div class="track-boxes resilience-track-boxes">
                             {{#times 4}}
-                            <input type="checkbox" class="resilience-box" data-resilience="{{../name}}"
-                                data-box="{{index}}" {{#if (lt index ../value)}}checked{{/if}} />
+                            <input type="checkbox" class="resilience-box" data-resilience="{{track.name}}"
+                                data-box="{{index}}" {{#if (lt index track.value)}}checked{{/if}} />
                             {{/times}}
                         </div>
                     </div>
