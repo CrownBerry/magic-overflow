@@ -37,7 +37,7 @@
                 <div class="skills-section">
                     <h2>{{localize "MO.ui.skills"}}</h2>
                     <ul>
-                        {{#each skills}}
+                        {{#each system.skills}}
                         <li>
                             <input type="checkbox" class="skill-checkbox" data-skill="{{name}}" {{checked hasSkill}} />
                             <span>{{label}}</span>
