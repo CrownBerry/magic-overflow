@@ -1,7 +1,8 @@
 export class MagicOverflowActor extends Actor {
     prepareData() {
         super.prepareData();
-        const actorData = this.system;
+        const actorData = this;
+        const systemData = this.system;
 
         if (this.type === 'character') {
             this._prepareCharacterData(actorData);
@@ -9,9 +10,14 @@ export class MagicOverflowActor extends Actor {
     }
 
     _prepareCharacterData(actorData) {
+        if (actorData.type !== 'character') return;
+    
+        // Make modifications to data here. For example:
+        const systemData = actorData.system;
+
         // Инициализация стартовых значений
         // Вычисление производных значений
-        this._prepareResilience(actorData.resilience);
+        this._prepareResilience(systemData.resilience);
     }
 
     _prepareResilience(resilience) {
