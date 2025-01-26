@@ -39,7 +39,7 @@
                     <ul>
                         {{#each system.skills as |skill key|}}
                         <li>
-                            <input type="checkbox" class="skill-checkbox" data-skill="{{key}}" {{checked skill.prof}} />
+                            <input type="checkbox" class="skill-checkbox prof-checkbox" data-prof="skills" data-profkey="{{key}}" {{checked skill.prof}} />
                             <span>{{skill.label}}</span>
                             <input type="text" class="skill-specialization" data-skill="{{key}}"
                                 value="{{join specializations ','}}"
@@ -54,7 +54,7 @@
                     <ul>
                         {{#each system.backgrounds as |background key|}}
                         <li>
-                            <input type="checkbox" class="background-checkbox" data-background="{{key}}" {{checked
+                            <input type="checkbox" class="background-checkbox prof-checkbox" data-prof="backgrounds" data-profkey="{{key}}" {{checked
                                 background.prof}} />
                             <span>{{background.label}}</span>
                         </li>
@@ -67,7 +67,7 @@
                     <ul>
                         {{#each system.knowledge as |knowledge key|}}
                         <li>
-                            <input type="checkbox" class="knowledge-checkbox" data-knowledge="{{key}}" {{checked
+                            <input type="checkbox" class="knowledge-checkbox prof-checkbox" data-prof="knowledge" data-profkey="{{key}}" {{checked
                                 knowledge.prof}} />
                             <span>{{knowledge.label}}</span>
                         </li>

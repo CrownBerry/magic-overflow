@@ -65,10 +65,11 @@ export class MagicOverflowActorSheet extends ActorSheet {
         super.activateListeners(html);
 
         // Delegated event handlers
-        html.on('change', '.skill-checkbox', this._onSkillChange.bind(this));
+        html.on('change', '.prof-checkbox', this._onProfChange.bind(this));
+        // html.on('change', '.skill-checkbox', this._onSkillChange.bind(this));
         html.on('change', '.skill-specialization', this._onSpecializationChange.bind(this));
-        html.on('change', '.background-checkbox', this._onBackgroundChange.bind(this));
-        html.on('change', '.knowledge-checkbox', this._onKnowledgeChange.bind(this));
+        // html.on('change', '.background-checkbox', this._onBackgroundChange.bind(this));
+        // html.on('change', '.knowledge-checkbox', this._onKnowledgeChange.bind(this));
         html.on('change', '.school-checkbox', this._onSchoolChange.bind(this));
         html.on('change', '.word-checkbox', this._onWordChange.bind(this));
         html.on('change', '.overflow-box', this._onOverflowChange.bind(this));
@@ -79,6 +80,14 @@ export class MagicOverflowActorSheet extends ActorSheet {
         html.find('.item-edit').click(this._onItemEdit.bind(this));
         html.find('.item-delete').click(this._onItemDelete.bind(this));
         html.find('.item-name').click(this._onItemToggleDescription.bind(this));
+    }
+
+    _onProfChange(event) {
+        const box = event.currentTarget;
+        const prof = box.dataset.prof;
+        const profKey = box.dataset.profKey;
+        const isChecked = event.currentTarget.checked;
+        this.actor.update({ [`system.${prof}.${profKey}.prof`]: isChecked });
     }
 
     async _onOverflowChange(event) {
@@ -98,11 +107,11 @@ export class MagicOverflowActorSheet extends ActorSheet {
         await this.actor.update({ [`system.resilience.${trackType}.value`]: newValue });
     }
 
-    _onSkillChange(event) {
-        const skillKey = event.currentTarget.dataset.skill;
-        const isChecked = event.currentTarget.checked;
-        this.actor.update({ [`system.skills.${skillKey}.prof`]: isChecked });
-    }
+    // _onSkillChange(event) {
+    //     const skillKey = event.currentTarget.dataset.skill;
+    //     const isChecked = event.currentTarget.checked;
+    //     this.actor.update({ [`system.skills.${skillKey}.prof`]: isChecked });
+    // }
 
     _onSpecializationChange(event) {
         const skillKey = event.currentTarget.dataset.skill;
@@ -110,17 +119,17 @@ export class MagicOverflowActorSheet extends ActorSheet {
         this.actor.update({ [`system.skills.${skillKey}.specializations`]: specializations });
     }
 
-    _onBackgroundChange(event) {
-        const bgKey = event.currentTarget.dataset.background;
-        const isChecked = event.currentTarget.checked;
-        this.actor.update({ [`system.backgrounds.${bgKey}.prof`]: isChecked });
-    }
+    // _onBackgroundChange(event) {
+    //     const bgKey = event.currentTarget.dataset.background;
+    //     const isChecked = event.currentTarget.checked;
+    //     this.actor.update({ [`system.backgrounds.${bgKey}.prof`]: isChecked });
+    // }
 
-    _onKnowledgeChange(event) {
-        const knowKey = event.currentTarget.dataset.knowledge;
-        const isChecked = event.currentTarget.checked;
-        this.actor.update({ [`system.knowledge.${knowKey}.prof`]: isChecked });
-    }
+    // _onKnowledgeChange(event) {
+    //     const knowKey = event.currentTarget.dataset.knowledge;
+    //     const isChecked = event.currentTarget.checked;
+    //     this.actor.update({ [`system.knowledge.${knowKey}.prof`]: isChecked });
+    // }
 
     _onSchoolChange(event) {
         const schoolKey = event.currentTarget.dataset.school;
