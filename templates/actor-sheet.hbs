@@ -39,7 +39,7 @@
                     <ul>
                         {{#each system.skills as |skill key|}}
                         <li>
-                            <input type="checkbox" class="skill-checkbox" data-skill="{{key}}" {{checked skill.hasSkill}} />
+                            <input type="checkbox" class="skill-checkbox" data-skill="{{key}}" {{checked skill.prof}} />
                             <span>{{skill.label}}</span>
                             <input type="text" class="skill-specialization" data-skill="{{key}}"
                                 value="{{join specializations ','}}"
@@ -52,11 +52,11 @@
                 <div class="backgrounds-section">
                     <h2>{{localize "MO.ui.backgrounds"}}</h2>
                     <ul>
-                        {{#each backgrounds}}
+                        {{#each system.backgrounds as |background key|}}
                         <li>
-                            <input type="checkbox" class="background-checkbox" data-background="{{name}}" {{checked
-                                hasBackground}} />
-                            <span>{{label}}</span>
+                            <input type="checkbox" class="background-checkbox" data-background="{{key}}" {{checked
+                                background.prof}} />
+                            <span>{{background.label}}</span>
                         </li>
                         {{/each}}
                     </ul>
@@ -65,11 +65,11 @@
                 <div class="knowledge-section">
                     <h2>{{localize "MO.ui.knowledge"}}</h2>
                     <ul>
-                        {{#each knowledge}}
+                        {{#each knowledge as |knowledge key|}}
                         <li>
-                            <input type="checkbox" class="knowledge-checkbox" data-knowledge="{{name}}" {{checked
-                                hasKnowledge}} />
-                            <span>{{label}}</span>
+                            <input type="checkbox" class="knowledge-checkbox" data-knowledge="{{key}}" {{checked
+                                knowledge.prof}} />
+                            <span>{{knowledge.label}}</span>
                         </li>
                         {{/each}}
                     </ul>
@@ -108,38 +108,18 @@
                 </div>
 
                 <div class="resilience-column">
+                    {{#each system.resilience as |resilience key|}}
                     <div class="track">
-                        <label>{{localize "MO.resilience.flesh"}}</label>
+                        <label>{{localize resilience.label}}</label>
                         <div class="track-boxes resilience-track-boxes">
-                            {{#times_from 1 system.resilience.flesh.max}}
-                            <input type="checkbox" class="resilience-box" data-resilience="flesh" data-box="{{this}}"
-                                name="system.resilience.flesh.value" value="{{system.resilience.flesh.value}}" max="{{system.resilience.flesh.max}}" {{#if (lt this
-                                system.resilience.flesh.value)}}checked{{/if}} />
+                            {{#times_from 1 resilience.max}}
+                            <input type="checkbox" class="resilience-box" data-resilience="{{key}}" data-box="{{this}}"
+                                name="system.resilience.flesh.value" value="{{resilience.value}}"
+                                max="{{resilience.max}}" {{#if (lt this resilience.value)}}checked{{/if}} />
                             {{/times_from}}
                         </div>
                     </div>
-
-                    <div class="track">
-                        <label>{{localize "MO.resilience.mind"}}</label>
-                        <div class="track-boxes resilience-track-boxes">
-                            {{#times_from 1 system.resilience.mind.max}}
-                            <input type="checkbox" class="resilience-box" data-resilience="mind" data-box="{{this}}"
-                                name="system.resilience.mind.value" value="{{system.resilience.mind.value}}" {{#if (lt this
-                                system.resilience.mind.value)}}checked{{/if}} />
-                            {{/times_from}}
-                        </div>
-                    </div>
-
-                    <div class="track">
-                        <label>{{localize "MO.resilience.spirit"}}</label>
-                        <div class="track-boxes resilience-track-boxes">
-                            {{#times_from 1 system.resilience.spirit.max}}
-                            <input type="checkbox" class="resilience-box" data-resilience="spirit" data-box="{{this}}"
-                                name="system.resilience.spirit.value" value="{{system.resilience.spirit.value}}" {{#if (lt this
-                                system.resilience.spirit.value)}}checked{{/if}} />
-                            {{/times_from}}
-                        </div>
-                    </div>
+                    {{/each}}
                 </div>
             </div>
         </div>

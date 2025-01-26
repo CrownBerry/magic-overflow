@@ -17,31 +17,31 @@
             ],
             "skills": {
                 "brawl": {
-                    "hasSkill": false,
+                    "prof": false,
                     "specializations": []
                 },
                 "stealth": {
-                    "hasSkill": false,
+                    "prof": false,
                     "specializations": []
                 },
                 "communication": {
-                    "hasSkill": false,
+                    "prof": false,
                     "specializations": []
                 },
                 "coordination": {
-                    "hasSkill": false,
+                    "prof": false,
                     "specializations": []
                 },
                 "craft": {
-                    "hasSkill": false,
+                    "prof": false,
                     "specializations": []
                 },
                 "observation": {
-                    "hasSkill": false,
+                    "prof": false,
                     "specializations": []
                 },
                 "survival": {
-                    "hasSkill": false,
+                    "prof": false,
                     "specializations": []
                 }
             },
@@ -64,95 +64,95 @@
             },
             "backgrounds": {
                 "highSociety": {
-                    "hasBackground": false
+                    "prof": false
                 },
                 "militaryOrganization": {
-                    "hasBackground": false
+                    "prof": false
                 },
                 "religiousCommunity": {
-                    "hasBackground": false
+                    "prof": false
                 },
                 "tradeGroup": {
-                    "hasBackground": false
+                    "prof": false
                 },
                 "craftGuild": {
-                    "hasBackground": false
+                    "prof": false
                 },
                 "criminalCommunity": {
-                    "hasBackground": false
+                    "prof": false
                 },
                 "freeWorker": {
-                    "hasBackground": false
+                    "prof": false
                 }
             },
             "knowledge": {
                 "exactSciences": {
-                    "hasKnowledge": false
+                    "prof": false
                 },
                 "art": {
-                    "hasKnowledge": false
+                    "prof": false
                 },
                 "psychology": {
-                    "hasKnowledge": false
+                    "prof": false
                 },
                 "medicine": {
-                    "hasKnowledge": false
+                    "prof": false
                 },
                 "economy": {
-                    "hasKnowledge": false
+                    "prof": false
                 },
                 "religion": {
-                    "hasKnowledge": false
+                    "prof": false
                 },
                 "secretKnowledge": {
-                    "hasKnowledge": false
+                    "prof": false
                 }
             },
             "magic": {
                 "schools": {
                     "matter": {
-                        "hasSchool": false
+                        "prof": false
                     },
                     "energy": {
-                        "hasSchool": false
+                        "prof": false
                     },
                     "space": {
-                        "hasSchool": false
+                        "prof": false
                     },
                     "time": {
-                        "hasSchool": false
+                        "prof": false
                     },
                     "mind": {
-                        "hasSchool": false
+                        "prof": false
                     },
                     "magic": {
-                        "hasSchool": false
+                        "prof": false
                     },
                     "afterlife": {
-                        "hasSchool": false
+                        "prof": false
                     }
                 },
                 "words": {
                     "perception": {
-                        "hasWord": false
+                        "prof": false
                     },
                     "weakening": {
-                        "hasWord": false
+                        "prof": false
                     },
                     "strengthening": {
-                        "hasWord": false
+                        "prof": false
                     },
                     "destruction": {
-                        "hasWord": false
+                        "prof": false
                     },
                     "restoration": {
-                        "hasWord": false
+                        "prof": false
                     },
                     "creation": {
-                        "hasWord": false
+                        "prof": false
                     },
                     "transformation": {
-                        "hasWord": false
+                        "prof": false
                     }
                 },
                 "spells": []

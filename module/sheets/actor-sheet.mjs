@@ -26,6 +26,7 @@ export class MagicOverflowActorSheet extends ActorSheet {
         this._prepareSkills(context);
         this._prepareBackgrounds(context);
         this._prepareKnowledge(context);
+        this._prepareResilience(context);
         this._prepareMagic(context);
 
         context.talents = this.actor.items.filter(item => item.type === 'talent');
@@ -67,11 +68,21 @@ export class MagicOverflowActorSheet extends ActorSheet {
     }
 
     _prepareBackgrounds(context) {
-        return this._prepareList('backgrounds', context.system.backgrounds, { flagKey: 'hasBackground' });
+        for (let [key, data] of Object.entries(context.system.backgrounds)) {
+            context.system.backgrounds[key].label = game.i18n.localize(context.config.backgrounds[key]);
+        }
     }
 
     _prepareKnowledge(context) {
-        return this._prepareList('knowledge', context.system.knowledge, { flagKey: 'hasKnowledge' });
+        for (let [key, data] of Object.entries(context.system.knowledge)) {
+            context.system.knowledge[key].label = game.i18n.localize(context.config.knowledge[key]);
+        }
+    }
+
+    _prepareResilience(context) {
+        for (let [key, data] of Object.entries(context.system.resilience)) {
+            context.system.resilience[key].label = game.i18n.localize(context.config.resilience[key]);
+        }
     }
 
     _prepareMagic(context) {
