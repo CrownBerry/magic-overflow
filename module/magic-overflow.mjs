@@ -31,14 +31,6 @@ function registerHandlebarsHelpers() {
         return Array.isArray(array) ? array.join(delimiter) : '';
     });
 
-    Handlebars.registerHelper('times', function (n, options) {
-        let result = '';
-        for (let i = 0; i < n; i++) {
-            result += options.fn({ index: i });
-        }
-        return result;
-    });
-
     Handlebars.registerHelper('times_from', function (start, n, block) {
         let accum = '';
         for (let i = start; i < n; ++i) {
