@@ -142,7 +142,7 @@ export class MagicOverflowActorSheet extends ActorSheet {
     _onSkillChange(event) {
         const skillKey = event.currentTarget.dataset.skill;
         const isChecked = event.currentTarget.checked;
-        this.actor.update({ [`system.skills.${skillKey}.hasSkill`]: isChecked });
+        this.actor.update({ [`system.skills.${skillKey}.prof`]: isChecked });
     }
 
     _onSpecializationChange(event) {
@@ -154,25 +154,25 @@ export class MagicOverflowActorSheet extends ActorSheet {
     _onBackgroundChange(event) {
         const bgKey = event.currentTarget.dataset.background;
         const isChecked = event.currentTarget.checked;
-        this.actor.update({ [`system.backgrounds.${bgKey}.hasBackground`]: isChecked });
+        this.actor.update({ [`system.backgrounds.${bgKey}.prof`]: isChecked });
     }
 
     _onKnowledgeChange(event) {
         const knowKey = event.currentTarget.dataset.knowledge;
         const isChecked = event.currentTarget.checked;
-        this.actor.update({ [`system.knowledge.${knowKey}.hasKnowledge`]: isChecked });
+        this.actor.update({ [`system.knowledge.${knowKey}.prof`]: isChecked });
     }
 
     _onSchoolChange(event) {
         const schoolKey = event.currentTarget.dataset.school;
         const isChecked = event.currentTarget.checked;
-        this.actor.update({ [`system.magic.schools.${schoolKey}.hasSchool`]: isChecked });
+        this.actor.update({ [`system.magic.schools.${schoolKey}.prof`]: isChecked });
     }
 
     _onWordChange(event) {
         const wordKey = event.currentTarget.dataset.word;
         const isChecked = event.currentTarget.checked;
-        this.actor.update({ [`system.magic.words.${wordKey}.hasWord`]: isChecked });
+        this.actor.update({ [`system.magic.words.${wordKey}.prof`]: isChecked });
     }
 
     async _updateObject(event, formData) {
