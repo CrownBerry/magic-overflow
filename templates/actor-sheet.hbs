@@ -168,7 +168,23 @@
                     <ol class="items-list">
                         {{#each spells as |spell id|}}
                         <li class="item" data-item-id="{{spell._id}}">
-                            <!-- ... spell content ... -->
+                            <div class="item-header">
+                                <img src="{{spell.img}}" width="24" height="24" />
+                                <div class="item-info">
+                                    <h4 class="item-name">{{spell.name}}</h4>
+                                </div>
+                                <div class="item-controls">
+                                    <a class="item-control item-edit" title="{{localize 'MO.ui.edit'}}">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a class="item-control item-delete" title="{{localize 'MO.ui.delete'}}">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="item-description">
+                                {{{spell.system.description}}}
+                            </div>
                         </li>
                         {{/each}}
                     </ol>
