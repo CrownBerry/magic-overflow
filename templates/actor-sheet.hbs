@@ -114,8 +114,8 @@
                         <div class="track-boxes resilience-track-boxes">
                             {{#times_from 0 resilience.max}}
                             <input type="checkbox" class="resilience-box" data-resilience="{{key}}" data-box="{{this}}"
-                                name="system.resilience.flesh.value" value="{{resilience.value}}"
-                                max="{{resilience.max}}" {{#if (lt this resilience.value)}}checked{{/if}} />
+                                name="system.resilience.{{key}}.value"
+                                 {{#if (lt this resilience.value)}}checked{{/if}} />
                             {{/times_from}}
                         </div>
                     </div>
