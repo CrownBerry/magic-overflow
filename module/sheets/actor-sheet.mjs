@@ -87,6 +87,7 @@ export class MagicOverflowActorSheet extends ActorSheet {
         const prof = box.dataset.prof;
         const profKey = box.dataset.profKey;
         const isChecked = event.currentTarget.checked;
+        console.log('Proficiency change:', prof, profKey, isChecked);
         this.actor.update({ [`system.${prof}.${profKey}.prof`]: isChecked });
     }
 
