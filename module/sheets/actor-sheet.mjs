@@ -15,12 +15,15 @@ export class MagicOverflowActorSheet extends ActorSheet {
 
     async getData() {
         const context = await super.getData();
-        const systemData = context.actor.system;
+
+        // Use a safe clone of the actor data for further operations.
+        const actorData = this.document.toObject(false);
+        context.system = actorData.system;
+        context.config = CONFIG.MO;
 
         // Преобразуем данные для шаблона
         return {
             ...context,
-            system: systemData,
             skills: this._prepareSkills(systemData.skills),
             backgrounds: this._prepareBackgrounds(systemData.backgrounds),
             knowledge: this._prepareKnowledge(systemData.knowledge),
