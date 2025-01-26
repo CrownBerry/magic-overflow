@@ -1,6 +1,6 @@
-import { MagicOverflowActorSheet } from "./actor-sheet.mjs";
-import { TalentSheet } from "./talent-sheet.mjs";
-import MO from "./config.mjs";
+import { MagicOverflowActorSheet } from "./sheets/actor-sheet.mjs";
+import { TalentSheet } from "./sheets/talent-sheet.mjs";
+import MO from "./helpers/config.mjs";
 
 Hooks.once("init", async function () {
     console.log("Magic Overflow | Initializing custom system");
