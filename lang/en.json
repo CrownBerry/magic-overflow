@@ -85,6 +85,7 @@
         "spells": "Spells",
         "addSpell": "Add Spell",
         "deleteSpellTitle": "Delete Spell",
-        "deleteSpellContent": "Are you sure you want to delete {name}?"
+        "deleteSpellContent": "Are you sure you want to delete {name}?",
+        "biography": "Biography"
     }
 }

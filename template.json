@@ -5,7 +5,9 @@
             "npc"
         ],
         "templates": {
-            "base": {}
+            "base": {
+                "biography": ""
+            }
         },
         "character": {
             "templates": [
