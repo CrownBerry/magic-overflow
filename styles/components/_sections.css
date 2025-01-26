@@ -8,9 +8,24 @@
 
 .magic-section {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    /* Было две колонки */
+    /* grid-template-columns: 1fr 1fr; */
+    /* Сделаем три ряда */
+    grid-template-rows: auto auto 1fr;
     gap: 20px;
     width: 100%;
+}
+
+/* Растягиваем секцию заклинаний на всю ширину */
+.spells-section {
+    grid-column: 1 / -1;  /* от первой до последней линии грида */
+}
+
+/* А schools и words оставляем в ряд */
+.schools-section,
+.words-section {
+    display: inline-block;
+    width: 50%;
 }
 
 .abilities-section {
