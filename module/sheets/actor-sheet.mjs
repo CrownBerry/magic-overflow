@@ -192,7 +192,10 @@ export class MagicOverflowActorSheet extends ActorSheet {
 
     _onSkillRoll(event) {
         event.preventDefault();
-        const skillName = event.currentTarget.textContent;
-        new RiskRollDialog(this.actor, skillName).render(true);
+        const skillSpan = event.currentTarget;
+        const skillName = skillSpan.textContent;
+        // Находим ключ навыка по элементу
+        const skillKey = skillSpan.closest('li').querySelector('.skill-checkbox').dataset.profkey;
+        new RiskRollDialog(this.actor, skillName, skillKey).render(true);
     }
 }

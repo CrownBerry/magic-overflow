@@ -33,10 +33,14 @@ export class BaseRollDialog extends Application {
         html.find('button[name="roll"]').click(this._onRoll.bind(this));
     }
 
+    getRollFormula() {
+        return "1d8";
+    }
+
     async _onRoll(event) {
         event.preventDefault();
 
-        let roll = await new MagicOverflowRoll("1d8").evaluate({ async: true });
+        let roll = await new MagicOverflowRoll(this.getRollFormula()).evaluate({ async: true });
 
         const chatData = {
             speaker: ChatMessage.getSpeaker({ actor: this.actor }),
