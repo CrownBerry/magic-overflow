@@ -43,7 +43,14 @@ export class RiskRollDialog extends BaseRollDialog {
             }
         }
 
-        return diceCount;
+        if (this.actor.system.state.fortune) {
+            diceCount += 1;
+        }
+        if (this.actor.system.state.misfortune) {
+            diceCount -= 1;
+        }
+
+        return Math.max(0, diceCount); // Не меньше 0 кубов
     }
 
     getRollFormula(formData = null) {

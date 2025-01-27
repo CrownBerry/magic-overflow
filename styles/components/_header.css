@@ -67,3 +67,41 @@
 .overflow-track input[type="checkbox"]:checked {
     background-color: #782e22;
 }
+
+.state-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+}
+
+.fortune-track {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.fortune-track input[type="checkbox"] {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.fortune-track input[name="system.state.fortune"] {
+    border-color: #4CAF50;
+}
+
+.fortune-track input[name="system.state.fortune"]:checked {
+    background-color: #4CAF50;
+}
+
+.fortune-track input[name="system.state.misfortune"] {
+    border-color: #F44336;
+}
+
+.fortune-track input[name="system.state.misfortune"]:checked {
+    background-color: #F44336;
+}

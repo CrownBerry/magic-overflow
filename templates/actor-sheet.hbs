@@ -10,14 +10,22 @@
                     <input name="system.archetype" type="text" value="{{system.archetype}}"
                         placeholder="{{localize 'MO.ui.archetype'}}" />
                 </div>
-                <div class="overflow-track">
-                    <label>{{localize "MO.ui.overflow"}}</label>
-                    <div class="track-boxes overflow-boxes">
-                        {{#times_from 0 system.overflow.max}}
-                        <input type="checkbox" class="overflow-box" data-box="{{this}}"
-                            overflowTrack="{{../system.overflow.value}}" {{#if (lt this
-                            ../system.overflow.value)}}checked{{/if}} />
-                        {{/times_from}}
+                <div class="state-row">
+                    <div class="overflow-track">
+                        <label>{{localize "MO.ui.overflow"}}</label>
+                        <div class="track-boxes overflow-boxes">
+                            {{#times_from 0 system.overflow.max}}
+                            <input type="checkbox" class="overflow-box" data-box="{{this}}"
+                                overflowTrack="{{../system.overflow.value}}" {{#if (lt this
+                                ../system.overflow.value)}}checked{{/if}} />
+                            {{/times_from}}
+                        </div>
+                    </div>
+                    <div class="fortune-track">
+                        <label>{{localize "MO.ui.fortune"}}</label>
+                        <input type="checkbox" name="system.state.fortune" {{checked system.state.fortune}}>
+                        <label>{{localize "MO.ui.misfortune"}}</label>
+                        <input type="checkbox" name="system.state.misfortune" {{checked system.state.misfortune}}>
                     </div>
                 </div>
             </div>

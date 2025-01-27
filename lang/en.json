@@ -91,6 +91,8 @@
             "useSpecialization": "Use Specialization",
             "useBackground": "Use Background",
             "roll": "Roll"
-        }
+        },
+        "fortune": "Fortune",
+        "misfortune": "Misfortune"
     }
 }
