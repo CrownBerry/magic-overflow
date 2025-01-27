@@ -6,11 +6,11 @@ export class MagicOverflowRoll extends Roll {
             majorSuccess: 0,
             overflow: 0
         };
-        this.actor = options.actor; // Добавляем ссылку на актора
+        this.actor = options.actor;
     }
 
-    async evaluate({ async = true } = {}) {
-        await super.evaluate({ async: true });
+    evaluate() {
+        super.evaluateSync();  // Используем evaluateSync вместо evaluate
 
         this.terms[0].results.forEach(die => {
             if (die.result === 8) {
@@ -29,21 +29,17 @@ export class MagicOverflowRoll extends Roll {
             const maxOverflow = this.actor.system.overflow.max;
             const newOverflowCount = Math.min(currentOverflow + this.results.overflow, maxOverflow);
 
-            // Если есть место для переполнения
             if (currentOverflow < maxOverflow) {
-                await this.actor.update({ 'system.overflow.value': newOverflowCount });
+                this.actor.update({ 'system.overflow.value': newOverflowCount });
             }
 
-            // Если выпало переполнение при полной шкале
             if (currentOverflow >= maxOverflow) {
-                await ChatMessage.create({
+                ChatMessage.create({
                     content: `<div class="overflow-warning">Overflow occurred but ${this.actor.name}'s overflow track is already full!</div>`,
                     speaker: ChatMessage.getSpeaker({ actor: this.actor })
                 });
-            }
-            // Если часть переполнений не поместилась
-            else if (newOverflowCount === maxOverflow && this.results.overflow > (maxOverflow - currentOverflow)) {
-                await ChatMessage.create({
+            } else if (newOverflowCount === maxOverflow && this.results.overflow > (maxOverflow - currentOverflow)) {
+                ChatMessage.create({
                     content: `<div class="overflow-warning">${this.actor.name}'s overflow track is now full! ${this.results.overflow - (maxOverflow - currentOverflow)} overflow(s) were discarded.</div>`,
                     speaker: ChatMessage.getSpeaker({ actor: this.actor })
                 });
