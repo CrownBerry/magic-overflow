@@ -9,8 +9,8 @@ export class MagicOverflowRoll extends Roll {
         this.actor = options.actor;
     }
 
-    evaluate() {
-        super.evaluateSync();  // Используем evaluateSync вместо evaluate
+    async evaluate() {
+        await this._evaluate();  // Используем внутренний метод _evaluate
 
         this.terms[0].results.forEach(die => {
             if (die.result === 8) {
@@ -23,23 +23,22 @@ export class MagicOverflowRoll extends Roll {
             }
         });
 
-        // Обрабатываем переполнение
         if (this.results.overflow > 0 && this.actor) {
             const currentOverflow = this.actor.system.overflow.value;
             const maxOverflow = this.actor.system.overflow.max;
             const newOverflowCount = Math.min(currentOverflow + this.results.overflow, maxOverflow);
 
             if (currentOverflow < maxOverflow) {
-                this.actor.update({ 'system.overflow.value': newOverflowCount });
+                await this.actor.update({ 'system.overflow.value': newOverflowCount });
             }
 
             if (currentOverflow >= maxOverflow) {
-                ChatMessage.create({
+                await ChatMessage.create({
                     content: `<div class="overflow-warning">Overflow occurred but ${this.actor.name}'s overflow track is already full!</div>`,
                     speaker: ChatMessage.getSpeaker({ actor: this.actor })
                 });
             } else if (newOverflowCount === maxOverflow && this.results.overflow > (maxOverflow - currentOverflow)) {
-                ChatMessage.create({
+                await ChatMessage.create({
                     content: `<div class="overflow-warning">${this.actor.name}'s overflow track is now full! ${this.results.overflow - (maxOverflow - currentOverflow)} overflow(s) were discarded.</div>`,
                     speaker: ChatMessage.getSpeaker({ actor: this.actor })
                 });

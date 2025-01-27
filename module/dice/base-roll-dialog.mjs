@@ -37,19 +37,19 @@ export class BaseRollDialog extends Application {
         return "1d8";
     }
 
-    _onRoll(event) {
+    async _onRoll(event) {
         event.preventDefault();
         const formData = new FormData(event.target.closest('form'));
 
-        let roll = new MagicOverflowRoll(this.getRollFormula(formData), {}, { actor: this.actor }).evaluate();
+        let roll = await new MagicOverflowRoll(this.getRollFormula(formData), {}, { actor: this.actor }).evaluate();
 
         const chatData = {
             speaker: ChatMessage.getSpeaker({ actor: this.actor }),
             flavor: this.getDialogTitle(),
-            content: roll.render()
+            content: await roll.render()
         };
 
-        ChatMessage.create(chatData);
+        await ChatMessage.create(chatData);
         this.close();
     }
 }
