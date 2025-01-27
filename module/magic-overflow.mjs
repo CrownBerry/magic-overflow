@@ -50,4 +50,13 @@ function registerHandlebarsHelpers() {
         }
         return value.map(v => v !== false);
     });
+
+    // В функции registerHandlebarsHelpers
+    Handlebars.registerHelper('or', function () {
+        return Array.prototype.slice.call(arguments, 0, -1).some(Boolean);
+    });
+
+    Handlebars.registerHelper('eq', function (a, b) {
+        return a === b;
+    });
 }

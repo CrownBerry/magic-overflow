@@ -1,12 +1,18 @@
 <div class="dice-roll magic-overflow-roll">
     <div class="dice-formula">{{formula}}</div>
     <div class="dice-result">
-        <div class="dice-row">
-            {{#each results}}
-            <div class="die-result d8" data-value="{{this.result}}">
-                {{this.result}}
-            </div>
-            {{/each}}
+        <div class="dice-tooltip expanded">
+            <section class="tooltip-part">
+                <div class="dice">
+                    <ol class="dice-rolls">
+                        {{#each results}}
+                        <li
+                            class="roll die d8 {{#if (or (eq this.result 3) (eq this.result 7) (eq this.result 8))}}max{{/if}}">
+                            {{this.result}}</li>
+                        {{/each}}
+                    </ol>
+                </div>
+            </section>
         </div>
         <div class="roll-results">
             <div>Minor Successes: {{successes.minorSuccess}}</div>
