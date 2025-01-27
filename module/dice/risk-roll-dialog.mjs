@@ -16,13 +16,13 @@ export class RiskRollDialog extends BaseRollDialog {
         data.specializations = skill?.specializations?.join(", ");
         data.hasSpecialization = skill?.specializations?.length > 0;
 
-        // Добавляем текущую формулу броска
-        data.formula = this.getRollFormula();
+        // Базовая формула без модификаторов
+        data.formula = "1d8";
 
         return data;
     }
 
-    getDiceCount(formData) {
+    getDiceCount(formData = null) {
         let diceCount = 1; // Базовый куб
 
         // Проверяем владение навыком
@@ -30,20 +30,23 @@ export class RiskRollDialog extends BaseRollDialog {
             diceCount += 1;
         }
 
-        // Добавляем куб за специализацию
-        if (formData.get('useSpecialization') && this.actor.system.skills[this.skillKey]?.specializations?.length > 0) {
-            diceCount += 1;
-        }
+        // Если передана форма, проверяем дополнительные модификаторы
+        if (formData) {
+            // Добавляем куб за специализацию
+            if (formData.get('useSpecialization') && this.actor.system.skills[this.skillKey]?.specializations?.length > 0) {
+                diceCount += 1;
+            }
 
-        // Добавляем куб за предысторию
-        if (formData.get('useBackground')) {
-            diceCount += 1;
+            // Добавляем куб за предысторию
+            if (formData.get('useBackground')) {
+                diceCount += 1;
+            }
         }
 
         return diceCount;
     }
 
-    getRollFormula(formData) {
+    getRollFormula(formData = null) {
         const diceCount = this.getDiceCount(formData);
         return `${diceCount}d8`;
     }
@@ -62,5 +65,9 @@ export class RiskRollDialog extends BaseRollDialog {
 
         await ChatMessage.create(chatData);
         this.close();
+    }
+
+    getDialogTitle() {
+        return `Risk Roll: ${this.skillName}`;
     }
 }
