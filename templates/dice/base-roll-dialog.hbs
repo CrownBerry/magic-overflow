@@ -1,8 +1,24 @@
 <form class="base-roll-dialog">
     <h2>{{title}}</h2>
     <div class="form-group">
+        {{#if specializations}}
+        <div class="form-row">
+            <label>
+                <input type="checkbox" name="useSpecialization" {{#if hasSpecialization}}checked{{/if}}>
+                {{localize "MO.ui.dialog.useSpecialization"}}: {{specializations}}
+            </label>
+        </div>
+        {{/if}}
+        <div class="form-row">
+            <label>
+                <input type="checkbox" name="useBackground">
+                {{localize "MO.ui.dialog.useBackground"}}
+            </label>
+        </div>
+    </div>
+    <div class="form-group">
         <button type="submit" name="roll">
-            <i class="fas fa-dice-d8"></i> Roll
+            <i class="fas fa-dice-d8"></i> {{localize "MO.ui.dialog.roll"}} {{formula}}
         </button>
     </div>
 </form>

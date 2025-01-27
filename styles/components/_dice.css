@@ -26,3 +26,21 @@
     border-color: #FF4B4B;
     color: white;
 }
+
+.base-roll-dialog .form-group {
+    margin-bottom: 1em;
+}
+
+.base-roll-dialog .form-row {
+    margin: 0.5em 0;
+}
+
+.base-roll-dialog label {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.base-roll-dialog input[type="checkbox"] {
+    margin: 0;
+}

@@ -86,6 +86,11 @@
         "addSpell": "Add Spell",
         "deleteSpellTitle": "Delete Spell",
         "deleteSpellContent": "Are you sure you want to delete {name}?",
-        "biography": "Biography"
+        "biography": "Biography",
+        "dialog": {
+            "useSpecialization": "Use Specialization",
+            "useBackground": "Use Background",
+            "roll": "Roll"
+        }
     }
 }
