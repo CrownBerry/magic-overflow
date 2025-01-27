@@ -92,6 +92,11 @@
             "useBackground": "Use Background",
             "roll": "Roll"
         },
+        "overflowChat": {
+            "trackFull": "{name}'s overflow track is already full!",
+            "nowFull": "{name}'s overflow track is now full! {count} overflow(s) were discarded.",
+            "occurred": "Overflow occurred"
+        },
         "fortune": "Fortune",
         "misfortune": "Misfortune"
     }

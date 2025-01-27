@@ -27,29 +27,25 @@ export class MagicOverflowRoll extends Roll {
         console.log("After counting. Results:", this.results); // Проверим подсчет успехов
 
         if (this.results.overflow > 0 && this.actor) {
-            console.log("Handling overflow. Current state:", {
-                overflow: this.results.overflow,
-                currentOverflow: this.actor.system.overflow.value,
-                maxOverflow: this.actor.system.overflow.max
-            });
-
             const currentOverflow = this.actor.system.overflow.value;
             const maxOverflow = this.actor.system.overflow.max;
             const newOverflowCount = Math.min(currentOverflow + this.results.overflow, maxOverflow);
 
             if (currentOverflow < maxOverflow) {
-                console.log("Updating overflow to:", newOverflowCount);
                 await this.actor.update({ 'system.overflow.value': newOverflowCount });
             }
 
             if (currentOverflow >= maxOverflow) {
                 await ChatMessage.create({
-                    content: `<div class="overflow-warning">Overflow occurred but ${this.actor.name}'s overflow track is already full!</div>`,
+                    content: `<div class="overflow-warning">${game.i18n.format("MO.ui.overflowChat.trackFull", { name: this.actor.name })}</div>`,
                     speaker: ChatMessage.getSpeaker({ actor: this.actor })
                 });
             } else if (newOverflowCount === maxOverflow && this.results.overflow > (maxOverflow - currentOverflow)) {
                 await ChatMessage.create({
-                    content: `<div class="overflow-warning">${this.actor.name}'s overflow track is now full! ${this.results.overflow - (maxOverflow - currentOverflow)} overflow(s) were discarded.</div>`,
+                    content: `<div class="overflow-warning">${game.i18n.format("MO.ui.overflowChat.nowFull", {
+                        name: this.actor.name,
+                        count: this.results.overflow - (maxOverflow - currentOverflow)
+                    })}</div>`,
                     speaker: ChatMessage.getSpeaker({ actor: this.actor })
                 });
             }
