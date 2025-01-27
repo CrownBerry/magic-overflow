@@ -1,21 +1,19 @@
 export class MagicOverflowRoll extends Roll {
     constructor(formula, data = {}, options = {}) {
         super(formula, data, options);
-    }
-
-    // Переопределяем метод оценки результатов
-    evaluate({ async = false } = {}) {
-        // Сначала выполняем стандартную оценку
-        const evaluated = super.evaluate({ async });
-
-        // Добавляем наши специфичные результаты
+        // Инициализируем results в конструкторе
         this.results = {
             minorSuccess: 0,
             majorSuccess: 0,
             overflow: 0
         };
+    }
 
-        // Подсчитываем успехи
+    async evaluate({ async = true } = {}) {  // Всегда делаем async
+        // Дожидаемся результата базового броска
+        await super.evaluate({ async: true });
+
+        // Теперь считаем наши результаты
         this.terms[0].results.forEach(die => {
             if (die.result === 8) {
                 this.results.overflow++;
@@ -27,10 +25,10 @@ export class MagicOverflowRoll extends Roll {
             }
         });
 
-        return evaluated;
+        return this;
     }
 
-    // Метод для получения общего количества успехов
+    // Вспомогательные методы
     get totalSuccess() {
         return this.results.minorSuccess + this.results.majorSuccess;
     }
