@@ -5,52 +5,24 @@
 }
 
 .magic-overflow-roll .die {
-    width: 28px;
-    /* Немного увеличим размер */
-    height: 28px;
-    background: #DDD;
-    border: 1px solid #999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    position: relative;
-    margin: 2px;
+    font-family: var(--font-primary);
+    font-size: var(--font-size-14);
 }
 
-.magic-overflow-roll .die.d8 {
-    /* Убираем предыдущий clip-path */
-    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-    transform: rotate(45deg);
-    /* Поворачиваем для правильной ориентации */
-}
-
-.magic-overflow-roll .die.d8::before {
-    content: attr(data-value);
-    position: absolute;
-    transform: rotate(-45deg);
-    /* Компенсируем поворот родителя */
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Стили для разных результатов */
-.magic-overflow-roll .die[data-value="3"] {
+/* Используем встроенные стили Foundry и кастомизируем цвета */
+.magic-overflow-roll .die-result.d8[data-value="3"] {
     background: #90EE90;
-    /* Зеленый для малого успеха */
+    border-color: #60CC60;
 }
 
-.magic-overflow-roll .die[data-value="7"] {
+.magic-overflow-roll .die-result.d8[data-value="7"] {
     background: #4169E1;
-    /* Синий для большого успеха */
+    border-color: #2149C1;
     color: white;
 }
 
-.magic-overflow-roll .die[data-value="8"] {
+.magic-overflow-roll .die-result.d8[data-value="8"] {
     background: #FF6B6B;
-    /* Красный для переполнения */
+    border-color: #FF4B4B;
     color: white;
 }
