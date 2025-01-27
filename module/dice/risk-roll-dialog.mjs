@@ -1,3 +1,6 @@
+import { BaseRollDialog } from "./base-roll-dialog.mjs";
+import { MagicOverflowRoll } from "./magic-overflow-roll.mjs";
+
 export class RiskRollDialog extends BaseRollDialog {
     constructor(actor, skillName, skillKey, options = {}) {
         super(actor, options);
