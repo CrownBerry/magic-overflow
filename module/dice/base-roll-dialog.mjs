@@ -4,13 +4,7 @@ export class BaseRollDialog extends Application {
             template: "systems/magic-overflow/templates/dice/base-roll-dialog.hbs",
             classes: ["magic-overflow", "dialog", "base-roll"],
             width: 400,
-            height: 200,
-            buttons: {
-                roll: {
-                    label: "Roll",
-                    callback: (html) => this._onRoll(html)
-                }
-            }
+            height: 200
         });
     }
 
@@ -29,15 +23,23 @@ export class BaseRollDialog extends Application {
         return "Base Roll";
     }
 
-    async _onRoll() {
-        let roll = await new Roll("1d8").evaluate({ async: true });
+    activateListeners(html) {
+        super.activateListeners(html);
 
-        // В будущем здесь будет общая логика подсчета успехов
+        // Добавляем обработчик клика на кнопку
+        html.find('button[name="roll"]').click(this._onRoll.bind(this));
+    }
+
+    async _onRoll(event) {
+        event.preventDefault();
+
+        let roll = await new Roll("1d8").evaluate({ async: true });
 
         roll.toMessage({
             speaker: ChatMessage.getSpeaker({ actor: this.actor }),
             flavor: this.getDialogTitle()
         });
+
         this.close();
     }
 }
