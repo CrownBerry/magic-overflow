@@ -7,10 +7,12 @@ export class MagicOverflowRoll extends Roll {
             overflow: 0
         };
         this.actor = options.actor;
+        console.log("Constructor. Actor:", this.actor);
     }
 
     async evaluate() {
-        await this._evaluate();  // Используем внутренний метод _evaluate
+        await this._evaluate();
+        console.log("After evaluate. Results:", this.terms[0].results); // Проверим результаты броска
 
         this.terms[0].results.forEach(die => {
             if (die.result === 8) {
@@ -22,13 +24,21 @@ export class MagicOverflowRoll extends Roll {
                 this.results.minorSuccess++;
             }
         });
+        console.log("After counting. Results:", this.results); // Проверим подсчет успехов
 
         if (this.results.overflow > 0 && this.actor) {
+            console.log("Handling overflow. Current state:", {
+                overflow: this.results.overflow,
+                currentOverflow: this.actor.system.overflow.value,
+                maxOverflow: this.actor.system.overflow.max
+            });
+
             const currentOverflow = this.actor.system.overflow.value;
             const maxOverflow = this.actor.system.overflow.max;
             const newOverflowCount = Math.min(currentOverflow + this.results.overflow, maxOverflow);
 
             if (currentOverflow < maxOverflow) {
+                console.log("Updating overflow to:", newOverflowCount);
                 await this.actor.update({ 'system.overflow.value': newOverflowCount });
             }
 
