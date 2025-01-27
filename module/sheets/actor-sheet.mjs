@@ -1,3 +1,5 @@
+import { RiskRollDialog } from "../dice/risk-roll-dialog.mjs";
+
 export class MagicOverflowActorSheet extends ActorSheet {
     static get defaultOptions() {
         return foundry.utils.mergeObject(super.defaultOptions, {
@@ -77,6 +79,9 @@ export class MagicOverflowActorSheet extends ActorSheet {
         html.find('.item-edit').click(this._onItemEdit.bind(this));
         html.find('.item-delete').click(this._onItemDelete.bind(this));
         html.find('.item-name').click(this._onItemToggleDescription.bind(this));
+
+        // Броски
+        html.find('.proficiencies li span').click(this._onSkillRoll.bind(this));
     }
 
     _onProfChange(event) {
@@ -183,5 +188,11 @@ export class MagicOverflowActorSheet extends ActorSheet {
         if (currentDisplay === "none" || !currentDisplay) {
             description.style.display = "block";
         }
+    }
+
+    _onSkillRoll(event) {
+        event.preventDefault();
+        const skillName = event.currentTarget.textContent;
+        new RiskRollDialog(this.actor, skillName).render(true);
     }
 }
