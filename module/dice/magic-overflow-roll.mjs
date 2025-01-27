@@ -36,17 +36,13 @@ export class MagicOverflowRoll extends Roll {
             }
 
             if (currentOverflow >= maxOverflow) {
-                await ChatMessage.create({
-                    content: `<div class="overflow-warning">${game.i18n.format("MO.ui.overflowChat.trackFull", { name: this.actor.name })}</div>`,
-                    speaker: ChatMessage.getSpeaker({ actor: this.actor })
+                this.overflowMessage = game.i18n.format("MO.ui.overflowChat.trackFull", {
+                    name: this.actor.name
                 });
             } else if (newOverflowCount === maxOverflow && this.results.overflow > (maxOverflow - currentOverflow)) {
-                await ChatMessage.create({
-                    content: `<div class="overflow-warning">${game.i18n.format("MO.ui.overflowChat.nowFull", {
-                        name: this.actor.name,
-                        count: this.results.overflow - (maxOverflow - currentOverflow)
-                    })}</div>`,
-                    speaker: ChatMessage.getSpeaker({ actor: this.actor })
+                this.overflowMessage = game.i18n.format("MO.ui.overflowChat.nowFull", {
+                    name: this.actor.name,
+                    count: this.results.overflow - (maxOverflow - currentOverflow)
                 });
             }
         }
@@ -60,12 +56,11 @@ export class MagicOverflowRoll extends Roll {
     }
 
     async render(options = {}) {
-        const html = await renderTemplate("systems/magic-overflow/templates/dice/roll-result.hbs", {
+        return await renderTemplate("systems/magic-overflow/templates/dice/roll-result.hbs", {
             formula: this.formula,
-            total: this.total,
             results: this.terms[0].results,
-            successes: this.results
+            successes: this.results,
+            overflowMessage: this.overflowMessage
         });
-        return html;
     }
 }

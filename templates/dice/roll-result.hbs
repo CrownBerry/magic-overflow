@@ -18,6 +18,11 @@
             <div>Minor Successes: {{successes.minorSuccess}}</div>
             <div>Major Successes: {{successes.majorSuccess}}</div>
             <div>Overflow: {{successes.overflow}}</div>
+            {{#if overflowMessage}}
+            <div class="overflow-warning">
+                {{overflowMessage}}
+            </div>
+            {{/if}}
         </div>
     </div>
 </div>
