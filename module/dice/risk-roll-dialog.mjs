@@ -62,7 +62,11 @@ export class RiskRollDialog extends BaseRollDialog {
         event.preventDefault();
         const formData = new FormData(event.target.closest('form'));
 
-        let roll = await new MagicOverflowRoll(this.getRollFormula(formData)).evaluate({ async: true });
+        // Передаем актора через data
+        let roll = await new MagicOverflowRoll(
+            this.getRollFormula(formData),
+            { actor: this.actor }
+        ).evaluate();
 
         const chatData = {
             speaker: ChatMessage.getSpeaker({ actor: this.actor }),

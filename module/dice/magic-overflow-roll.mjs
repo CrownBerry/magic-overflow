@@ -6,7 +6,7 @@ export class MagicOverflowRoll extends Roll {
             majorSuccess: 0,
             overflow: 0
         };
-        this.actor = options.actor;
+        this.actor = data.actor; // Берем актора из data
         console.log("Constructor. Actor:", this.actor);
     }
 
