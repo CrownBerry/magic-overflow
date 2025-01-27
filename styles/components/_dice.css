@@ -44,3 +44,12 @@
 .base-roll-dialog input[type="checkbox"] {
     margin: 0;
 }
+
+.overflow-warning {
+    color: #782e22;
+    font-weight: bold;
+    padding: 5px;
+    border: 1px solid #782e22;
+    border-radius: 4px;
+    background: rgba(120, 46, 34, 0.1);
+}

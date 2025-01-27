@@ -1,19 +1,17 @@
 export class MagicOverflowRoll extends Roll {
     constructor(formula, data = {}, options = {}) {
         super(formula, data, options);
-        // Инициализируем results в конструкторе
         this.results = {
             minorSuccess: 0,
             majorSuccess: 0,
             overflow: 0
         };
+        this.actor = options.actor; // Добавляем ссылку на актора
     }
 
-    async evaluate({ async = true } = {}) {  // Всегда делаем async
-        // Дожидаемся результата базового броска
+    async evaluate({ async = true } = {}) {
         await super.evaluate({ async: true });
 
-        // Теперь считаем наши результаты
         this.terms[0].results.forEach(die => {
             if (die.result === 8) {
                 this.results.overflow++;
@@ -24,6 +22,33 @@ export class MagicOverflowRoll extends Roll {
                 this.results.minorSuccess++;
             }
         });
+
+        // Обрабатываем переполнение
+        if (this.results.overflow > 0 && this.actor) {
+            const currentOverflow = this.actor.system.overflow.value;
+            const maxOverflow = this.actor.system.overflow.max;
+            const newOverflowCount = Math.min(currentOverflow + this.results.overflow, maxOverflow);
+
+            // Если есть место для переполнения
+            if (currentOverflow < maxOverflow) {
+                await this.actor.update({ 'system.overflow.value': newOverflowCount });
+            }
+
+            // Если выпало переполнение при полной шкале
+            if (currentOverflow >= maxOverflow) {
+                await ChatMessage.create({
+                    content: `<div class="overflow-warning">Overflow occurred but ${this.actor.name}'s overflow track is already full!</div>`,
+                    speaker: ChatMessage.getSpeaker({ actor: this.actor })
+                });
+            }
+            // Если часть переполнений не поместилась
+            else if (newOverflowCount === maxOverflow && this.results.overflow > (maxOverflow - currentOverflow)) {
+                await ChatMessage.create({
+                    content: `<div class="overflow-warning">${this.actor.name}'s overflow track is now full! ${this.results.overflow - (maxOverflow - currentOverflow)} overflow(s) were discarded.</div>`,
+                    speaker: ChatMessage.getSpeaker({ actor: this.actor })
+                });
+            }
+        }
 
         return this;
     }

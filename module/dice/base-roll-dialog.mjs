@@ -39,8 +39,9 @@ export class BaseRollDialog extends Application {
 
     async _onRoll(event) {
         event.preventDefault();
+        const formData = new FormData(event.target.closest('form'));
 
-        let roll = await new MagicOverflowRoll(this.getRollFormula()).evaluate({ async: true });
+        let roll = await new MagicOverflowRoll(this.getRollFormula(formData), {}, { actor: this.actor }).evaluate({ async: true });
 
         const chatData = {
             speaker: ChatMessage.getSpeaker({ actor: this.actor }),
