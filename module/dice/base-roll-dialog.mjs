@@ -1,4 +1,5 @@
 import { RollEvaluator } from "./roll-evaluator.mjs";
+import { MagicOverflowRoll } from "./magic-overflow-roll.mjs";
 
 export class BaseRollDialog extends Application {
     static get defaultOptions() {
@@ -35,8 +36,7 @@ export class BaseRollDialog extends Application {
     async _onRoll(event) {
         event.preventDefault();
 
-        let roll = await new Roll("1d8").evaluate({ async: true });
-        let results = RollEvaluator.evaluateRoll(roll);
+        let roll = await new MagicOverflowRoll("1d8").evaluate({ async: true });
 
         const chatData = {
             speaker: ChatMessage.getSpeaker({ actor: this.actor }),
@@ -49,9 +49,9 @@ export class BaseRollDialog extends Application {
                             <div class="result">${roll.result}</div>
                         </div>
                         <div class="roll-results">
-                            <div>Minor Successes: ${results.minorSuccess}</div>
-                            <div>Major Successes: ${results.majorSuccess}</div>
-                            <div>Overflow: ${results.overflow}</div>
+                            <div>Minor Successes: ${roll.results.minorSuccess}</div>
+                            <div>Major Successes: ${roll.results.majorSuccess}</div>
+                            <div>Overflow: ${roll.results.overflow}</div>
                         </div>
                     </div>
                 </div>`
