@@ -45,20 +45,7 @@ export class BaseRollDialog extends Application {
         const chatData = {
             speaker: ChatMessage.getSpeaker({ actor: this.actor }),
             flavor: this.getDialogTitle(),
-            content: `
-                <div class="dice-roll">
-                    <div class="dice-result">
-                        <div class="dice-formula">${roll.formula}</div>
-                        <div class="dice-tooltip">
-                            <div class="result">${roll.result}</div>
-                        </div>
-                        <div class="roll-results">
-                            <div>Minor Successes: ${roll.results.minorSuccess}</div>
-                            <div>Major Successes: ${roll.results.majorSuccess}</div>
-                            <div>Overflow: ${roll.results.overflow}</div>
-                        </div>
-                    </div>
-                </div>`
+            content: await roll.render()
         };
 
         await ChatMessage.create(chatData);

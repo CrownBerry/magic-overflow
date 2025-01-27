@@ -32,4 +32,14 @@ export class MagicOverflowRoll extends Roll {
     get totalSuccess() {
         return this.results.minorSuccess + this.results.majorSuccess;
     }
+
+    async render(options = {}) {
+        const html = await renderTemplate("systems/magic-overflow/templates/dice/roll-result.hbs", {
+            formula: this.formula,
+            total: this.total,
+            results: this.terms[0].results,
+            successes: this.results
+        });
+        return html;
+    }
 }

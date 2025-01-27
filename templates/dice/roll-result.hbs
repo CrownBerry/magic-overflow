@@ -1,0 +1,17 @@
+<div class="dice-roll magic-overflow-roll">
+    <div class="dice-formula">{{formula}}</div>
+    <div class="dice-result">
+        <div class="dice-row">
+            {{#each results}}
+            <div class="die d8 {{#if this.success}}success{{/if}}" data-value="{{this.result}}">
+                {{this.result}}
+            </div>
+            {{/each}}
+        </div>
+        <div class="roll-results">
+            <div>Minor Successes: {{successes.minorSuccess}}</div>
+            <div>Major Successes: {{successes.majorSuccess}}</div>
+            <div>Overflow: {{successes.overflow}}</div>
+        </div>
+    </div>
+</div>
