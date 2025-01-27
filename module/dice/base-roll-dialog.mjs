@@ -1,3 +1,5 @@
+import { RollEvaluator } from "./roll-evaluator.mjs";
+
 export class BaseRollDialog extends Application {
     static get defaultOptions() {
         return foundry.utils.mergeObject(super.defaultOptions, {
@@ -34,12 +36,28 @@ export class BaseRollDialog extends Application {
         event.preventDefault();
 
         let roll = await new Roll("1d8").evaluate({ async: true });
+        let results = RollEvaluator.evaluateRoll(roll);
 
-        roll.toMessage({
+        const chatData = {
             speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-            flavor: this.getDialogTitle()
-        });
+            flavor: this.getDialogTitle(),
+            content: `
+                <div class="dice-roll">
+                    <div class="dice-result">
+                        <div class="dice-formula">${roll.formula}</div>
+                        <div class="dice-tooltip">
+                            <div class="result">${roll.result}</div>
+                        </div>
+                        <div class="roll-results">
+                            <div>Minor Successes: ${results.minorSuccess}</div>
+                            <div>Major Successes: ${results.majorSuccess}</div>
+                            <div>Overflow: ${results.overflow}</div>
+                        </div>
+                    </div>
+                </div>`
+        };
 
+        await ChatMessage.create(chatData);
         this.close();
     }
 }
