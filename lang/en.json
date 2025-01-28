@@ -110,24 +110,24 @@
             "occurred": "Overflow occurred"
         },
         "fortune": "Fortune",
-        "misfortune": "Misfortune",
-        "magicCalculator": {
-            "title": "Magic Calculator",
-            "school": "School",
-            "word": "Word of Power",
-            "labels": "Labels",
-            "result": "Spell Cost",
-            "minor": "Minor",
-            "major": "Major",
-            "calculate": "Calculate",
-            "labelNames": {
-                "distant": "Distant Action",
-                "ignoresVision": "Ignores Vision",
-                "veil": "Veil",
-                "piercing": "Piercing",
-                "dangerous": "Dangerous",
-                "unnoticed": "Unnoticed"
-            }
+        "misfortune": "Misfortune"
+    },
+    "MO.magicCalculator": {
+        "title": "Magic Calculator",
+        "school": "School",
+        "word": "Word of Power",
+        "labels": "Labels",
+        "result": "Spell Cost",
+        "minor": "Minor",
+        "major": "Major",
+        "calculate": "Calculate",
+        "labelNames": {
+            "distant": "Distant Action",
+            "ignoresVision": "Ignores Vision",
+            "veil": "Veil",
+            "piercing": "Piercing",
+            "dangerous": "Dangerous",
+            "unnoticed": "Unnoticed"
         }
     }
 }
