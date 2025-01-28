@@ -92,8 +92,10 @@
     flex: 1;
     min-width: 100px;
     padding: 2px 4px;
-    font-size: 14px;
-    color: #444;
+    font-size: 13px;
+    font-family: var(--font-primary);
+    color: #4b4a44;
+    font-weight: 500;
 }
 
 /* Поле специализаций */
