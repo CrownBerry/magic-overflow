@@ -32,7 +32,6 @@
         }
     ],
     "scripts": [
-        "scripts/dice-roller.mjs"
     ],
     "languages": [
         {
