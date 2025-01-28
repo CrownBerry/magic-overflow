@@ -9,20 +9,28 @@ export class OppositionRollDialog extends BaseRollDialog {
 
     getData() {
         const data = super.getData();
-
-        // Получаем данные о стойкости
         const resilience = this.actor.system.resilience[this.resilienceKey];
-        data.resilienceName = game.i18n.localize(resilience.label);
-
-        // Получаем предыстории для выбора
-        data.backgrounds = Object.entries(this.actor.system.backgrounds)
-            .filter(([key, bg]) => bg.prof)
-            .map(([key, bg]) => ({
-                key,
-                label: game.i18n.localize(CONFIG.MO.backgrounds[key])
-            }));
-
+        data.title = `${game.i18n.localize('MO.ui.oppositionRoll')}: ${game.i18n.localize(resilience.label)}`;
         return data;
+    }
+
+    async _onRoll(event) {
+        event.preventDefault();
+        const formData = new FormData(event.target.closest('form'));
+
+        let roll = await new MagicOverflowRoll(
+            this.getRollFormula(formData),
+            { actor: this.actor }
+        ).evaluate();
+
+        const chatData = {
+            speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+            flavor: this.title,
+            content: await roll.render()
+        };
+
+        await ChatMessage.create(chatData);
+        this.close();
     }
 
     getDiceCount(formData = null) {
@@ -54,9 +62,5 @@ export class OppositionRollDialog extends BaseRollDialog {
     getRollFormula(formData = null) {
         const diceCount = this.getDiceCount(formData);
         return `${diceCount}d8`;
-    }
-
-    getDialogTitle() {
-        return `${game.i18n.localize('MO.ui.oppositionRoll')}: ${game.i18n.localize(this.actor.system.resilience[this.resilienceKey].label)}`;
     }
 }

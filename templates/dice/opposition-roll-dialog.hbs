@@ -1,21 +1,14 @@
 <form class="opposition-roll-dialog">
     <h2>{{title}}</h2>
 
-    {{#if backgrounds.length}}
     <div class="form-group">
         <div class="form-row">
             <label>
                 <input type="checkbox" name="useBackground">
-                {{localize "MO.ui.dialog.reduceByBackground"}}:
+                {{localize "MO.ui.dialog.reduceByBackground"}}
             </label>
-            <select name="backgroundKey" {{#unless backgrounds.length}}disabled{{/unless}}>
-                {{#each backgrounds}}
-                <option value="{{key}}">{{label}}</option>
-                {{/each}}
-            </select>
         </div>
     </div>
-    {{/if}}
 
     <div class="form-group">
         <p class="roll-note">
