@@ -99,6 +99,11 @@
             "oppositionRollNote": "Minor success fills 1 box, major success fills 2 boxes",
             "roll": "Roll"
         },
+        "opposition": {
+            "alreadyFull": "{track} track is already full!",
+            "nowFull": "{track} track is now full!",
+            "excess": "{track} track would exceed by {boxes} boxes"
+        },
         "overflowChat": {
             "trackFull": "{name}'s overflow track is already full!",
             "nowFull": "{name}'s overflow track is now full! {count} overflow(s) were discarded.",

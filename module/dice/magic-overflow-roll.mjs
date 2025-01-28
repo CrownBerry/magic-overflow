@@ -55,6 +55,11 @@ export class MagicOverflowRoll extends Roll {
         return this.results.minorSuccess + this.results.majorSuccess;
     }
 
+    getFilledBoxes() {
+        // 1 ячейка за малый успех, 2 за большой
+        return this.results.minorSuccess + (this.results.majorSuccess * 2);
+    }
+
     async render(options = {}) {
         return await renderTemplate("systems/magic-overflow/templates/dice/roll-result.hbs", {
             formula: this.formula,
