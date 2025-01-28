@@ -32,6 +32,22 @@ export class BaseRollDialog extends Application {
         return "1d8";
     }
 
+    activateListeners(html) {
+        super.activateListeners(html);
+
+        // Добавляем обработчик сабмита формы
+        html.find('form').on('submit', (event) => {
+            event.preventDefault();
+            this._onRoll(event);
+        });
+
+        // Добавляем обработчик клика на кнопку
+        html.find('button[name="roll"]').on('click', (event) => {
+            event.preventDefault();
+            this._onRoll(event);
+        });
+    }
+
     async _onRoll(event) {
         event.preventDefault();
         const formData = new FormData(event.target.closest('form'));
