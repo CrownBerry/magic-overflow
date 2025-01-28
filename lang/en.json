@@ -90,7 +90,10 @@
         "dialog": {
             "useSpecialization": "Use Specialization",
             "useBackground": "Use Background",
-            "roll": "Roll"
+            "reduceByBackground": "Reduce by Background",
+            "oppositionRollNote": "Minor success fills 1 box, major success fills 2 boxes",
+            "roll": "Roll",
+            "oppositionRoll": "Opposition Roll"
         },
         "overflowChat": {
             "trackFull": "{name}'s overflow track is already full!",

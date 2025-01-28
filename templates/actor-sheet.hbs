@@ -125,7 +125,12 @@
                 <div class="resilience-column">
                     {{#each system.resilience as |track key|}}
                     <div class="track">
-                        <label>{{localize track.label}}</label>
+                        <div class="track-header">
+                            <span class="rollable" data-roll="opposition" data-resilience="{{key}}">
+                                <i class="fas fa-dice-d8"></i>
+                                {{localize track.label}}
+                            </span>
+                        </div>
                         <div class="track-boxes resilience-track-boxes">
                             {{#times_from 0 track.max}}
                             <input type="checkbox" class="resilience-box" data-resilience="{{key}}" data-box="{{this}}"

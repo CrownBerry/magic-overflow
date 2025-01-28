@@ -4,9 +4,23 @@
     gap: 5px;
 }
 
-.track label {
-    font-weight: bold;
-    color: #444;
+.track-header {
+    margin-bottom: 4px;
+    display: flex;
+    /* Добавляем для лучшего выравнивания */
+    align-items: center;
+}
+
+/* Обновляем стили для rollable внутри track-header */
+.track-header .rollable {
+    font-size: 13px;
+    font-family: var(--font-primary);
+    color: #4b4a44;
+    font-weight: 500;
+    flex: 1;
+    /* Чтобы занимал всю доступную ширину */
+    display: inline-flex;
+    align-items: center;
 }
 
 .track-boxes {

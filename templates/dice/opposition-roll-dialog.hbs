@@ -1,0 +1,31 @@
+<form class="opposition-roll-dialog">
+    <h2>{{title}}</h2>
+
+    {{#if backgrounds.length}}
+    <div class="form-group">
+        <div class="form-row">
+            <label>
+                <input type="checkbox" name="useBackground">
+                {{localize "MO.ui.dialog.reduceByBackground"}}:
+            </label>
+            <select name="backgroundKey" {{#unless backgrounds.length}}disabled{{/unless}}>
+                {{#each backgrounds}}
+                <option value="{{key}}">{{label}}</option>
+                {{/each}}
+            </select>
+        </div>
+    </div>
+    {{/if}}
+
+    <div class="form-group">
+        <p class="roll-note">
+            {{localize "MO.ui.dialog.oppositionRollNote"}}
+        </p>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" name="roll">
+            <i class="fas fa-dice-d8"></i> {{localize "MO.ui.dialog.roll"}}
+        </button>
+    </div>
+</form>
