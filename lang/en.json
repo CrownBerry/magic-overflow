@@ -87,13 +87,17 @@
         "deleteSpellTitle": "Delete Spell",
         "deleteSpellContent": "Are you sure you want to delete {name}?",
         "biography": "Biography",
+        "rolls": {
+            "risk": "Risk Roll",
+            "opposition": "Opposition Roll",
+            "magic": "Magic Roll"
+        },
         "dialog": {
             "useSpecialization": "Use Specialization",
             "useBackground": "Use Background",
             "reduceByBackground": "Reduce by Background",
             "oppositionRollNote": "Minor success fills 1 box, major success fills 2 boxes",
-            "roll": "Roll",
-            "oppositionRoll": "Opposition Roll"
+            "roll": "Roll"
         },
         "overflowChat": {
             "trackFull": "{name}'s overflow track is already full!",

@@ -1,4 +1,3 @@
-import { RollEvaluator } from "./roll-evaluator.mjs";
 import { MagicOverflowRoll } from "./magic-overflow-roll.mjs";
 
 export class BaseRollDialog extends Application {
@@ -11,9 +10,11 @@ export class BaseRollDialog extends Application {
         });
     }
 
-    constructor(actor, options = {}) {
+    constructor(actor, rollType, entityName, options = {}) {
         super(options);
         this.actor = actor;
+        this.rollType = rollType;
+        this.entityName = entityName;
     }
 
     getData() {
@@ -23,14 +24,8 @@ export class BaseRollDialog extends Application {
     }
 
     getDialogTitle() {
-        return "Base Roll";
-    }
-
-    activateListeners(html) {
-        super.activateListeners(html);
-
-        // Добавляем обработчик клика на кнопку
-        html.find('button[name="roll"]').click(this._onRoll.bind(this));
+        const rollTypeText = game.i18n.localize(`MO.rolls.${this.rollType}`);
+        return `${rollTypeText}: ${this.entityName}`;
     }
 
     getRollFormula() {
@@ -41,7 +36,10 @@ export class BaseRollDialog extends Application {
         event.preventDefault();
         const formData = new FormData(event.target.closest('form'));
 
-        let roll = await new MagicOverflowRoll(this.getRollFormula(formData), {}, { actor: this.actor }).evaluate();
+        let roll = await new MagicOverflowRoll(
+            this.getRollFormula(formData),
+            { actor: this.actor }
+        ).evaluate();
 
         const chatData = {
             speaker: ChatMessage.getSpeaker({ actor: this.actor }),
