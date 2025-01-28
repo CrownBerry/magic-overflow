@@ -177,9 +177,15 @@
                 <div class="spells-section">
                     <div class="section-header">
                         <h2>{{localize "MO.ui.spells"}}</h2>
-                        <a class="item-control item-create" title="{{localize 'MO.ui.addSpell'}}" data-type="spell">
-                            <i class="fas fa-plus"></i>
-                        </a>
+                        <div class="header-controls">
+                            <a class="item-control calculator-button"
+                                title="{{localize 'MO.ui.magicCalculator.title'}}">
+                                <i class="fas fa-calculator"></i>
+                            </a>
+                            <a class="item-control item-create" title="{{localize 'MO.ui.addSpell'}}" data-type="spell">
+                                <i class="fas fa-plus"></i>
+                            </a>
+                        </div>
                     </div>
                     <ol class="items-list">
                         {{#each spells as |spell id|}}

@@ -1,5 +1,6 @@
 import { RiskRollDialog } from "../dice/risk-roll-dialog.mjs";
 import { OppositionRollDialog } from "../dice/opposition-roll-dialog.mjs";
+import { MagicCalculatorDialog } from "../documents/magic-calculator-dialog.mjs";
 
 export class MagicOverflowActorSheet extends ActorSheet {
     static get defaultOptions() {
@@ -83,13 +84,19 @@ export class MagicOverflowActorSheet extends ActorSheet {
 
         // Броски
         html.find('.rollable').click(this._onRollableClick.bind(this));
+
+        // Калькулятор магии
+        html.find('.calculator-button').click(ev => {
+            ev.preventDefault();
+            new MagicCalculatorDialog().render(true);
+        });
     }
 
     _onRollableClick(event) {
         event.preventDefault();
         const element = event.currentTarget;
         const rollType = element.dataset.roll;
-        
+
         switch (rollType) {
             case 'risk':
                 const skillKey = element.dataset.skill;

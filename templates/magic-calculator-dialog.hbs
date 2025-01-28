@@ -1,0 +1,56 @@
+<form class="magic-calculator-dialog">
+    <h2>{{localize "MO.ui.magicCalculator.title"}}</h2>
+
+    <div class="form-group schools-section">
+        <label>{{localize "MO.ui.magicCalculator.school"}}</label>
+        <div class="radio-group">
+            {{#each config.magic.schools as |label key|}}
+            <label class="radio-label">
+                <input type="radio" name="school" value="{{key}}" {{#if @first}}checked{{/if}}>
+                <span>{{label}}</span>
+            </label>
+            {{/each}}
+        </div>
+    </div>
+
+    <div class="form-group words-section">
+        <label>{{localize "MO.ui.magicCalculator.word"}}</label>
+        <div class="radio-group">
+            {{#each config.magic.words as |label key|}}
+            <label class="radio-label">
+                <input type="radio" name="word" value="{{key}}" {{#if @first}}checked{{/if}}>
+                <span>{{label}}</span>
+            </label>
+            {{/each}}
+        </div>
+    </div>
+
+    <div class="form-group labels-section">
+        <label>{{localize "MO.ui.magicCalculator.labels"}}</label>
+        <div class="checkbox-group">
+            {{#each labels}}
+            <div class="label-item">
+                <label class="checkbox-label">
+                    <input type="checkbox" name="labels.{{@key}}" data-label="{{@key}}">
+                    <span>{{label}}</span>
+                </label>
+                {{#if hasLevels}}
+                <select name="labelLevel.{{@key}}" disabled>
+                    <option value="0">{{localize "MO.ui.magicCalculator.minor"}}</option>
+                    <option value="1">{{localize "MO.ui.magicCalculator.major"}}</option>
+                </select>
+                {{/if}}
+            </div>
+            {{/each}}
+        </div>
+    </div>
+
+    <div class="form-group result-section">
+        <label>{{localize "MO.ui.magicCalculator.result"}}</label>
+        <div class="result">
+            <span class="minor-circles">0</span>
+            <span class="separator">/</span>
+            <span class="major-circles">0</span>
+        </div>
+    </div>
+</form>

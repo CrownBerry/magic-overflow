@@ -1,0 +1,56 @@
+.magic-calculator-dialog {
+    padding: 1rem;
+}
+
+.magic-calculator-dialog .form-group {
+    margin-bottom: 1rem;
+}
+
+.magic-calculator-dialog .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+/* Группы радио-кнопок и чекбоксов */
+.magic-calculator-dialog .radio-group,
+.magic-calculator-dialog .checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 0.5rem;
+}
+
+.magic-calculator-dialog .radio-label,
+.magic-calculator-dialog .checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: normal;
+}
+
+/* Элемент ярлыка с выпадающим списком */
+.magic-calculator-dialog .label-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.magic-calculator-dialog .label-item select {
+    width: 80px;
+}
+
+/* Секция результата */
+.magic-calculator-dialog .result-section .result {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.magic-calculator-dialog .result .separator {
+    opacity: 0.5;
+}

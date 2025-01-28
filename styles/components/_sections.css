@@ -49,6 +49,45 @@
     margin-bottom: 10px;
 }
 
+/* Добавляем стили для контейнера кнопок */
+.section-header .header-controls {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+/* Общие стили для кнопок в заголовке */
+.section-header .item-control {
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    color: #782e22;
+    background: rgba(120, 46, 34, 0.05);
+    transition: all 0.2s ease;
+}
+
+.section-header .item-control:hover {
+    color: #fff;
+    background: #782e22;
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Специфичные стили для кнопки калькулятора */
+.section-header .calculator-button {
+    font-size: 11px;
+    /* Чуть меньше чем основные кнопки */
+}
+
+.section-header .calculator-button i {
+    position: relative;
+    top: 1px;
+    /* Небольшая корректировка позиции иконки */
+}
+
 /* Списки */
 .proficiencies ul,
 .magic-section ul {
