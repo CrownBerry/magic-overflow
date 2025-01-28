@@ -24,7 +24,7 @@ export class BaseRollDialog extends Application {
     }
 
     getDialogTitle() {
-        const rollTypeText = game.i18n.localize(`MO.rolls.ui.${this.rollType}`);
+        const rollTypeText = game.i18n.localize(`MO.ui.rolls.${this.rollType}`);
         return `${rollTypeText}: ${this.entityName}`;
     }
 
