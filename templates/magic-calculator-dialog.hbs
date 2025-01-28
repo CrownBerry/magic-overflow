@@ -8,7 +8,7 @@
                 {{#each config.magic.schools as |label key|}}
                 <label class="radio-label">
                     <input type="radio" name="school" value="{{key}}" {{#if @first}}checked{{/if}}>
-                    <span>{{label}}</span>
+                    <span>{{localize label}}</span>
                 </label>
                 {{/each}}
             </div>
@@ -20,7 +20,7 @@
                 {{#each config.magic.words as |label key|}}
                 <label class="radio-label">
                     <input type="radio" name="word" value="{{key}}" {{#if @first}}checked{{/if}}>
-                    <span>{{label}}</span>
+                    <span>{{localize label}}</span>
                 </label>
                 {{/each}}
             </div>
