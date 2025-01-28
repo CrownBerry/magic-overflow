@@ -81,7 +81,25 @@ export class MagicOverflowActorSheet extends ActorSheet {
         html.find('.item-name').click(this._onItemToggleDescription.bind(this));
 
         // Броски
-        html.find('.proficiencies li span').click(this._onSkillRoll.bind(this));
+        // html.find('.proficiencies li span').click(this._onSkillRoll.bind(this));
+        html.find('.rollable').click(this._onRollableClick.bind(this));
+    }
+
+    _onRollableClick(event) {
+        event.preventDefault();
+        const element = event.currentTarget;
+        const rollType = element.dataset.roll;
+
+        switch (rollType) {
+            case 'risk':
+                const skillKey = element.dataset.skill;
+                const skillName = element.textContent.trim();
+                new RiskRollDialog(this.actor, skillName, skillKey).render(true);
+                break;
+            // Здесь будут другие типы бросков
+            // case 'opposition':
+            // case 'magic':
+        }
     }
 
     _onProfChange(event) {
@@ -190,12 +208,12 @@ export class MagicOverflowActorSheet extends ActorSheet {
         }
     }
 
-    _onSkillRoll(event) {
-        event.preventDefault();
-        const skillSpan = event.currentTarget;
-        const skillName = skillSpan.textContent;
-        // Находим ключ навыка по элементу
-        const skillKey = skillSpan.closest('li').querySelector('.skill-checkbox').dataset.profkey;
-        new RiskRollDialog(this.actor, skillName, skillKey).render(true);
-    }
+    // _onSkillRoll(event) {
+    //     event.preventDefault();
+    //     const skillSpan = event.currentTarget;
+    //     const skillName = skillSpan.textContent;
+    //     // Находим ключ навыка по элементу
+    //     const skillKey = skillSpan.closest('li').querySelector('.skill-checkbox').dataset.profkey;
+    //     new RiskRollDialog(this.actor, skillName, skillKey).render(true);
+    // }
 }

@@ -50,7 +50,10 @@
                         <li>
                             <input type="checkbox" class="skill-checkbox prof-checkbox" data-prof="skills"
                                 data-profkey="{{key}}" {{checked skill.prof}} />
-                            <span>{{skill.label}}</span>
+                            <span class="rollable skill-name" data-roll="risk" data-skill="{{key}}">
+                                <i class="fas fa-dice-d8"></i>
+                                {{skill.label}}
+                            </span>
                             <input type="text" class="skill-specialization" data-skill="{{key}}"
                                 value="{{join specializations ','}}"
                                 placeholder="{{localize 'MO.ui.specializations'}}" />
