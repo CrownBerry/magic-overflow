@@ -23,9 +23,10 @@ export class OppositionRollDialog extends BaseRollDialog {
             { actor: this.actor }
         ).evaluate();
 
+        const resilience = this.actor.system.resilience[this.resilienceKey];
         const chatData = {
             speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-            flavor: this.title,
+            flavor: `${game.i18n.localize('MO.ui.oppositionRoll')}: ${game.i18n.localize(resilience.label)}`,
             content: await roll.render()
         };
 
