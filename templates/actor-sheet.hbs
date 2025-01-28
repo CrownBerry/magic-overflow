@@ -69,7 +69,7 @@
                         <li>
                             <input type="checkbox" class="background-checkbox prof-checkbox" data-prof="backgrounds"
                                 data-profkey="{{key}}" {{checked background.prof}} />
-                            <span>{{background.label}}</span>
+                            <span class="background-name">{{background.label}}</span>
                         </li>
                         {{/each}}
                     </ul>
@@ -82,7 +82,7 @@
                         <li>
                             <input type="checkbox" class="knowledge-checkbox prof-checkbox" data-prof="knowledge"
                                 data-profkey="{{key}}" {{checked knowledge.prof}} />
-                            <span>{{knowledge.label}}</span>
+                            <span class="knowledge-name">{{knowledge.label}}</span>
                         </li>
                         {{/each}}
                     </ul>
@@ -149,7 +149,7 @@
                             <li>
                                 <input type="checkbox" class="school-checkbox magic-checkbox" data-magic="schools"
                                     data-magickey="{{key}}" {{checked school.prof}} />
-                                <span>{{school.label}}</span>
+                                <span class="school-name">{{school.label}}</span>
                             </li>
                             {{/each}}
                         </ul>
@@ -162,7 +162,7 @@
                             <li>
                                 <input type="checkbox" class="word-checkbox magic-checkbox" data-magic="words"
                                     data-magickey="{{key}}" {{checked word.prof}} />
-                                <span>{{word.label}}</span>
+                                <span class="word-name">{{word.label}}</span>
                             </li>
                             {{/each}}
                         </ul>

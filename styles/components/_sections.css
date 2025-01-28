@@ -1,8 +1,8 @@
-/* Общая структура */
+/* Общая структура секций */
 .proficiencies-section {
     display: grid;
     grid-template-columns: 1.5fr 1fr 1fr;
-    gap: 20px;
+    gap: 15px;
     width: 100%;
 }
 
@@ -20,15 +20,14 @@
     gap: 20px;
 }
 
-.spells-section {
-    flex: 1;
-    width: 100%;
-}
-
-/* А schools и words оставляем в ряд */
 .schools-section,
 .words-section {
     display: inline-block;
+    width: 100%;
+}
+
+.spells-section {
+    flex: 1;
     width: 100%;
 }
 
@@ -40,7 +39,7 @@
     width: 100%;
 }
 
-/* Заголовки секций */
+/* Заголовки */
 .section-header {
     display: flex;
     justify-content: space-between;
@@ -50,42 +49,93 @@
     margin-bottom: 10px;
 }
 
-/* Общие стили для списков */
+/* Списки */
 .proficiencies ul,
 .magic-section ul {
-    list-style-type: none;
-    padding: 0;
+    list-style: none;
     margin: 0;
+    padding: 0;
 }
 
-.proficiencies li {
-    display: grid;
-    grid-template-columns: auto minmax(100px, 1fr) auto;
-    gap: 8px;
-    padding: 5px 0;
-    align-items: center;
-}
-
+.proficiencies li,
 .magic-section li {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto 1fr auto;
     gap: 8px;
-    padding: 5px 0;
+    padding: 3px 0;
     align-items: center;
 }
 
-/* Специализации */
+/* Чекбоксы */
+.prof-checkbox,
+.magic-checkbox {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #782e22;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.prof-checkbox:checked,
+.magic-checkbox:checked {
+    background-color: #782e22;
+}
+
+/* Названия элементов в списках */
+.skill-name,
+.background-name,
+.knowledge-name,
+.school-name,
+.word-name {
+    flex: 1;
+    min-width: 100px;
+    padding: 2px 4px;
+    font-size: 14px;
+    color: #444;
+}
+
+/* Поле специализаций */
 .skill-specialization {
-    width: 120px;
-    min-width: 80px;
-    max-width: 200px;
+    width: 100px;
+    min-width: 60px;
+    max-width: 150px;
     font-size: 12px;
-    padding: 5px;
+    padding: 2px 4px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 3px;
     text-align: right;
 }
 
+/* Кликабельные элементы */
+.rollable {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    border-radius: 3px;
+    transition: background-color 0.2s;
+}
+
+.rollable:hover {
+    background-color: rgba(120, 46, 34, 0.1);
+    text-shadow: 0 0 8px var(--color-shadow-primary);
+}
+
+.rollable i {
+    color: #782e22;
+    font-size: 0.9em;
+    opacity: 0.7;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.rollable:hover i {
+    opacity: 1;
+    transform: rotate(-15deg);
+}
+
+/* Таланты */
 .talents-column {
     width: 100%;
     display: flex;
@@ -109,40 +159,4 @@
 
 .biography-section .editor {
     height: 100%;
-}
-
-/* Стили для кликабельных элементов */
-.rollable {
-    cursor: pointer;
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5em;
-    padding: 2px 4px;
-    border-radius: 3px;
-    transition: background-color 0.2s;
-}
-
-.rollable:hover {
-    background-color: rgba(120, 46, 34, 0.1);
-    text-shadow: 0 0 8px var(--color-shadow-primary);
-}
-
-/* Стили для иконки кубика */
-.rollable i {
-    color: #782e22;
-    font-size: 0.9em;
-    opacity: 0.7;
-    transition: transform 0.2s, opacity 0.2s;
-}
-
-.rollable:hover i {
-    opacity: 1;
-    transform: rotate(-15deg);
-}
-
-/* Специфичные стили для навыков */
-.skill-name {
-    flex: 1;
-    min-width: 100px;
 }
