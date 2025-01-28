@@ -4,7 +4,7 @@ export class MagicCalculatorDialog extends Application {
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
             id: "magic-calculator",
-            title: game.i18n.localize("MO.ui.magicCalculator.title"),
+            title: game.i18n.localize("MO.magicCalculator.title"),
             template: "systems/magic-overflow/templates/magic-calculator-dialog.hbs",
             width: 540,
             height: "auto",
