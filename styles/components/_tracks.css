@@ -1,31 +1,47 @@
 .track {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    margin-bottom: 12px;
+    /* Увеличиваем отступ между шкалами */
+}
+
+.track:last-child {
+    margin-bottom: 0;
 }
 
 .track-header {
     margin-bottom: 4px;
     display: flex;
-    /* Добавляем для лучшего выравнивания */
     align-items: center;
+    min-height: 24px;
+    /* Фиксированная высота для выравнивания */
 }
 
-/* Обновляем стили для rollable внутри track-header */
 .track-header .rollable {
     font-size: 13px;
     font-family: var(--font-primary);
     color: #4b4a44;
     font-weight: 500;
-    flex: 1;
-    /* Чтобы занимал всю доступную ширину */
     display: inline-flex;
     align-items: center;
+    gap: 8px;
+    /* Увеличиваем расстояние между иконкой и текстом */
+}
+
+/* Добавляем стили для контейнера шкал */
+.resilience-column {
+    background: rgba(120, 46, 34, 0.03);
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    /* Отступ от талантов */
 }
 
 .track-boxes {
     display: flex;
     gap: 2px;
+    padding-left: 24px;
+    /* Отступ слева для выравнивания с текстом */
 }
 
 .track-boxes input[type="checkbox"] {
