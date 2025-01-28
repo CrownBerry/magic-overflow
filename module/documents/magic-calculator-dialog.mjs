@@ -17,27 +17,27 @@ export class MagicCalculatorDialog extends Application {
             config: CONFIG.MO,
             labels: {
                 distant: {
-                    label: game.i18n.localize("MO.ui.magicCalculator.labelNames.distant"),
+                    label: game.i18n.localize("MO.magicCalculator.labelNames.distant"),
                     hasLevels: false
                 },
                 ignoresVision: {
-                    label: game.i18n.localize("MO.ui.magicCalculator.labelNames.ignoresVision"),
+                    label: game.i18n.localize("MO.magicCalculator.labelNames.ignoresVision"),
                     hasLevels: false
                 },
                 veil: {
-                    label: game.i18n.localize("MO.ui.magicCalculator.labelNames.veil"),
+                    label: game.i18n.localize("MO.magicCalculator.labelNames.veil"),
                     hasLevels: true
                 },
                 piercing: {
-                    label: game.i18n.localize("MO.ui.magicCalculator.labelNames.piercing"),
+                    label: game.i18n.localize("MO.magicCalculator.labelNames.piercing"),
                     hasLevels: false
                 },
                 dangerous: {
-                    label: game.i18n.localize("MO.ui.magicCalculator.labelNames.dangerous"),
+                    label: game.i18n.localize("MO.magicCalculator.labelNames.dangerous"),
                     hasLevels: true
                 },
                 unnoticed: {
-                    label: game.i18n.localize("MO.ui.magicCalculator.labelNames.unnoticed"),
+                    label: game.i18n.localize("MO.magicCalculator.labelNames.unnoticed"),
                     hasLevels: true
                 }
             }
