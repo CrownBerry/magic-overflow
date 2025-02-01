@@ -1,21 +1,8 @@
-// magic-roll-dialog.mjs
-import { BaseRollDialog } from "./base-roll-dialog.mjs";
-import { MagicOverflowRoll } from "./magic-overflow-roll.mjs";
-
 export class MagicRollDialog extends BaseRollDialog {
     constructor(actor, schoolKey, options = {}) {
         const schoolName = game.i18n.localize(CONFIG.MO.magic.schools[schoolKey]);
         super(actor, 'magic', schoolName, options);
         this.schoolKey = schoolKey;
-    }
-
-    static get defaultOptions() {
-        return foundry.utils.mergeObject(super.defaultOptions, {
-            template: "systems/magic-overflow/templates/dice/magic-roll-dialog.hbs",
-            classes: ["magic-overflow", "dialog", "magic-roll"],
-            width: 500,
-            height: 'auto'
-        });
     }
 
     activateListeners(html) {
@@ -26,21 +13,6 @@ export class MagicRollDialog extends BaseRollDialog {
             const value = event.currentTarget.value;
             html.find('.sacrifice-value').text(value);
         });
-
-        html.find('form').on('submit', event => this._updateObject(event));
-    }
-
-    getData() {
-        const data = super.getData();
-        data.words = CONFIG.MO.magic.words;
-        // Проверяем владение словами у актора
-        data.wordsProf = Object.entries(this.actor.system.magic.words)
-            .reduce((acc, [key, value]) => {
-                acc[key] = value.prof;
-                return acc;
-            }, {});
-        data.maxSacrifice = 3;
-        return data;
     }
 
     getDiceCount(formData) {
@@ -85,19 +57,20 @@ export class MagicRollDialog extends BaseRollDialog {
         return `${diceCount}d8`;
     }
 
-    async _updateObject(event, formData) {
+    async _onRoll(event) {
         event.preventDefault();
+        const formData = new FormData(event.target.closest('form'));
 
         // Получаем количество кругов из формы
-        const minorCircles = parseInt(formData.minorCircles);
-        const majorCircles = parseInt(formData.majorCircles);
+        const minorCircles = parseInt(formData.get('minorCircles'));
+        const majorCircles = parseInt(formData.get('majorCircles'));
 
         if (isNaN(minorCircles) || isNaN(majorCircles)) {
             ui.notifications.error(game.i18n.localize("MO.ui.magicRoll.invalidCircles"));
             return;
         }
 
-        const roll = await new MagicOverflowRoll(
+        let roll = await new MagicOverflowRoll(
             this.getRollFormula(formData),
             {
                 actor: this.actor,
