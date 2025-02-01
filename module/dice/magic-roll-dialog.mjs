@@ -18,6 +18,18 @@ export class MagicRollDialog extends BaseRollDialog {
         });
     }
 
+    activateListeners(html) {
+        super.activateListeners(html);
+
+        // Обновление значения жертвы при перемещении ползунка
+        html.find('input[name="sacrifice"]').on('input', (event) => {
+            const value = event.currentTarget.value;
+            html.find('.sacrifice-value').text(value);
+        });
+
+        html.find('form').on('submit', event => this._updateObject(event));
+    }
+
     getData() {
         const data = super.getData();
         data.words = CONFIG.MO.magic.words;
@@ -74,6 +86,8 @@ export class MagicRollDialog extends BaseRollDialog {
     }
 
     async _updateObject(event, formData) {
+        event.preventDefault();
+
         // Получаем количество кругов из формы
         const minorCircles = parseInt(formData.minorCircles);
         const majorCircles = parseInt(formData.majorCircles);
@@ -91,15 +105,6 @@ export class MagicRollDialog extends BaseRollDialog {
                 majorCircles
             }
         ).evaluate();
-
-        // После броска проверяем нужно ли вычесть жертву из стойкости
-        const sacrifice = parseInt(formData.sacrifice || 0);
-        if (sacrifice > 0) {
-            const currentSpirit = this.actor.system.resilience.spirit.value;
-            await this.actor.update({
-                'system.resilience.spirit.value': Math.max(0, currentSpirit - sacrifice)
-            });
-        }
 
         const chatData = {
             speaker: ChatMessage.getSpeaker({ actor: this.actor }),
