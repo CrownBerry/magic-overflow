@@ -154,7 +154,10 @@
                             <li>
                                 <input type="checkbox" class="school-checkbox magic-checkbox" data-magic="schools"
                                     data-magickey="{{key}}" {{checked school.prof}} />
-                                <span class="school-name">{{school.label}}</span>
+                                <span class="rollable school-name" data-roll="magic" data-school="{{key}}">
+                                    <i class="fas fa-dice-d8"></i>
+                                    {{school.label}}
+                                </span>
                             </li>
                             {{/each}}
                         </ul>

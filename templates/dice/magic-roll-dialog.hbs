@@ -1,0 +1,64 @@
+<form class="magic-roll-dialog">
+    <h2>{{title}}</h2>
+
+    <div class="form-group words-section">
+        <label>{{localize "MO.ui.magicRoll.selectWord"}}</label>
+        <div class="words-grid">
+            {{#each words as |label key|}}
+            <label class="radio-label {{#if (lookup ../wordsProf key)}}proficient{{/if}}">
+                <input type="radio" name="word" value="{{key}}" {{#if @first}}checked{{/if}}>
+                <span>{{localize label}}</span>
+            </label>
+            {{/each}}
+        </div>
+    </div>
+
+    <div class="form-group connections-section">
+        <label>{{localize "MO.ui.magicRoll.connections"}}</label>
+        <div class="connections-grid">
+            <label class="checkbox-label">
+                <input type="checkbox" name="personalItem">
+                <span>{{localize "MO.ui.magicRoll.personalItem"}}</span>
+            </label>
+            <label class="checkbox-label">
+                <input type="checkbox" name="trueName">
+                <span>{{localize "MO.ui.magicRoll.trueName"}}</span>
+            </label>
+            <label class="checkbox-label">
+                <input type="checkbox" name="flesh">
+                <span>{{localize "MO.ui.magicRoll.flesh"}}</span>
+            </label>
+        </div>
+    </div>
+
+    <div class="form-group sacrifice-section">
+        <label>{{localize "MO.ui.magicRoll.sacrifice"}}</label>
+        <div class="sacrifice-control">
+            <input type="range" name="sacrifice" min="0" max="{{maxSacrifice}}" value="0" class="sacrifice-slider">
+            <span class="sacrifice-value">0</span>
+        </div>
+    </div>
+
+    <div class="form-group signature-section">
+        <label class="checkbox-label">
+            <input type="checkbox" name="signature">
+            <span>{{localize "MO.ui.magicRoll.signature"}}</span>
+        </label>
+    </div>
+
+    <div class="form-group circles-section">
+        <label>{{localize "MO.ui.magicRoll.spellCost"}}</label>
+        <div class="circles-input">
+            <input type="number" name="minorCircles" min="0" required>
+            <span class="circles-separator">/</span>
+            <input type="number" name="majorCircles" min="0" required>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" name="roll">
+            <i class="fas fa-dice-d8"></i>
+            {{localize "MO.ui.dialog.roll"}}
+        </button>
+    </div>
+</form>

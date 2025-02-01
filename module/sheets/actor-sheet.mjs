@@ -1,6 +1,7 @@
 import { RiskRollDialog } from "../dice/risk-roll-dialog.mjs";
 import { OppositionRollDialog } from "../dice/opposition-roll-dialog.mjs";
 import { MagicCalculatorDialog } from "../documents/magic-calculator-dialog.mjs";
+import { MagicRollDialog } from "../dice/magic-roll-dialog.mjs";
 
 export class MagicOverflowActorSheet extends ActorSheet {
     static get defaultOptions() {
@@ -107,7 +108,10 @@ export class MagicOverflowActorSheet extends ActorSheet {
                 const resilienceKey = element.dataset.resilience;
                 new OppositionRollDialog(this.actor, resilienceKey).render(true);
                 break;
-            // Здесь будет case 'magic'
+            case 'magic':
+                const schoolKey = element.dataset.school;
+                new MagicRollDialog(this.actor, schoolKey).render(true);
+                break;
         }
     }
 

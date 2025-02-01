@@ -1,0 +1,111 @@
+.magic-roll-dialog {
+    padding: 1rem;
+}
+
+.magic-roll-dialog .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.magic-roll-dialog label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #782e22;
+}
+
+/* Сетка для слов силы */
+.magic-roll-dialog .words-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: rgba(120, 46, 34, 0.05);
+    border-radius: 4px;
+}
+
+/* Сетка для связей */
+.magic-roll-dialog .connections-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(120, 46, 34, 0.05);
+    border-radius: 4px;
+}
+
+/* Секция жертвы */
+.magic-roll-dialog .sacrifice-control {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(120, 46, 34, 0.05);
+    border-radius: 4px;
+}
+
+.magic-roll-dialog .sacrifice-slider {
+    flex: 1;
+}
+
+.magic-roll-dialog .sacrifice-value {
+    min-width: 2em;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Секция кругов */
+.magic-roll-dialog .circles-input {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: rgba(120, 46, 34, 0.05);
+    border-radius: 4px;
+}
+
+.magic-roll-dialog .circles-input input {
+    width: 4em;
+    text-align: center;
+    padding: 0.3em;
+}
+
+.magic-roll-dialog .circles-separator {
+    color: #782e22;
+    font-weight: bold;
+}
+
+/* Стили для радио и чекбоксов */
+.magic-roll-dialog .radio-label,
+.magic-roll-dialog .checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.3em 0.5em;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: normal;
+}
+
+.magic-roll-dialog .radio-label.proficient {
+    background: rgba(120, 46, 34, 0.1);
+}
+
+/* Кнопка броска */
+.magic-roll-dialog button[type="submit"] {
+    width: 100%;
+    padding: 0.7em;
+    background: #782e22;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+}
+
+.magic-roll-dialog button[type="submit"]:hover {
+    background: #913a2c;
+}

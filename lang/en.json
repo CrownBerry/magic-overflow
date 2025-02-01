@@ -110,7 +110,22 @@
             "occurred": "Overflow occurred"
         },
         "fortune": "Fortune",
-        "misfortune": "Misfortune"
+        "misfortune": "Misfortune",
+        "magicRoll": {
+            "selectWord": "Select Word of Power",
+            "connections": "Connections",
+            "personalItem": "Personal Item",
+            "trueName": "True Name",
+            "flesh": "Flesh or Blood",
+            "sacrifice": "Sacrifice Spirit",
+            "signature": "Signature Magic",
+            "spellCost": "Spell Cost (Minor/Major)",
+            "invalidCircles": "Please enter valid circle costs",
+            "success": "Spell succeeded!",
+            "partial": "Spell partially succeeded, but something went wrong...",
+            "failure": "Spell went out of control!",
+            "filledCircles": "Filled {filled} out of {total} circles"
+        }
     },
     "MO.magicCalculator": {
         "title": "Magic Calculator",
