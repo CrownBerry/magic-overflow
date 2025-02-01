@@ -123,9 +123,9 @@ export class MagicRollDialog extends BaseRollDialog {
         let roll = await new MagicOverflowRoll(
             this.getRollFormula(formData),
             {  
-                actor: this.actor,
-                minorCircles: formData.get('minorCircles') || 0,
-                majorCircles: formData.get('majorCircles') || 0
+            actor: this.actor,
+            minorCircles: Number(formData.get('minorCircles')) || 0,
+            majorCircles: Number(formData.get('majorCircles')) || 0
             }
         ).evaluate();
 
