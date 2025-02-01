@@ -115,4 +115,27 @@ export class MagicRollDialog extends BaseRollDialog {
         await ChatMessage.create(chatData);
         this.close();
     }
+
+    async _onRoll(event) {
+        event.preventDefault();
+        const formData = new FormData(event.target.closest('form'));
+
+        let roll = await new MagicOverflowRoll(
+            this.getRollFormula(formData),
+            {  
+                actor: this.actor,
+                minorCircles: formData.get('minorCircles') || 0,
+                majorCircles: formData.get('majorCircles') || 0
+            }
+        ).evaluate();
+
+        const chatData = {
+            speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+            flavor: this.getDialogTitle(),
+            content: await roll.render()
+        };
+
+        await ChatMessage.create(chatData);
+        this.close();
+    }
 }
