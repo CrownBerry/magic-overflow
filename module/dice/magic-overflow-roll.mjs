@@ -74,6 +74,11 @@ export class MagicOverflowRoll extends Roll {
         this.filledCircles.major = majorFilledByMajor;
         remainingMajor -= majorFilledByMajor;
 
+        // Если оставшиеся большие успехи отрицательные, делаем их 0
+        if (remainingMajor < 0) {
+            remainingMajor = 0;
+        }
+
         // Оставшиеся большие успехи используем для малых кругов
         const minorFilledByMajor = remainingMajor * 2;  // один большой успех может заполнить два малых круга
 
