@@ -92,6 +92,11 @@
             "opposition": "Opposition Roll",
             "magic": "Magic Roll"
         },
+        "roll": {
+            "minorSuccess": "Minor Successes",
+            "majorSuccess": "Major Successes",
+            "overflow": "Overflow"
+        },
         "dialog": {
             "useSpecialization": "Use Specialization",
             "useBackground": "Use Background",

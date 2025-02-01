@@ -15,9 +15,23 @@
             </section>
         </div>
         <div class="roll-results">
-            <div>Minor Successes: {{successes.minorSuccess}}</div>
-            <div>Major Successes: {{successes.majorSuccess}}</div>
-            <div>Overflow: {{successes.overflow}}</div>
+            {{!-- Базовая информация для всех бросков --}}
+            <div>{{localize "MO.ui.roll.minorSuccess"}}: {{successes.minorSuccess}}</div>
+            <div>{{localize "MO.ui.roll.majorSuccess"}}: {{successes.majorSuccess}}</div>
+            <div>{{localize "MO.ui.roll.overflow"}}: {{successes.overflow}}</div>
+
+            {{!-- Информация специфичная для магического броска --}}
+            {{#if spellResult}}
+            <div
+                class="spell-result {{#if spellResult.success}}success{{/if}}{{#if spellResult.partial}}partial{{/if}}{{#if spellResult.failure}}failure{{/if}}">
+                {{spellResult.message}}
+            </div>
+            <div class="circles-result">
+                {{filledMessage}}
+            </div>
+            {{/if}}
+
+            {{!-- Предупреждение о переполнении для всех бросков --}}
             {{#if overflowMessage}}
             <div class="overflow-warning">
                 {{overflowMessage}}

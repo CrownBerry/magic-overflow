@@ -6,14 +6,23 @@ export class MagicOverflowRoll extends Roll {
             majorSuccess: 0,
             overflow: 0
         };
-        this.actor = data.actor; // Берем актора из data
-        console.log("Constructor. Actor:", this.actor);
+        this.actor = data.actor;
+
+        // Параметры для магического броска
+        if (data.minorCircles !== undefined) {
+            this.minorCircles = data.minorCircles;
+            this.majorCircles = data.majorCircles;
+            this.filledCircles = {
+                minor: 0,
+                major: 0
+            };
+        }
     }
 
     async evaluate() {
         await this._evaluate();
-        console.log("After evaluate. Results:", this.terms[0].results); // Проверим результаты броска
 
+        // Подсчитываем успехи
         this.terms[0].results.forEach(die => {
             if (die.result === 8) {
                 this.results.overflow++;
@@ -24,8 +33,11 @@ export class MagicOverflowRoll extends Roll {
                 this.results.minorSuccess++;
             }
         });
-        console.log("After counting. Results:", this.results); // Проверим подсчет успехов
 
+        // Заполняем круги
+        this._fillCircles();
+
+        // Обрабатываем переполнение
         if (this.results.overflow > 0 && this.actor) {
             const currentOverflow = this.actor.system.overflow.value;
             const maxOverflow = this.actor.system.overflow.max;
@@ -50,17 +62,73 @@ export class MagicOverflowRoll extends Roll {
         return this;
     }
 
-    // Вспомогательные методы
-    get totalSuccess() {
-        return this.results.minorSuccess + this.results.majorSuccess;
+    _fillCircles() {
+        // Сначала используем большие успехи
+        let remainingMajor = this.results.majorSuccess;
+
+        // Заполняем большие круги большими успехами
+        const majorFilledByMajor = Math.min(remainingMajor, this.majorCircles);
+        this.filledCircles.major = majorFilledByMajor;
+        remainingMajor -= majorFilledByMajor;
+
+        // Оставшиеся большие успехи используем для малых кругов
+        const minorFilledByMajor = remainingMajor * 2;  // один большой успех может заполнить два малых круга
+
+        // Используем малые успехи для оставшихся малых кругов
+        const remainingMinorCircles = this.minorCircles - minorFilledByMajor;
+        const minorFilledByMinor = Math.min(this.results.minorSuccess, remainingMinorCircles);
+
+        this.filledCircles.minor = minorFilledByMajor + minorFilledByMinor;
     }
 
-    getFilledBoxes() {
-        // 1 ячейка за малый успех, 2 за большой
-        return this.results.minorSuccess + (this.results.majorSuccess * 2);
+    getSpellResult() {
+        const totalCircles = this.minorCircles + this.majorCircles;
+        const filledCircles = this.filledCircles.minor + this.filledCircles.major;
+        const halfCircles = Math.ceil(totalCircles / 2);
+
+        if (filledCircles >= totalCircles) {
+            return {
+                success: true,
+                message: game.i18n.localize("MO.ui.magicRoll.success")
+            };
+        } else if (filledCircles >= halfCircles) {
+            return {
+                partial: true,
+                message: game.i18n.localize("MO.ui.magicRoll.partial")
+            };
+        } else {
+            return {
+                failure: true,
+                message: game.i18n.localize("MO.ui.magicRoll.failure")
+            };
+        }
     }
 
     async render(options = {}) {
+        // Если это магический бросок
+        if (this.minorCircles !== undefined) {
+            const spellResult = this.getSpellResult();
+            const filledMessage = game.i18n.format("MO.ui.magicRoll.filledCircles", {
+                filled: this.filledCircles.minor + this.filledCircles.major,
+                total: this.minorCircles + this.majorCircles
+            });
+
+            return await renderTemplate("systems/magic-overflow/templates/dice/roll-result.hbs", {
+                formula: this.formula,
+                results: this.terms[0].results,
+                successes: this.results,
+                overflowMessage: this.overflowMessage,
+                spellResult: spellResult,
+                filledCircles: this.filledCircles,
+                requiredCircles: {
+                    minor: this.minorCircles,
+                    major: this.majorCircles
+                },
+                filledMessage: filledMessage
+            });
+        }
+
+        // Обычный бросок (риск/противостояние)
         return await renderTemplate("systems/magic-overflow/templates/dice/roll-result.hbs", {
             formula: this.formula,
             results: this.terms[0].results,

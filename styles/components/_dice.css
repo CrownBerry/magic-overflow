@@ -64,3 +64,37 @@
     color: #782e22;
     font-weight: bold;
 }
+
+.magic-overflow-roll .spell-result {
+    margin-top: 0.5em;
+    padding: 0.5em;
+    border: 1px solid;
+    border-radius: 4px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.magic-overflow-roll .spell-result.success {
+    border-color: #4CAF50;
+    background: rgba(76, 175, 80, 0.1);
+    color: #2E7D32;
+}
+
+.magic-overflow-roll .spell-result.partial {
+    border-color: #FFA726;
+    background: rgba(255, 167, 38, 0.1);
+    color: #E65100;
+}
+
+.magic-overflow-roll .spell-result.failure {
+    border-color: #782e22;
+    background: rgba(120, 46, 34, 0.1);
+    color: #782e22;
+}
+
+.magic-overflow-roll .circles-result {
+    margin-top: 0.5em;
+    text-align: center;
+    font-style: italic;
+    color: #666;
+}
