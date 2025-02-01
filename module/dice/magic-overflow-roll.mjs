@@ -132,6 +132,12 @@ export class MagicOverflowRoll extends Roll {
         if (!form) return;
         const formData = new FormData(form);
 
+        console.log("Form data values:", {
+            minorCircles,
+            majorCircles,
+            formData: Object.fromEntries(formData)
+        });
+
         // Получаем количество кругов из формы
         const minorCircles = parseInt(formData.get('minorCircles'));
         const majorCircles = parseInt(formData.get('majorCircles'));
