@@ -104,6 +104,40 @@ export class MagicOverflowRoll extends Roll {
         }
     }
 
+    async _onRoll(event) {
+        event.preventDefault();
+        const form = event.target.closest('form');
+        if (!form) return;
+        const formData = new FormData(form);
+
+        // Получаем количество кругов из формы
+        const minorCircles = parseInt(formData.get('minorCircles'));
+        const majorCircles = parseInt(formData.get('majorCircles'));
+
+        if (isNaN(minorCircles) || isNaN(majorCircles)) {
+            ui.notifications.error(game.i18n.localize("MO.ui.magicRoll.invalidCircles"));
+            return;
+        }
+
+        const roll = await new MagicOverflowRoll(
+            this.getRollFormula(formData),
+            {
+                actor: this.actor,
+                minorCircles,
+                majorCircles
+            }
+        ).evaluate();
+
+        const chatData = {
+            speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+            flavor: this.getDialogTitle(),
+            content: await roll.render()
+        };
+
+        await ChatMessage.create(chatData);
+        this.close();
+    }
+
     async render(options = {}) {
         // Если это магический бросок
         if (this.minorCircles !== undefined) {
