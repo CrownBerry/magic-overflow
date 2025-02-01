@@ -1,3 +1,6 @@
+import { BaseRollDialog } from "./base-roll-dialog.mjs";
+import { MagicOverflowRoll } from "./magic-overflow-roll.mjs";
+
 export class MagicRollDialog extends BaseRollDialog {
     constructor(actor, schoolKey, options = {}) {
         const schoolName = game.i18n.localize(CONFIG.MO.magic.schools[schoolKey]);
