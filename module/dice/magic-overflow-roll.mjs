@@ -18,19 +18,9 @@ export class MagicOverflowRoll extends Roll {
                 major: 0
             };
         }
-        console.log("MagicOverflowRoll initialized with:", {
-            minorCircles: this.minorCircles,
-            majorCircles: this.majorCircles,
-            filledCircles: this.filledCircles
-        });
     }
 
     async evaluate() {
-        console.log("Starting evaluate with state:", {
-            minorCircles: this.minorCircles,
-            majorCircles: this.majorCircles,
-            filledCircles: this.filledCircles
-        });
         await this._evaluate();
 
         // Подсчитываем успехи
@@ -74,12 +64,6 @@ export class MagicOverflowRoll extends Roll {
     }
 
     _fillCircles() {
-        console.log("Starting _fillCircles with state:", {
-            minorCircles: this.minorCircles,
-            majorCircles: this.majorCircles,
-            filledCircles: this.filledCircles,
-            results: this.results
-        });
         // Сначала используем большие успехи
         let remainingMajor = this.results.majorSuccess;
 
@@ -122,21 +106,10 @@ export class MagicOverflowRoll extends Roll {
     }
 
     async _onRoll(event) {
-        console.log("Creating roll with parameters:", {
-            formula: this.getRollFormula(formData),
-            minorCircles,
-            majorCircles
-        });
         event.preventDefault();
         const form = event.target.closest('form');
         if (!form) return;
         const formData = new FormData(form);
-
-        console.log("Form data values:", {
-            minorCircles,
-            majorCircles,
-            formData: Object.fromEntries(formData)
-        });
 
         // Получаем количество кругов из формы
         const minorCircles = parseInt(formData.get('minorCircles'));
