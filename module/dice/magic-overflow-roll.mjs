@@ -36,7 +36,7 @@ export class MagicOverflowRoll extends Roll {
         });
 
         // Заполняем круги
-        if (data.minorCircles !== undefined) {
+        if (this.minorCircles !== undefined && this.majorCircles !== undefined) {
             this._fillCircles();
         }
 
