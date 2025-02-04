@@ -151,7 +151,7 @@
                                 <input type="checkbox" class="consequence-checkbox" data-index="{{this}}" {{#if (lookup
                                     ../system.consequences.list this)}}checked{{/if}} />
                                 <input type="text" class="consequence-text" data-index="{{this}}"
-                                    value="{{lookup ../system.consequences.list this 'text'}}"
+                                    value="{{#if (lookup ../system.consequences.list this)}}{{(lookup ../system.consequences.list this).text}}{{/if}}"
                                     placeholder="{{localize 'MO.ui.consequenceText'}}" {{#unless (lookup
                                     ../system.consequences.list this)}}disabled{{/unless}} />
                             </div>

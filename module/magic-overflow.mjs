@@ -59,11 +59,4 @@ function registerHandlebarsHelpers() {
     Handlebars.registerHelper('eq', function (a, b) {
         return a === b;
     });
-
-    Handlebars.registerHelper('lookup', function (obj, key, prop) {
-        if (prop) {
-            return obj && obj[key] ? obj[key][prop] : undefined;
-        }
-        return obj ? obj[key] : undefined;
-    });
 }
