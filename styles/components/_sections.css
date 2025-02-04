@@ -201,7 +201,40 @@
 }
 
 /* Биография */
-.biography-section {
+.money-track {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-start;
+}
+
+.money-track label {
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.money-track .track-boxes {
+    display: flex;
+    gap: 5px;
+}
+
+.money-track input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #782e22;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.money-track input[type="checkbox"]:checked {
+    background-color: #782e22;
+}
+
+.biography-section
+.money-section {
     width: 100%;
     height: 100%;
     display: flex;

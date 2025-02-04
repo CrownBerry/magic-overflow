@@ -221,6 +221,18 @@
 
         {{!-- Вкладка био --}}
         <div class="tab bio" data-group="primary" data-tab="bio">
+            <div class="money-section">
+                <div class="overflow-track">
+                        <label>{{localize "MO.ui.money"}}</label>
+                        <div class="track-boxes money-boxes">
+                            {{#times_from 0 system.money.max}}
+                            <input type="checkbox" class="money-box" data-box="{{this}}"
+                                moneyTrack="{{../system.money.value}}" {{#if (lt this
+                                ../system.money.value)}}checked{{/if}} />
+                            {{/times_from}}
+                        </div>
+                    </div>
+            </div>
             <div class="biography-section">
                 <div class="section-header">
                     <h2>{{localize "MO.ui.biography"}}</h2>
