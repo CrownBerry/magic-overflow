@@ -128,7 +128,7 @@ export class MagicOverflowActorSheet extends ActorSheet {
         await this.actor.update({ 'system.overflow.value': newValue });
     }
 
-    async _onOverflowChange(event) {
+    async _onMoneyChange(event) {
         event.preventDefault();
         const box = event.currentTarget;
         const boxIndex = Number(box.dataset.box || 0);
