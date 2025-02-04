@@ -29,7 +29,6 @@ export class MagicOverflowActorSheet extends ActorSheet {
         console.log('Full context is:', context);
 
         this._prepareProficiencies(context);
-        this._prepareResilience(context);
         this._prepareMagic(context);
 
         context.talents = this.actor.items.filter(item => item.type === 'talent');
@@ -49,10 +48,6 @@ export class MagicOverflowActorSheet extends ActorSheet {
         for (let [key, data] of Object.entries(context.system.knowledge)) {
             context.system.knowledge[key].label = game.i18n.localize(context.config.knowledge[key]);
         }
-
-    }
-
-    _prepareResilience(context) {
         for (let [key, data] of Object.entries(context.system.resilience)) {
             context.system.resilience[key].label = game.i18n.localize(context.config.resilience[key]);
         }

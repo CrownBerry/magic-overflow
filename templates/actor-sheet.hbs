@@ -126,6 +126,8 @@
                     {{#each system.resilience as |track key|}}
                     <div class="track">
                         <div class="track-header">
+                            <input type="checkbox" class="resilience-checkbox prof-checkbox" data-prof="resilience"
+                                data-profkey="{{key}}" {{checked track.prof}} />
                             <span class="rollable" data-roll="opposition" data-resilience="{{key}}">
                                 <i class="fas fa-dice-d8"></i>
                                 {{localize track.label}}

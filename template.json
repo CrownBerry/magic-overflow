@@ -45,19 +45,19 @@
             },
             "resilience": {
                 "flesh": {
+                    "prof": false,
                     "value": 0,
-                    "max": 4,
-                    "label": "MO.resilience.flesh"
+                    "max": 3
                 },
                 "mind": {
+                    "prof": false,
                     "value": 0,
-                    "max": 4,
-                    "label": "MO.resilience.mind"
+                    "max": 3
                 },
                 "spirit": {
+                    "prof": false,
                     "value": 0,
-                    "max": 4,
-                    "label": "MO.resilience.spirit"
+                    "max": 3
                 }
             },
             "backgrounds": {

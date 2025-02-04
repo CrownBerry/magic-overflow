@@ -26,6 +26,7 @@ export class MagicOverflowActor extends Actor {
             track.value = Number(track.value) || 0;
             // Проверяем не превышает ли значение максимум
             track.value = Math.min(track.value, track.max);
+            track.max = track.prof ? 4 : 3;
         }
     }
 }
