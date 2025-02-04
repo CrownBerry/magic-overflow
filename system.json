@@ -25,9 +25,9 @@
     ],
     "packs": [
         {
-            "name": "compendium",
-            "label": "Magic Overflow Compendium",
-            "path": "pack/compendium.db",
+            "name": "talents",
+            "label": "Magic Overflow Talents",
+            "path": "pack/talents.json",
             "type": "Item"
         }
     ],
