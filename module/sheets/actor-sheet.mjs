@@ -70,6 +70,7 @@ export class MagicOverflowActorSheet extends ActorSheet {
         html.on('change', '.skill-specialization', this._onSpecializationChange.bind(this));
         html.on('change', '.magic-checkbox', this._onMagicChange.bind(this));
         html.on('change', '.overflow-box', this._onOverflowChange.bind(this));
+        html.on('change', '.money-box', this._onMoneyChange.bind(this));
         html.on('change', '.resilience-box', this._onResilienceBoxChange.bind(this));
 
         // Таланты
@@ -125,6 +126,14 @@ export class MagicOverflowActorSheet extends ActorSheet {
         const boxIndex = Number(box.dataset.box || 0);
         const newValue = box.checked ? boxIndex + 1 : boxIndex;
         await this.actor.update({ 'system.overflow.value': newValue });
+    }
+
+    async _onOverflowChange(event) {
+        event.preventDefault();
+        const box = event.currentTarget;
+        const boxIndex = Number(box.dataset.box || 0);
+        const newValue = box.checked ? boxIndex + 1 : boxIndex;
+        await this.actor.update({ 'system.money.value': newValue });
     }
 
     async _onResilienceBoxChange(event) {
