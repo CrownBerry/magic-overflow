@@ -59,6 +59,8 @@
         "backgrounds": "Backgrounds",
         "knowledge": "Knowledge",
         "resilience": "Resilience",
+        "consequences": "Consequences",
+        "consequenceText": "Add consequences...",
         "magicProficiency": "Magic Proficiency",
         "talents": "Talents",
         "overflow": "Overflow",

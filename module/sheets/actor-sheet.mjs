@@ -87,6 +87,10 @@ export class MagicOverflowActorSheet extends ActorSheet {
             ev.preventDefault();
             new MagicCalculatorDialog().render(true);
         });
+
+        // Последствия
+        html.on('change', '.consequence-checkbox', this._onConsequenceToggle.bind(this));
+        html.on('change', '.consequence-text', this._onConsequenceTextChange.bind(this));
     }
 
     _onRollableClick(event) {
@@ -158,6 +162,32 @@ export class MagicOverflowActorSheet extends ActorSheet {
         const isChecked = event.currentTarget.checked;
         console.log('Proficiency change:', magicType, magicKey, isChecked);
         this.actor.update({ [`system.magic.${magicType}.${magicKey}.prof`]: isChecked });
+    }
+
+    async _onConsequenceToggle(event) {
+        const index = event.currentTarget.dataset.index;
+        const isChecked = event.currentTarget.checked;
+        const consequences = this.actor.system.consequences.list;
+
+        if (isChecked && !consequences[index]) {
+            consequences[index] = { active: true, text: '' };
+        } else if (!isChecked && consequences[index]) {
+            consequences[index] = null;
+        }
+
+        await this.actor.update({ 'system.consequences.list': consequences });
+        this.render(false);
+    }
+
+    async _onConsequenceTextChange(event) {
+        const index = event.currentTarget.dataset.index;
+        const text = event.currentTarget.value;
+        const consequences = this.actor.system.consequences.list;
+
+        if (consequences[index]) {
+            consequences[index].text = text;
+            await this.actor.update({ 'system.consequences.list': consequences });
+        }
     }
 
     async _updateObject(event, formData) {

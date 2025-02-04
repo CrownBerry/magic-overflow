@@ -167,6 +167,9 @@
             "state": {
                 "fortune": false,
                 "misfortune": false
+            },
+            "consequences": {
+                "list": []
             }
         },
         "npc": {

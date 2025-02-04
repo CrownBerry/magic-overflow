@@ -250,3 +250,45 @@
 .biography-section .editor {
     height: 100%;
 }
+
+/* Последствия */
+
+.consequences-section {
+    margin-top: 20px;
+    padding: 10px;
+    background: rgba(120, 46, 34, 0.03);
+    border-radius: 5px;
+}
+
+.consequences-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.consequence-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px;
+    background: rgba(120, 46, 34, 0.05);
+    border-radius: 4px;
+}
+
+.consequence-text {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 2px 4px;
+    color: #4b4a44;
+}
+
+.consequence-text:disabled {
+    opacity: 0.5;
+}
+
+.consequence-text:focus {
+    outline: none;
+    box-shadow: 0 0 0 1px rgba(120, 46, 34, 0.3);
+    background: white;
+}
