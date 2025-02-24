@@ -2,9 +2,7 @@ import { BaseRollDialog } from "./base-roll-dialog.mjs";
 import { MagicOverflowRoll } from "./magic-overflow-roll.mjs";
 
 export class OppositionRollDialog extends BaseRollDialog {
-    constructor(actor, resilienceKey, options = {}) {
-        const resilience = actor.system.resilience[resilienceKey];
-        const resilienceName = game.i18n.localize(resilience.label);
+    constructor(actor, resilienceName, resilienceKey, options = {}) {
         super(actor, 'opposition', resilienceName, options);
         this.resilienceKey = resilienceKey;
     }

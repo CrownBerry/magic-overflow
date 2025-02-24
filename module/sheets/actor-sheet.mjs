@@ -106,7 +106,8 @@ export class MagicOverflowActorSheet extends ActorSheet {
                 break;
             case 'opposition':
                 const resilienceKey = element.dataset.resilience;
-                new OppositionRollDialog(this.actor, resilienceKey).render(true);
+                const resilienceName = element.textContent.trim();
+                new OppositionRollDialog(this.actor, resilienceName, resilienceKey).render(true);
                 break;
             case 'magic':
                 const schoolKey = element.dataset.school;
