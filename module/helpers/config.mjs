@@ -47,13 +47,13 @@ MO.magic = {
         afterlife: "MO.magic.schools.afterlife"
     },
     words: {
-        perception: "MO.magic.words.perception",
-        weakening: "MO.magic.words.weakening",
-        strengthening: "MO.magic.words.strengthening",
-        destruction: "MO.magic.words.destruction",
-        restoration: "MO.magic.words.restoration",
-        creation: "MO.magic.words.creation",
-        transformation: "MO.magic.words.transformation"
+        sense: "MO.magic.words.sense",
+        strengthen: "MO.magic.words.strengthen",
+        restore: "MO.magic.words.restore",
+        control: "MO.magic.words.control",
+        destroy: "MO.magic.words.destroy",
+        create: "MO.magic.words.create",
+        transform: "MO.magic.words.transform"
     }
 };
 

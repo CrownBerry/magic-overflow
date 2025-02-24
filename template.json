@@ -131,25 +131,25 @@
                     }
                 },
                 "words": {
-                    "perception": {
+                    "sense": {
                         "prof": false
                     },
-                    "weakening": {
+                    "strengthen": {
                         "prof": false
                     },
-                    "strengthening": {
+                    "restore": {
                         "prof": false
                     },
-                    "destruction": {
+                    "control": {
                         "prof": false
                     },
-                    "restoration": {
+                    "destroy": {
                         "prof": false
                     },
-                    "creation": {
+                    "create": {
                         "prof": false
                     },
-                    "transformation": {
+                    "transform": {
                         "prof": false
                     }
                 },

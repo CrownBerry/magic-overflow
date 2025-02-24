@@ -5,13 +5,13 @@ export class MagicCalculator {
     static SCHOOL_CIRCLES = { minor: 1, major: 0 };
 
     static WORD_CIRCLES = {
-        perception: { minor: 0, major: 0 },
-        weakening: { minor: 1, major: 0 },
-        strengthening: { minor: 0, major: 1 },
-        destruction: { minor: 2, major: 0 },
-        restoration: { minor: 1, major: 1 },
-        creation: { minor: 2, major: 1 },
-        transformation: { minor: 1, major: 2 }
+        sense: { minor: 0, major: 0 },
+        strengthen: { minor: 1, major: 0 },
+        restore: { minor: 0, major: 1 },
+        control: { minor: 2, major: 0 },
+        destroy: { minor: 1, major: 1 },
+        create: { minor: 2, major: 1 },
+        transform: { minor: 1, major: 2 }
     };
 
     static LABEL_CIRCLES = {

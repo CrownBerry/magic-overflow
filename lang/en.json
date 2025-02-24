@@ -42,13 +42,13 @@
             "afterlife": "Afterlife"
         },
         "words": {
-            "perception": "Perception",
-            "weakening": "Weakening",
-            "strengthening": "Strengthening",
-            "destruction": "Destruction",
-            "restoration": "Restoration",
-            "creation": "Creation",
-            "transformation": "Transformation"
+            "sense": "Sense",
+            "strengthen": "Strengthen",
+            "restore": "Restore",
+            "control": "Control",
+            "destroy": "Destroy",
+            "create": "Create",
+            "transform": "Transform"
         },
         "spells": "Spells"
     },
