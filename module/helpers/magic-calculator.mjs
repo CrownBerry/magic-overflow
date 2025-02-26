@@ -8,10 +8,10 @@ export class MagicCalculator {
         sense: { minor: 0, major: 0 },
         strengthen: { minor: 1, major: 0 },
         restore: { minor: 0, major: 1 },
-        control: { minor: 2, major: 0 },
-        destroy: { minor: 1, major: 1 },
-        create: { minor: 2, major: 1 },
-        transform: { minor: 1, major: 2 }
+        control: { minor: 1, major: 1 },
+        destroy: { minor: 0, major: 2 },
+        create: { minor: 1, major: 2 },
+        transform: { minor: 0, major: 3 }
     };
 
     static LABEL_CIRCLES = {

@@ -19,15 +19,14 @@ export class MagicRollDialog extends BaseRollDialog {
     }
 
     activateListeners(html) {
+        // Вызываем слушатели из базового класса, которые назначают обработчики для сабмита и клика на кнопку (_onRoll)
         super.activateListeners(html);
 
-        // Обновление значения жертвы при перемещении ползунка
+        // Дополнительный слушатель для обновления значения sacrifice
         html.find('input[name="sacrifice"]').on('input', (event) => {
             const value = event.currentTarget.value;
             html.find('.sacrifice-value').text(value);
         });
-
-        html.find('form').on('submit', event => this._updateObject(event));
     }
 
     getData() {
@@ -85,47 +84,24 @@ export class MagicRollDialog extends BaseRollDialog {
         return `${diceCount}d8`;
     }
 
-    async _updateObject(event, formData) {
+    async _onRoll(event) {
         event.preventDefault();
-
-        // Получаем количество кругов из формы
-        const minorCircles = parseInt(formData.minorCircles);
-        const majorCircles = parseInt(formData.majorCircles);
-
+        const formData = new FormData(event.target.closest('form'));
+        
+        // Получаем количество кругов и проверяем их
+        const minorCircles = parseInt(formData.get('minorCircles'));
+        const majorCircles = parseInt(formData.get('majorCircles'));
         if (isNaN(minorCircles) || isNaN(majorCircles)) {
             ui.notifications.error(game.i18n.localize("MO.ui.magicRoll.invalidCircles"));
             return;
         }
 
-        const roll = await new MagicOverflowRoll(
-            this.getRollFormula(formData),
-            {
-                actor: this.actor,
-                minorCircles,
-                majorCircles
-            }
-        ).evaluate();
-
-        const chatData = {
-            speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-            flavor: this.getDialogTitle(),
-            content: await roll.render()
-        };
-
-        await ChatMessage.create(chatData);
-        this.close();
-    }
-
-    async _onRoll(event) {
-        event.preventDefault();
-        const formData = new FormData(event.target.closest('form'));
-
         let roll = await new MagicOverflowRoll(
             this.getRollFormula(formData),
             {  
-            actor: this.actor,
-            minorCircles: Number(formData.get('minorCircles')) || 0,
-            majorCircles: Number(formData.get('majorCircles')) || 0
+                actor: this.actor,
+                minorCircles,
+                majorCircles
             }
         ).evaluate();
 
