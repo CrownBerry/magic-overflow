@@ -1,4 +1,4 @@
-import { DataModel, fields } from "foundry.js";
+import { DataModel, fields } from "foundry";
 
 export class MagicOverflowActorData extends DataModel {
   static defineSchema() {

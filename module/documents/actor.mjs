@@ -1,4 +1,4 @@
-import { MagicOverflowActorData } from "./data/actor-data.mjs";
+import { MagicOverflowActorData } from "../data/actor-data.mjs";
 
 export class MagicOverflowActor extends Actor {
     prepareData() {
