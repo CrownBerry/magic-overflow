@@ -18,7 +18,10 @@
     "url": "https://github.com/CrownBerry/magic-overflow",
     "license": "MIT",
     "esmodules": [
-        "module/magic-overflow.mjs"
+        "module/magic-overflow.mjs",
+        "module/data/actor-data.mjs",
+        "module/data/talent-data.mjs",
+        "module/data/spell-data.mjs"
     ],
     "styles": [
         "styles/main.css"
