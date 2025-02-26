@@ -30,15 +30,15 @@
                     "prof": false,
                     "specializations": []
                 },
-                "craft": {
+                "tech": {
                     "prof": false,
                     "specializations": []
                 },
-                "observation": {
+                "analyze": {
                     "prof": false,
                     "specializations": []
                 },
-                "survival": {
+                "instinct": {
                     "prof": false,
                     "specializations": []
                 }
@@ -67,24 +67,24 @@
                 "militaryOrganization": {
                     "prof": false
                 },
-                "religiousCommunity": {
+                "lawEnforcers": {
                     "prof": false
                 },
-                "tradeGroup": {
+                "corporateElites": {
                     "prof": false
                 },
-                "craftGuild": {
+                "mediaAndTech": {
                     "prof": false
                 },
-                "criminalCommunity": {
+                "criminalSyndicate": {
                     "prof": false
                 },
-                "freeWorker": {
+                "outsiders": {
                     "prof": false
                 }
             },
             "knowledge": {
-                "exactSciences": {
+                "academics": {
                     "prof": false
                 },
                 "art": {
@@ -96,13 +96,13 @@
                 "medicine": {
                     "prof": false
                 },
-                "economy": {
+                "law": {
                     "prof": false
                 },
-                "religion": {
+                "occult": {
                     "prof": false
                 },
-                "secretKnowledge": {
+                "streetwise": {
                     "prof": false
                 }
             },

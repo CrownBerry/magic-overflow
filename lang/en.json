@@ -4,27 +4,27 @@
         "stealth": "Stealth",
         "communication": "Communication",
         "coordination": "Coordination",
-        "craft": "Craft",
-        "observation": "Observation",
-        "survival": "Survival"
+        "tech": "Tech",
+        "analyze": "Analyze",
+        "instinct": "Instinct"
     },
     "MO.backgrounds": {
         "highSociety": "High Society",
         "militaryOrganization": "Military Organization",
-        "religiousCommunity": "Religious Community",
-        "tradeGroup": "Trade Group",
-        "craftGuild": "Craft Guild",
-        "criminalCommunity": "Criminal Community",
-        "freeWorker": "Free Worker"
+        "lawEnforcers": "Law Enforcers",
+        "corporateElites": "Corporate Elites",
+        "mediaAndTech": "Media and Tech",
+        "criminalSyndicate": "Criminal Syndicate",
+        "outsiders": "Outsiders"
     },
     "MO.knowledge": {
-        "exactSciences": "Exact Sciences",
+        "academics": "Academics",
         "art": "Art",
         "psychology": "Psychology",
         "medicine": "Medicine",
-        "economy": "Economy",
-        "religion": "Religion",
-        "secretKnowledge": "Secret Knowledge"
+        "law": "Law",
+        "occult": "Occult",
+        "streetwise": "Streetwise"
     },
     "MO.resilience": {
         "flesh": "Flesh",

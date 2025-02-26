@@ -5,29 +5,29 @@ MO.skills = {
     stealth: "MO.skills.stealth",
     communication: "MO.skills.communication",
     coordination: "MO.skills.coordination",
-    craft: "MO.skills.craft",
-    observation: "MO.skills.observation",
-    survival: "MO.skills.survival"
+    tech: "MO.skills.tech",
+    analyze: "MO.skills.analyze",
+    instinct: "MO.skills.instinct"
 };
 
 MO.backgrounds = {
     highSociety: "MO.backgrounds.highSociety",
     militaryOrganization: "MO.backgrounds.militaryOrganization",
-    religiousCommunity: "MO.backgrounds.religiousCommunity",
-    tradeGroup: "MO.backgrounds.tradeGroup",
-    craftGuild: "MO.backgrounds.craftGuild",
-    criminalCommunity: "MO.backgrounds.criminalCommunity",
-    freeWorker: "MO.backgrounds.freeWorker"
+    lawEnforcers: "MO.backgrounds.lawEnforcers",
+    corporateElites: "MO.backgrounds.corporateElites",
+    mediaAndTech: "MO.backgrounds.mediaAndTech",
+    criminalSyndicate: "MO.backgrounds.criminalSyndicate",
+    outsiders: "MO.backgrounds.outsiders"
 };
 
 MO.knowledge = {
-    exactSciences: "MO.knowledge.exactSciences",
+    academics: "MO.knowledge.academics",
     art: "MO.knowledge.art",
     psychology: "MO.knowledge.psychology",
     medicine: "MO.knowledge.medicine",
-    economy: "MO.knowledge.economy",
-    religion: "MO.knowledge.religion",
-    secretKnowledge: "MO.knowledge.secretKnowledge"
+    law: "MO.knowledge.law",
+    occult: "MO.knowledge.occult",
+    streetwise: "MO.knowledge.streetwise"
 };
 
 MO.resilience = {
