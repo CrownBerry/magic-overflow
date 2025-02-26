@@ -147,7 +147,12 @@ export class MagicOverflowRoll extends Roll {
     }
 
     getFilledBoxes() {
-        return this.filledCircles.minor + this.filledCircles.major;
+        // Если есть заполненные круги (только для магических бросков), используем их
+        if (this.filledCircles) {
+            return this.filledCircles.minor + this.filledCircles.major;
+        }
+        // Для всех остальных бросков рассчитываем ячейки по успехам: 3 и 8 дают 1 ячейку, 7 дает 2 ячейки
+        return this.results.minorSuccess + (this.results.majorSuccess * 2);
     }
 
     async render(options = {}) {
