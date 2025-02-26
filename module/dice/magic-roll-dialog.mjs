@@ -69,10 +69,10 @@ export class MagicRollDialog extends BaseRollDialog {
         if (formData.get('signature')) diceCount += 1;
 
         // Состояния удачи/неудачи
-        if (this.actor.system.state.fortune) {
+        if (formData && formData.get('fortune')) {
             diceCount += 1;
         }
-        if (this.actor.system.state.misfortune) {
+        if (formData && formData.get('misfortune')) {
             diceCount -= 1;
         }
 
