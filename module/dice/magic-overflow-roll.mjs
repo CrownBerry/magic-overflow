@@ -92,7 +92,7 @@ export class MagicOverflowRoll extends Roll {
     getSpellResult() {
         const totalCircles = this.minorCircles + this.majorCircles;
         const filledCircles = this.filledCircles.minor + this.filledCircles.major;
-        const halfCircles = Math.ceil(totalCircles / 2);
+        const halfCircles = (totalCircles % 2 === 0) ? (totalCircles / 2) : Math.floor(totalCircles / 2);
 
         if (filledCircles >= totalCircles) {
             return {
@@ -147,8 +147,7 @@ export class MagicOverflowRoll extends Roll {
     }
 
     getFilledBoxes() {
-        // 1 ячейка за малый успех, 2 за большой
-        return this.results.minorSuccess + (this.results.majorSuccess * 2);
+        return this.filledCircles.minor + this.filledCircles.major;
     }
 
     async render(options = {}) {
