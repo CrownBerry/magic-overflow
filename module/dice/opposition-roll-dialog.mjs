@@ -16,10 +16,10 @@ export class OppositionRollDialog extends BaseRollDialog {
             diceCount -= 1;
         }
 
-        if (this.actor.system.state.fortune) {
+        if (formData && formData.get('fortune')) {
             diceCount -= 1;
         }
-        if (this.actor.system.state.misfortune) {
+        if (formData && formData.get('misfortune')) {
             diceCount += 1;
         }
 

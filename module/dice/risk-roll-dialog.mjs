@@ -32,10 +32,11 @@ export class RiskRollDialog extends BaseRollDialog {
             }
         }
 
-        if (this.actor.system.state.fortune) {
+        // Обрабатываю переключатели удачи/неудачи из формы
+        if (formData && formData.get('fortune')) {
             diceCount += 1;
         }
-        if (this.actor.system.state.misfortune) {
+        if (formData && formData.get('misfortune')) {
             diceCount -= 1;
         }
 
