@@ -105,7 +105,9 @@
             "useBackground": "Use Background",
             "reduceByBackground": "Reduce by Background",
             "oppositionRollNote": "Minor success fills 1 box, major success fills 2 boxes",
-            "roll": "Roll"
+            "roll": "Roll",
+            "fortune": "Fortune",
+            "misfortune": "Misfortune"
         },
         "opposition": {
             "alreadyFull": "{track} track is already full!",
