@@ -1,4 +1,5 @@
-import { DataModel, fields } from "foundry";
+const DataModel = foundry.abstract.DataModel;
+const fields = foundry.data.fields;
 
 export class MagicOverflowActorData extends DataModel {
   static defineSchema() {

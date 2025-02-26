@@ -1,4 +1,5 @@
-import { DataModel, fields } from "foundry.js";
+const DataModel = foundry.abstract.DataModel;
+const fields = foundry.data.fields;
 
 export class MagicOverflowTalentData extends DataModel {
   static defineSchema() {
