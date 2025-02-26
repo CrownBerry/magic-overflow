@@ -1,3 +1,5 @@
+import { MagicOverflowActorData } from "./data/actor-data.mjs";
+
 export class MagicOverflowActor extends Actor {
     prepareData() {
         super.prepareData();
@@ -12,12 +14,12 @@ export class MagicOverflowActor extends Actor {
     _prepareCharacterData(actorData) {
         if (actorData.type !== 'character') return;
     
-        // Make modifications to data here. For example:
-        const systemData = actorData.system;
+        // Преобразуем legacy system data в новый DataModel
+        actorData.system = MagicOverflowActorData.fromSource(actorData.system);
+        actorData.system.prepareDerivedData();
 
-        // Инициализация стартовых значений
-        // Вычисление производных значений
-        this._prepareResilience(systemData.resilience);
+        // Здесь можно добавить дополнительные преобразования, если необходимо
+        // Раньше вызывался метод _prepareResilience, теперь логика внутри DataModel.prepareDerivedData
     }
 
     _prepareResilience(resilience) {
