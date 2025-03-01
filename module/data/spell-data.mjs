@@ -11,7 +11,7 @@ function spellCostField() {
 function labelField() {
   return new fields.SchemaField({
     label: new fields.StringField(),
-    value: new fields.spellCostField()
+    value: spellCostField()
   });
 }
 
