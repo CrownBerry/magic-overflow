@@ -4,7 +4,7 @@ const fields = foundry.data.fields;
 function skillField(name, defaultProf, defaultSpecializations) {
   return new fields.SchemaField({
     prof: new fields.BooleanField({ default: defaultProf }),
-    specializations: new fields.ArrayField({ default: defaultSpecializations })
+    specializations: new fields.ArrayField({ default: defaultSpecializations, of: fields.StringField })
   });
 }
 
@@ -95,9 +95,9 @@ export class MagicOverflowActorData extends TypeDataModel {
           create: wordsField("create", false),
           transform: wordsField("transform", false)
         }),
-        spells: new fields.ArrayField({ default: [] })
+        spells: new fields.ArrayField({ default: [], of: fields.DataField({ model: "MagicOverflowSpellData" }) })
       }),
-      talents: new fields.ArrayField({ default: [] }),
+      talents: new fields.ArrayField({ default: [], of: fields.DataField({ model: "MagicOverflowTalentData" }) }),
       money: new fields.SchemaField({
         value: new fields.NumberField({ default: 3 }),
         max: new fields.NumberField({ default: 7 })
@@ -111,7 +111,7 @@ export class MagicOverflowActorData extends TypeDataModel {
         misfortune: new fields.BooleanField({ default: false })
       }),
       consequences: new fields.SchemaField({
-        list: new fields.ArrayField({ default: [] })
+        list: new fields.ArrayField({ default: [], of: fields.StringField })
       })
     };
   }
