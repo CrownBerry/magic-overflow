@@ -4,42 +4,42 @@ import { MagicOverflowTalentData } from "./talent-data.mjs";
 const TypeDataModel = foundry.abstract.TypeDataModel;
 const fields = foundry.data.fields;
 
-function skillField(name, defaultProf, defaultSpecializations) {
+function skillField() {
   return new fields.SchemaField({
-    prof: new fields.BooleanField({ default: defaultProf }),
-    specializations: new fields.ArrayField({ default: defaultSpecializations, of: new fields.StringField({ default: "" }) })
+    prof: new fields.BooleanField(false),
+    specializations: new fields.ArrayField( new fields.StringField())
   });
 }
 
-function backgroundField(name, defaultProf) {
+function backgroundField() {
   return new fields.SchemaField({
-    prof: new fields.BooleanField({ default: defaultProf }),
+    prof: new fields.BooleanField(false),
   });
 }
 
-function resilienceField(name, defaultProf) {
+function resilienceField() {
   return new fields.SchemaField({
-    value: new fields.NumberField({ default: 0 }),
-    max: new fields.NumberField({ default: 3 }),
-    prof: new fields.BooleanField({ default: defaultProf })
+    value: new fields.NumberField(0),
+    max: new fields.NumberField(3),
+    prof: new fields.BooleanField(false)
   });
 }
 
-function knowledgeField(name, defaultProf) {
+function knowledgeField() {
   return new fields.SchemaField({
-    prof: new fields.BooleanField({ default: defaultProf }),
+    prof: new fields.BooleanField(false),
   });
 }
 
-function magicField(name, defaultProf) {
+function magicField() {
   return new fields.SchemaField({
-    prof: new fields.BooleanField({ default: defaultProf }),
+    prof: new fields.BooleanField(false),
   });
 }
 
-function wordsField(name, defaultProf) {
+function wordsField() {
   return new fields.SchemaField({
-    prof: new fields.BooleanField({ default: defaultProf }),
+    prof: new fields.BooleanField(false),
   });
 }
 
@@ -48,13 +48,13 @@ export class MagicOverflowActorData extends TypeDataModel {
     return {
       biography: new fields.StringField({ default: "" }),
       skills: new fields.SchemaField({
-        brawl: skillField("brawl", false, []),
-        stealth: skillField("stealth", false, []),
-        communication: skillField("communication", false, []),
-        coordination: skillField("coordination", false, []),
-        tech: skillField("tech", false, []),
-        analyze: skillField("analyze", false, []),
-        instinct: skillField("instinct", false, []),
+        brawl: skillField(),
+        stealth: skillField(),
+        communication: skillField(),
+        coordination: skillField(),
+        tech: skillField(),
+        analyze: skillField(),
+        instinct: skillField(),
       }),
       resilience: new fields.SchemaField({
         flesh: resilienceField("flesh", false),
@@ -62,59 +62,59 @@ export class MagicOverflowActorData extends TypeDataModel {
         spirit: resilienceField("spirit", false)
       }),
       backgrounds: new fields.SchemaField({
-        highSociety: backgroundField("highSociety", false),
-        militaryOrganization: backgroundField("militaryOrganization", false),       
-        lawEnforcers: backgroundField("lawEnforcers", false),
-        corporateElites: backgroundField("corporateElites", false),
-        mediaAndTech: backgroundField("mediaAndTech", false),
-        criminalSyndicate: backgroundField("criminalSyndicate", false),
-        outsiders: backgroundField("outsiders", false),   
+        highSociety: backgroundField(),
+        militaryOrganization: backgroundField(),       
+        lawEnforcers: backgroundField(),
+        corporateElites: backgroundField(),
+        mediaAndTech: backgroundField(),
+        criminalSyndicate: backgroundField(),
+        outsiders: backgroundField(),   
       }),
       knowledge: new fields.SchemaField({
-        academics: knowledgeField("academics", false),
-        art: knowledgeField("art", false),
-        psychology: knowledgeField("psychology", false),
-        medicine: knowledgeField("medicine", false),
-        law: knowledgeField("law", false),
-        occult: knowledgeField("occult", false),
-        streetwise: knowledgeField("streetwise", false)
+        academics: knowledgeField(),
+        art: knowledgeField(),
+        psychology: knowledgeField(),
+        medicine: knowledgeField(),
+        law: knowledgeField(),
+        occult: knowledgeField(),
+        streetwise: knowledgeField()
       }),
       magic: new fields.SchemaField({
         schools: new fields.SchemaField({
-          matter: magicField("matter", false),
-          energy: magicField("energy", false),
-          space: magicField("space", false),
-          time: magicField("time", false),
-          mind: magicField("mind", false),
-          magic: magicField("magic", false),
-          afterlife: magicField("afterlife", false)
+          matter: magicField(),
+          energy: magicField(),
+          space: magicField(),
+          time: magicField(),
+          mind: magicField(),
+          magic: magicField(),
+          afterlife: magicField()
         }),
         words: new fields.SchemaField({
-          sense: wordsField("sense", false),
-          strengthen: wordsField("strengthen", false),
-          restore: wordsField("restore", false),
-          control: wordsField("control", false),
-          destroy: wordsField("destroy", false),
-          create: wordsField("create", false),
-          transform: wordsField("transform", false)
+          sense: wordsField(),
+          strengthen: wordsField(),
+          restore: wordsField(),
+          control: wordsField(),
+          destroy: wordsField(),
+          create: wordsField(),
+          transform: wordsField()
         }),
-        spells: new fields.ArrayField({ default: [], of: new fields.DataField({ model: MagicOverflowSpellData }) })
+        spells: new fields.ArrayField(new fields.DataField({ model: MagicOverflowSpellData }))
       }),
-      talents: new fields.ArrayField({ default: [], of: new fields.DataField({ model: MagicOverflowTalentData }) }),
+      talents: new fields.ArrayField(new fields.DataField({ model: MagicOverflowTalentData })),
       money: new fields.SchemaField({
-        value: new fields.NumberField({ default: 3 }),
-        max: new fields.NumberField({ default: 7 })
+        value: new fields.NumberField({ initial: 3 }),
+        max: new fields.NumberField({ initial: 7 })
       }),
       overflow: new fields.SchemaField({
-        value: new fields.NumberField({ default: 0 }),
-        max: new fields.NumberField({ default: 7 })
+        value: new fields.NumberField({ initial: 0 }),
+        max: new fields.NumberField({ initial: 7 })
       }),
       state: new fields.SchemaField({
-        fortune: new fields.BooleanField({ default: false }),
-        misfortune: new fields.BooleanField({ default: false })
+        fortune: new fields.BooleanField({ initial: false }),
+        misfortune: new fields.BooleanField({ initial: false })
       }),
       consequences: new fields.SchemaField({
-        list: new fields.ArrayField({ default: [], of: new fields.StringField({ default: "" }) })
+        list: new fields.ArrayField(new fields.StringField())
       })
     };
   }
