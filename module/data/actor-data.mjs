@@ -7,7 +7,7 @@ const fields = foundry.data.fields;
 function skillField(name, defaultProf, defaultSpecializations) {
   return new fields.SchemaField({
     prof: new fields.BooleanField({ default: defaultProf }),
-    specializations: new fields.ArrayField({ default: defaultSpecializations, of: new fields.StringField })
+    specializations: new fields.ArrayField({ default: defaultSpecializations, of: new fields.StringField({ default: "" }) })
   });
 }
 
@@ -114,7 +114,7 @@ export class MagicOverflowActorData extends TypeDataModel {
         misfortune: new fields.BooleanField({ default: false })
       }),
       consequences: new fields.SchemaField({
-        list: new fields.ArrayField({ default: [], of: new fields.StringField })
+        list: new fields.ArrayField({ default: [], of: new fields.StringField({ default: "" }) })
       })
     };
   }
