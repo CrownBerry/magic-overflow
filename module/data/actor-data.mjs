@@ -1,68 +1,118 @@
-const DataModel = foundry.abstract.DataModel;
+const TypeDataModel = foundry.abstract.TypeDataModel;
 const fields = foundry.data.fields;
 
-export class MagicOverflowActorData extends DataModel {
+function skillField(name, defaultProf, defaultSpecializations) {
+  return new SchemaField({
+    prof: new BooleanField({ default: defaultProf }),
+    specializations: new ArrayField({ default: defaultSpecializations })
+  });
+}
+
+function backgroundField(name, defaultProf) {
+  return new SchemaField({
+    prof: new BooleanField({ default: defaultProf }),
+  });
+}
+
+function resilienceField(name, defaultProf) {
+  return new SchemaField({
+    value: new NumberField({ default: 0 }),
+    max: new NumberField({ default: 3 }),
+    prof: new BooleanField({ default: defaultProf })
+  });
+}
+
+function knowledgeField(name, defaultProf) {
+  return new SchemaField({
+    prof: new BooleanField({ default: defaultProf }),
+  });
+}
+
+function magicField(name, defaultProf) {
+  return new SchemaField({
+    prof: new BooleanField({ default: defaultProf }),
+  });
+}
+
+function wordsField(name, defaultProf) {
+  return new SchemaField({
+    prof: new BooleanField({ default: defaultProf }),
+  });
+}
+
+export class MagicOverflowActorData extends TypeDataModel {
   static defineSchema() {
     return {
-      biography: new fields.SchemaField({ type: String, default: "" }),
+      biography: new StringField({ default: "" }),
       skills: new fields.SchemaField({
-        brawl: { type: Object, default: { prof: false, specializations: [] } },
-        stealth: { type: Object, default: { prof: false, specializations: [] } },
-        communication: { type: Object, default: { prof: false, specializations: [] } },
-        coordination: { type: Object, default: { prof: false, specializations: [] } },
-        tech: { type: Object, default: { prof: false, specializations: [] } },
-        analyze: { type: Object, default: { prof: false, specializations: [] } },
-        instinct: { type: Object, default: { prof: false, specializations: [] } }
+        brawl: skillField("brawl", false, []),
+        stealth: skillField("stealth", false, []),
+        communication: skillField("communication", false, []),
+        coordination: skillField("coordination", false, []),
+        tech: skillField("tech", false, []),
+        analyze: skillField("analyze", false, []),
+        instinct: skillField("instinct", false, []),
       }),
       resilience: new fields.SchemaField({
-        flesh: { type: Object, default: { value: 0, max: 3, prof: false } },
-        mind: { type: Object, default: { value: 0, max: 3, prof: false } },
-        spirit: { type: Object, default: { value: 0, max: 3, prof: false } }
+        flesh: resilienceField("flesh", false),
+        mind: resilienceField("mind", false),
+        spirit: resilienceField("spirit", false)
       }),
       backgrounds: new fields.SchemaField({
-        highSociety: { type: Object, default: { prof: false } },
-        militaryOrganization: { type: Object, default: { prof: false } },
-        lawEnforcers: { type: Object, default: { prof: false } },
-        corporateElites: { type: Object, default: { prof: false } },
-        mediaAndTech: { type: Object, default: { prof: false } },
-        criminalSyndicate: { type: Object, default: { prof: false } },
-        outsiders: { type: Object, default: { prof: false } }
+        highSociety: backgroundField("highSociety", false),
+        militaryOrganization: backgroundField("militaryOrganization", false),       
+        lawEnforcers: backgroundField("lawEnforcers", false),
+        corporateElites: backgroundField("corporateElites", false),
+        mediaAndTech: backgroundField("mediaAndTech", false),
+        criminalSyndicate: backgroundField("criminalSyndicate", false),
+        outsiders: backgroundField("outsiders", false),   
       }),
       knowledge: new fields.SchemaField({
-        academics: { type: Object, default: { prof: false } },
-        art: { type: Object, default: { prof: false } },
-        psychology: { type: Object, default: { prof: false } },
-        medicine: { type: Object, default: { prof: false } },
-        law: { type: Object, default: { prof: false } },
-        occult: { type: Object, default: { prof: false } },
-        streetwise: { type: Object, default: { prof: false } }
+        academics: knowledgeField("academics", false),
+        art: knowledgeField("art", false),
+        psychology: knowledgeField("psychology", false),
+        medicine: knowledgeField("medicine", false),
+        law: knowledgeField("law", false),
+        occult: knowledgeField("occult", false),
+        streetwise: knowledgeField("streetwise", false)
       }),
       magic: new fields.SchemaField({
-        schools: { type: Object, default: {
-          matter: { prof: false },
-          energy: { prof: false },
-          space: { prof: false },
-          time: { prof: false },
-          mind: { prof: false },
-          magic: { prof: false },
-          afterlife: { prof: false }
-        }},
-        words: { type: Object, default: {
-          sense: { prof: false },
-          strengthen: { prof: false },
-          restore: { prof: false },
-          control: { prof: false },
-          destroy: { prof: false },
-          create: { prof: false },
-          transform: { prof: false }
-        }},
-        spells: { type: Array, default: [] }
+        schools: new fields.SchemaField({
+          matter: magicField("matter", false),
+          energy: magicField("energy", false),
+          space: magicField("space", false),
+          time: magicField("time", false),
+          mind: magicField("mind", false),
+          magic: magicField("magic", false),
+          afterlife: magicField("afterlife", false)
+        }),
+        words: new fields.SchemaField({
+          sense: wordsField("sense", false),
+          strengthen: wordsField("strengthen", false),
+          restore: wordsField("restore", false),
+          control: wordsField("control", false),
+          destroy: wordsField("destroy", false),
+          create: wordsField("create", false),
+          transform: wordsField("transform", false)
+        }),
+        spells: new fields.ArrayField({ default: [] })
       }),
-      talents: new fields.SchemaField({ type: Array, default: [] }),
-      money: new fields.SchemaField({ type: Object, default: { value: 3, max: 7 } }),
-      overflow: new fields.SchemaField({ type: Object, default: { value: 0, max: 7 } }),
-      state: new fields.SchemaField({ type: Object, default: { fortune: false, misfortune: false } }),
-      consequences: new fields.SchemaField({ type: Object, default: { list: [] } })
+      talents: new fields.ArrayField({ default: [] }),
+      money: new fields.SchemaField({
+        value: new NumberField({ default: 3 }),
+        max: new NumberField({ default: 7 })
+      }),
+      overflow: new fields.SchemaField({
+        value: new NumberField({ default: 0 }),
+        max: new NumberField({ default: 7 })
+      }),
+      state: new fields.SchemaField({
+        fortune: new BooleanField({ default: false }),
+        misfortune: new BooleanField({ default: false })
+      }),
+      consequences: new fields.SchemaField({
+        list: new fields.ArrayField({ default: [] })
+      })
     };
   }
 
