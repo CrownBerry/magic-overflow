@@ -6,14 +6,14 @@ const fields = foundry.data.fields;
 
 function skillField() {
   return new fields.SchemaField({
-    prof: new fields.BooleanField(false),
+    prof: new fields.BooleanField(),
     specializations: new fields.ArrayField( new fields.StringField())
   });
 }
 
 function backgroundField() {
   return new fields.SchemaField({
-    prof: new fields.BooleanField(false),
+    prof: new fields.BooleanField(),
   });
 }
 
@@ -21,32 +21,32 @@ function resilienceField() {
   return new fields.SchemaField({
     value: new fields.NumberField(0),
     max: new fields.NumberField(3),
-    prof: new fields.BooleanField(false)
+    prof: new fields.BooleanField()
   });
 }
 
 function knowledgeField() {
   return new fields.SchemaField({
-    prof: new fields.BooleanField(false),
+    prof: new fields.BooleanField()
   });
 }
 
 function magicField() {
   return new fields.SchemaField({
-    prof: new fields.BooleanField(false),
+    prof: new fields.BooleanField()
   });
 }
 
 function wordsField() {
   return new fields.SchemaField({
-    prof: new fields.BooleanField(false),
+    prof: new fields.BooleanField()
   });
 }
 
 export class MagicOverflowActorData extends TypeDataModel {
   static defineSchema() {
     return {
-      biography: new fields.StringField({ default: "" }),
+      biography: new fields.StringField(),
       skills: new fields.SchemaField({
         brawl: skillField(),
         stealth: skillField(),
@@ -57,9 +57,9 @@ export class MagicOverflowActorData extends TypeDataModel {
         instinct: skillField(),
       }),
       resilience: new fields.SchemaField({
-        flesh: resilienceField("flesh", false),
-        mind: resilienceField("mind", false),
-        spirit: resilienceField("spirit", false)
+        flesh: resilienceField(),
+        mind: resilienceField(),
+        spirit: resilienceField()
       }),
       backgrounds: new fields.SchemaField({
         highSociety: backgroundField(),
@@ -110,8 +110,8 @@ export class MagicOverflowActorData extends TypeDataModel {
         max: new fields.NumberField({ initial: 7 })
       }),
       state: new fields.SchemaField({
-        fortune: new fields.BooleanField({ initial: false }),
-        misfortune: new fields.BooleanField({ initial: false })
+        fortune: new fields.BooleanField(),
+        misfortune: new fields.BooleanField()
       }),
       consequences: new fields.SchemaField({
         list: new fields.ArrayField(new fields.StringField())
