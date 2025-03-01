@@ -19,8 +19,8 @@ function backgroundField() {
 
 function resilienceField() {
   return new fields.SchemaField({
-    value: new fields.NumberField(0),
-    max: new fields.NumberField(3),
+    value: new fields.NumberField({ initial: 0 }),
+    max: new fields.NumberField({ initial: 3 }),
     prof: new fields.BooleanField()
   });
 }
